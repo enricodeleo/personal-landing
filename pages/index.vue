@@ -3,7 +3,7 @@
     <div class="container mx-auto">
       <img src="~/assets/logo-enrico-deleo.svg" class="max-w-sm mx-auto p-12" alt="Enrico Deleo logo">
 
-      <section class="max-w-prose mx-auto sm:subpixel-antialiased md:antialiased leading-relaxed">
+      <section class="max-w-prose mx-auto sm:subpixel-antialiased md:antialiased leading-relaxed px-5">
         <article class="flex flex-wrap">
           <p class="pb-3">
             Sono <strong>Enrico Deleo</strong> e dai primi 2000s mi occupo di <span class="line-through">sviluppo</span> <span class="line-through">DevOps</span> <span class="line-through">design</span> <span class="line-through">branding</span> <span class="line-through">marketing</span> <span class="line-through">startup</span> digital, in particolar modo <strong>amo creare prodotti customer-centric</strong> attraverso tecnologie web, mobile e cloud.
@@ -20,7 +20,7 @@
         </article>
       </section>
 
-      <div class="max-w-prose mx-auto p-12">
+      <div class="max-w-prose mx-auto py-12 md:px-12">
         <h3 class="text-lg text-center sm:subpixel-antialiased md:antialiased leading-relaxed mb-4">
           Mi trovi (tra gli altri) su:
         </h3>
