@@ -20,7 +20,7 @@
         </article>
       </section>
 
-      <div class="max-w-prose mx-auto py-12 md:px-12">
+      <div class="max-w-prose mx-auto py-12 px-5 md:px-12">
         <h3 class="text-lg text-center sm:subpixel-antialiased md:antialiased leading-relaxed mb-4">
           Mi trovi (tra gli altri) su:
         </h3>
