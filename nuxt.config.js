@@ -11,7 +11,7 @@ export default {
     meta: [
       { name: 'viewport', content: 'width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0' },
       { hid: 'author', name: 'author', content: 'Enrico Deleo' }
-    ]
+    ],
     // script: [
     //   {
     //     hid: 'iubenda-privacy',
@@ -64,8 +64,13 @@ export default {
     title: 'Enrico Deleo',
     lang: 'it-IT',
     language: 'Italian',
-    templateTitle: '%title% | %name%',
+    templateTitle: '%name%',
     description: 'Digital Entrepreneur // Web & Mobile Developer | DevOps | UI/UX // Teacher // Consultant',
+    keywords: 'coding,frontend,vue,react,angular,nodejs,web,mobile,ios,android,cloud,amazon aws,serverless,startup,saas',
+    openGraph: {
+      title: 'Enrico Deleo',
+      description: 'Digital Entrepreneur // Web & Mobile Developer | DevOps | UI/UX // Teacher // Consultant'
+    },
     facebook: {
       pageId: '358373644189796',
       appId: '103937073008677'
@@ -81,7 +86,8 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/tailwindcss'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -95,6 +101,30 @@ export default {
     'nuxt-facebook-pixel-module',
     'nuxt-logger'
   ],
+
+  tailwindcss: {
+    theme: {
+      fontFamily: {
+        display: ['Poppins', 'system-ui', 'sans-serif'],
+        body: ['Poppins', 'system-ui', 'sans-serif']
+      }
+    },
+    variants: {},
+    plugins: [],
+    purge: {
+      enabled: process.env.NODE_ENV === 'production',
+      content: [
+        'components/**/*.vue',
+        'layouts/**/*.vue',
+        'pages/**/*.vue',
+        'plugins/**/*.js',
+        'nuxt.config.js',
+        // TypeScript
+        'plugins/**/*.ts',
+        'nuxt.config.ts'
+      ]
+    }
+  },
 
   facebook: {
     /* module options */
