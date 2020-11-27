@@ -1,0 +1,41 @@
+{
+  "name": "personal-landing",
+  "description": "Landing personale di Enrico Deleo",
+  "version": "1.0.0",
+  "private": true,
+  "author": {
+    "name": "Enrico Deleo",
+    "email": "hello@enricodeleo.com",
+    "url": "https://enricodeleo.com/"
+  },
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint": "yarn lint:js"
+  },
+  "dependencies": {
+    "core-js": "3",
+    "nuxt": "^2.14.6",
+    "nuxt-logger": "^0.2.0"
+  },
+  "devDependencies": {
+    "@babel/runtime-corejs3": "^7.12.5",
+    "@nuxtjs/eslint-config": "^3.1.0",
+    "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/google-gtag": "^1.0.4",
+    "@nuxtjs/pwa": "^3.0.2",
+    "@nuxtjs/robots": "^2.4.2",
+    "autoprefixer": "^9",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.10.0",
+    "eslint-plugin-nuxt": "^1.0.0",
+    "fibers": "^5.0.0",
+    "nuxt-facebook-pixel-module": "^1.5.0",
+    "nuxt-seo": "^1.5.0",
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+  }
+}
