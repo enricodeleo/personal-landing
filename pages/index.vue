@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container mx-auto">
-      <img src="~/assets/logo-enrico-deleo.svg" class="max-w-sm mx-auto p-12" alt="Enrico Deleo logo">
+      <EnricoDeleoLogo class="max-w-sm mx-auto p-12" alt="Enrico Deleo logo" />
 
       <section class="max-w-prose mx-auto sm:subpixel-antialiased md:antialiased leading-relaxed px-5">
         <article class="flex flex-wrap">
@@ -25,28 +25,28 @@
           Mi trovi (tra gli altri) su:
         </h3>
         <div class="flex justify-evenly">
-          <a href="https://www.linkedin.com/in/enricodeleo" target="_blank">
+          <a href="https://www.linkedin.com/in/enricodeleo" target="_blank" rel="noreferrer">
             <img src="~/assets/linkedin.svg" alt="LinkedIn icon" class="w-9">
           </a>
-          <a href="https://www.facebook.com/therealenricodeleo" target="_blank">
+          <a href="https://www.facebook.com/therealenricodeleo" target="_blank" rel="noreferrer">
             <img src="~/assets/facebook.svg" alt="Facebook icon" class="w-9">
           </a>
-          <a href="https://blog.enricodeleo.com" target="_blank">
+          <a href="https://blog.enricodeleo.com" target="_blank" rel="noreferrer">
             <img src="~/assets/blogging.svg" alt="Blog icon" class="w-9">
           </a>
-          <a href="https://github.com/enricodeleo" target="_blank">
+          <a href="https://github.com/enricodeleo" target="_blank" rel="noreferrer">
             <img src="~/assets/github.svg" alt="GitHub icon" class="w-9">
           </a>
-          <a href="https://www.behance.net/lysergic" target="_blank">
+          <a href="https://www.behance.net/lysergic" target="_blank" rel="noreferrer">
             <img src="~/assets/behance.svg" alt="Behance icon" class="w-9">
           </a>
-          <a href="https://instagram.com/enricodeleo" target="_blank">
+          <a href="https://instagram.com/enricodeleo" target="_blank" rel="noreferrer">
             <img src="~/assets/instagram.svg" alt="Instagram icon" class="w-9">
           </a>
-          <a href="https://www.twitch.tv/enricodeleo" target="_blank">
+          <a href="https://www.twitch.tv/enricodeleo" target="_blank" rel="noreferrer">
             <img src="~/assets/twitch.svg" alt="Twitch icon" class="w-9">
           </a>
-          <a href="https://www.youtube.com/c/EnricoDeleoOfficial" target="_blank">
+          <a href="https://www.youtube.com/c/EnricoDeleoOfficial" target="_blank" rel="noreferrer">
             <img src="~/assets/youtube.svg" alt="YouTube icon" class="w-9">
           </a>
         </div>
@@ -56,7 +56,13 @@
 </template>
 
 <script>
-export default {}
+import EnricoDeleoLogo from '~/assets/logo-enrico-deleo.svg?inline'
+
+export default {
+  components: {
+    EnricoDeleoLogo
+  }
+}
 </script>
 
 <style>

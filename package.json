@@ -28,6 +28,7 @@
     "@nuxtjs/google-gtag": "^1.0.4",
     "@nuxtjs/pwa": "^3.0.2",
     "@nuxtjs/robots": "^2.4.2",
+    "@nuxtjs/svg": "^0.1.12",
     "@nuxtjs/tailwindcss": "^3.2.0",
     "autoprefixer": "^9",
     "babel-eslint": "^10.1.0",

@@ -11,7 +11,7 @@ export default {
     meta: [
       { name: 'viewport', content: 'width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0' },
       { hid: 'author', name: 'author', content: 'Enrico Deleo' }
-    ],
+    ]
     // script: [
     //   {
     //     hid: 'iubenda-privacy',
@@ -87,6 +87,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    '@nuxtjs/svg',
     '@nuxtjs/tailwindcss'
   ],
 
