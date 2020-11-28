@@ -24,46 +24,85 @@
         <h3 class="text-lg text-center sm:subpixel-antialiased md:antialiased leading-relaxed mb-4">
           Mi trovi (tra gli altri) su:
         </h3>
-        <div class="flex justify-evenly">
+        <div class="flex justify-between">
           <a href="https://www.linkedin.com/in/enricodeleo" target="_blank" rel="noreferrer">
-            <img src="~/assets/linkedin.svg" alt="LinkedIn icon" class="w-9">
+            <img src="~/assets/linkedin.svg?data" alt="LinkedIn icon" class="w-9">
           </a>
           <a href="https://www.facebook.com/therealenricodeleo" target="_blank" rel="noreferrer">
-            <img src="~/assets/facebook.svg" alt="Facebook icon" class="w-9">
+            <img src="~/assets/facebook.svg?data" alt="Facebook icon" class="w-9">
           </a>
           <a href="https://blog.enricodeleo.com" target="_blank" rel="noreferrer">
-            <img src="~/assets/blogging.svg" alt="Blog icon" class="w-9">
+            <img src="~/assets/blogging.svg?data" alt="Blog icon" class="w-9">
           </a>
           <a href="https://github.com/enricodeleo" target="_blank" rel="noreferrer">
-            <img src="~/assets/github.svg" alt="GitHub icon" class="w-9">
+            <img src="~/assets/github.svg?data" alt="GitHub icon" class="w-9">
           </a>
           <a href="https://www.behance.net/lysergic" target="_blank" rel="noreferrer">
-            <img src="~/assets/behance.svg" alt="Behance icon" class="w-9">
+            <img src="~/assets/behance.svg?data" alt="Behance icon" class="w-9">
           </a>
           <a href="https://instagram.com/enricodeleo" target="_blank" rel="noreferrer">
-            <img src="~/assets/instagram.svg" alt="Instagram icon" class="w-9">
+            <img src="~/assets/instagram.svg?data" alt="Instagram icon" class="w-9">
           </a>
           <a href="https://www.twitch.tv/enricodeleo" target="_blank" rel="noreferrer">
-            <img src="~/assets/twitch.svg" alt="Twitch icon" class="w-9">
+            <img src="~/assets/twitch.svg?data" alt="Twitch icon" class="w-9">
           </a>
           <a href="https://www.youtube.com/c/EnricoDeleoOfficial" target="_blank" rel="noreferrer">
-            <img src="~/assets/youtube.svg" alt="YouTube icon" class="w-9">
+            <img src="~/assets/youtube.svg?data" alt="YouTube icon" class="w-9">
           </a>
         </div>
       </div>
+      <footer class="max-w-prose mx-auto text-center text-sm text-gray-500 sm:subpixel-antialiased md:antialiased leading-relaxed pb-5 px-5 md:px-12">
+        <p class="pb-3">
+          Copyright &copy; 2010-{{ currentYear }} Enrico Deleo
+        </p>
+        <a href="https://www.iubenda.com/privacy-policy/13699998" class="iubenda-black iubenda-embed mx-auto" title="Privacy Policy ">
+          Privacy Policy
+        </a>
+      </footer>
     </div>
   </div>
 </template>
 
 <script>
+import fbImage from '~/assets/fb-image.jpg'
 import EnricoDeleoLogo from '~/assets/logo-enrico-deleo.svg?inline'
 
 export default {
   components: {
     EnricoDeleoLogo
+  },
+
+  data () {
+    return {
+      currentYear: new Date().getFullYear()
+    }
+  },
+
+  head () {
+    return this.$seo({
+      image: {
+        width: 1200,
+        height: 630,
+        alt: 'Enrico Deleo',
+        url: fbImage,
+        type: 'image/jpg'
+      },
+      openGraph: {
+        image: {
+          width: 1200,
+          height: 630,
+          alt: 'Enrico Deleo',
+          url: fbImage,
+          type: 'image/jpg'
+        }
+      }
+    })
   }
 }
 </script>
 
 <style>
+.iubenda-ibadge {
+  margin: 0 auto;
+}
 </style>

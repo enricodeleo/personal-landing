@@ -11,50 +11,50 @@ export default {
     meta: [
       { name: 'viewport', content: 'width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0' },
       { hid: 'author', name: 'author', content: 'Enrico Deleo' }
+    ],
+    script: [
+      {
+        hid: 'iubenda-privacy',
+        innerHTML: `
+          (function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);
+        `,
+        type: 'text/javascript',
+        charset: 'utf-8',
+        body: true,
+        defer: true,
+        async: true
+      },
+      {
+        hid: 'iubenda-cookie',
+        innerHTML: `
+          var _iub = _iub || [];
+          _iub.csConfiguration = {"consentOnContinuedBrowsing":false,"ccpaAcknowledgeOnDisplay":true,"whitelabel":false,"lang":"it","siteId":2076706,"enableCcpa":true,"countryDetection":true,"perPurposeConsent":true,"gdprAppliesGlobally":false,"cookiePolicyId":13699998, "banner":{ "position":"float-top-center","acceptButtonDisplay":true,"customizeButtonDisplay":true }};
+        `,
+        type: 'text/javascript',
+        charset: 'utf-8',
+        body: true,
+        defer: true,
+        async: true
+      },
+      {
+        hid: 'iubenda-cookie2',
+        type: 'text/javascript',
+        charset: 'utf-8',
+        src: '//cdn.iubenda.com/cs/ccpa/stable/stub.js',
+        body: true,
+        defer: true,
+        async: true
+      },
+      {
+        hid: 'iubenda-cookie3',
+        type: 'text/javascript',
+        charset: 'utf-8',
+        src: '//cdn.iubenda.com/cs/stable/iubenda_cs.js',
+        body: true,
+        defer: true,
+        async: true
+      }
     ]
-    // script: [
-    //   {
-    //     hid: 'iubenda-privacy',
-    //     innerHTML: `
-    //       (function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);
-    //     `,
-    //     type: 'text/javascript',
-    //     charset: 'utf-8',
-    //     body: true,
-    //     defer: true,
-    //     async: true
-    //   },
-    //   {
-    //     hid: 'iubenda-cookie',
-    //     innerHTML: `
-    //       var _iub = _iub || [];
-    //       _iub.csConfiguration = {"consentOnContinuedBrowsing":false,"ccpaAcknowledgeOnDisplay":true,"whitelabel":false,"lang":"it","siteId":2076706,"enableCcpa":true,"countryDetection":true,"perPurposeConsent":true,"gdprAppliesGlobally":false,"cookiePolicyId":13699998, "banner":{ "position":"float-top-center","acceptButtonDisplay":true,"customizeButtonDisplay":true }};
-    //     `,
-    //     type: 'text/javascript',
-    //     charset: 'utf-8',
-    //     body: true,
-    //     defer: true,
-    //     async: true
-    //   },
-    //   {
-    //     hid: 'iubenda-cookie2',
-    //     type: 'text/javascript',
-    //     charset: 'utf-8',
-    //     src: '//cdn.iubenda.com/cs/ccpa/stable/stub.js',
-    //     body: true,
-    //     defer: true,
-    //     async: true
-    //   },
-    //   {
-    //     hid: 'iubenda-cookie3',
-    //     type: 'text/javascript',
-    //     charset: 'utf-8',
-    //     src: '//cdn.iubenda.com/cs/stable/iubenda_cs.js',
-    //     body: true,
-    //     defer: true,
-    //     async: true
-    //   }
-    // ]
   },
 
   seo: {
@@ -106,8 +106,8 @@ export default {
   tailwindcss: {
     theme: {
       fontFamily: {
-        display: ['Poppins', 'system-ui', 'sans-serif'],
-        body: ['Poppins', 'system-ui', 'sans-serif']
+        display: ['system-ui', 'sans-serif'],
+        body: ['system-ui', 'sans-serif']
       }
     },
     variants: {},
