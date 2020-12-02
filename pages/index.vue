@@ -51,6 +51,11 @@
           </a>
         </div>
       </div>
+      <div class="max-w-prose mx-auto pb-12 px-5 md:px-12">
+        <p class="text-center sm:subpixel-antialiased md:antialiased leading-relaxed mb-4">
+          Non dimenticare la mia <a rel="noopener" href="https://amzn.to/3fXQw59" target="_blank" class="text-yellow-500"><strong>pagina autore su Amazon</strong></a>.
+        </p>
+      </div>
       <footer class="max-w-prose mx-auto text-center text-sm text-gray-500 sm:subpixel-antialiased md:antialiased leading-relaxed pb-5 px-5 md:px-12">
         <p class="pb-3">
           Copyright &copy; 2010-{{ currentYear }} Enrico Deleo
