@@ -34,9 +34,6 @@ module.exports = {
   plugins: [
     require('tailwindcss-dark-mode')()
   ],
-  purgeCSS: {
-    whitelist: ['dark-mode']
-  },
   purge: {
     enabled: process.env.NODE_ENV === 'production',
     content: [
@@ -48,6 +45,9 @@ module.exports = {
       // TypeScript
       'plugins/**/*.ts',
       'nuxt.config.ts'
-    ]
+    ],
+    options: {
+      whitelist: ['dark-mode']
+    }
   }
 }
