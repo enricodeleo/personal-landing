@@ -5,6 +5,7 @@
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
 module.exports = {
+  darkMode: 'class',
   theme: {
     darkSelector: '.dark-mode',
     fontFamily: {
@@ -34,9 +35,11 @@ module.exports = {
   plugins: [
     require('tailwindcss-dark-mode')()
   ],
+  purgeCSS: {
+    whitelist: ['dark-mode']
+  },
   purge: {
     enabled: process.env.NODE_ENV === 'production',
-    whitelist: ['dark-mode'],
     content: [
       'components/**/*.vue',
       'layouts/**/*.vue',
