@@ -88,7 +88,8 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     '@nuxtjs/svg',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/color-mode'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -103,28 +104,15 @@ export default {
     'nuxt-logger'
   ],
 
-  tailwindcss: {
-    theme: {
-      fontFamily: {
-        display: ['system-ui', 'sans-serif'],
-        body: ['system-ui', 'sans-serif']
-      }
-    },
-    variants: {},
-    plugins: [],
-    purge: {
-      enabled: process.env.NODE_ENV === 'production',
-      content: [
-        'components/**/*.vue',
-        'layouts/**/*.vue',
-        'pages/**/*.vue',
-        'plugins/**/*.js',
-        'nuxt.config.js',
-        // TypeScript
-        'plugins/**/*.ts',
-        'nuxt.config.ts'
-      ]
-    }
+  colorMode: {
+    preference: 'system', // default value of $colorMode.preference
+    fallback: 'light', // fallback value if not system preference found
+    hid: 'nuxt-color-mode-script',
+    globalName: '__NUXT_COLOR_MODE__',
+    componentName: 'ColorScheme',
+    classPrefix: '',
+    classSuffix: '-mode',
+    storageKey: 'nuxt-color-mode'
   },
 
   facebook: {
