@@ -171,6 +171,10 @@ export default {
     }
   },
 
+  purgeCSS: {
+    whitelist: ['dark-mode']
+  },
+
   // nuxt-logger (https://www.npmjs.com/package/nuxt-logger)
   logger: {
     isEnabled: isDev,
