@@ -111,8 +111,12 @@ export default {
     globalName: '__NUXT_COLOR_MODE__',
     componentName: 'ColorScheme',
     classPrefix: '',
-    classSuffix: '',
+    classSuffix: '-mode',
     storageKey: 'color-mode'
+  },
+
+  purgeCSS: {
+    whitelist: ['dark-mode']
   },
 
   facebook: {
@@ -169,10 +173,6 @@ export default {
         ]
       }
     }
-  },
-
-  purgeCSS: {
-    whitelist: ['dark-mode']
   },
 
   // nuxt-logger (https://www.npmjs.com/package/nuxt-logger)
