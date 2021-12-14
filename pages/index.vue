@@ -40,7 +40,7 @@
           <a href="https://www.behance.net/lysergic" target="_blank" rel="noreferrer">
             <BehanceIcon alt="Behance icon" class="w-9 h-auto fill-current" />
           </a>
-          <a href="https://instagram.com/enricodeleo" target="_blank" rel="noreferrer">
+          <a href="https://www.instagram.com/enricodeleo/" target="_blank" rel="noreferrer">
             <InstagramIcon alt="Instagram icon" class="w-9 h-auto fill-current" />
           </a>
           <a href="https://www.twitch.tv/enricodeleo" target="_blank" rel="noreferrer">
