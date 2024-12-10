@@ -73,7 +73,7 @@ export default {
     // Module options
     baseUrl: process.env.NUXT_ENV_FRONTEND_URL,
     name: 'Enrico Deleo',
-    title: 'Enrico Deleo',
+    title: 'Enrico Deleo - Fractional CTO // Digital Entrepreneur // Holistic Developer | DevOps | UI/UX // Teacher // Consultant',
     lang: 'it-IT',
     language: 'Italian',
     templateTitle: '%name%',
