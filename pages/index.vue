@@ -6,16 +6,19 @@
       <section class="max-w-prose mx-auto px-5">
         <article class="flex flex-wrap">
           <p class="pb-3">
-            Sono <strong>Enrico Deleo</strong> e dai primi 2000s mi occupo di <span class="line-through">sviluppo</span> <span class="line-through">DevOps</span> <span class="line-through">design</span> <span class="line-through">branding</span> <span class="line-through">marketing</span> <span class="line-through">startup</span> digital, in particolar modo <strong>amo creare prodotti customer-centric</strong> attraverso tecnologie web, mobile e cloud.
+            Sono <strong>Enrico Deleo</strong> e dai primi 2000s mi occupo di <span class="line-through">sviluppo</span> <span class="line-through">DevOps</span> <span class="line-through">design</span> <span class="line-through">branding</span> <span class="line-through">marketing</span> <span class="line-through">startup</span> digital, in particolar modo <strong>Progetto e sviluppo soluzioni tecnologiche customer-centric</strong> che combinano innovazione web, mobile e cloud per garantire un impatto tangibile sul mercato..
           </p>
           <p class="pb-3">
-            Attraverso il mio lavoro sono stato a contatto con le industry più disparate: dal cinema ed intrattenimento al fintech, passando per la logistica, retail o ancora il food. Alcuni di questi progetti hanno attratto capitali da investitori professionali ed hanno ottenuto riconoscimenti internazionali nell'ambito delle startup e non solo.
+            Ho collaborato con settori diversi, dal fintech al retail, dal cinema alla logistica, aiutando aziende e startup a superare sfide tecnologiche complesse e a innovare. Alcuni di questi progetti hanno attratto capitali da investitori professionali ed hanno ottenuto riconoscimenti internazionali nell'ambito delle startup e non solo.
           </p>
           <p class="pb-3">
-            Da qualche anno aiuto le startup a trovare <strong>soluzioni tecnologiche per accelerare il go to market</strong>, e grandi aziende ad <strong>innovare più velocemente</strong>.
+            Collaboro con startup per <strong>accelerare il loro percorso</strong> verso il mercato e con aziende consolidate per innovare rapidamente e <strong>rimanere competitive</strong>. Contattami per trasformare la tua visione in realtà..
+          </p>
+          <p class="pb-3">
+            Ho supportato startup e aziende come <strong>Fractional CTO</strong>, offrendo una leadership tecnologica flessibile e strategica senza la necessità di un impegno full-time. Questo approccio consente alle imprese di accedere a competenze tecniche di alto livello per guidare progetti critici, costruire team tecnologici e scalare l'infrastruttura digitale in modo efficiente. In questo contesto, ho avorato a stretto contatto con i founder e i team dirigenziali per allineare le scelte tecnologiche agli obiettivi di business, <strong>accelerando il time-to-market</strong> e riducendo i rischi legati alla crescita.
           </p>
           <p>
-            Ogni tanto porto la mia esperienza in aula (virtuale e non), nell'ambito di corsi di formazione per aziende o ragazzi sul <em>digital marketing</em>, <em>UI/UX</em>, <em>coding</em> o <em>agile project management</em>.
+            Condivido la mia esperienza attraverso corsi di formazione personalizzati su <strong>digital marketing</strong>, <strong>UI/UX</strong>, <strong>coding</strong> e <strong>agile project management</strong>, aiutando aziende e giovani talenti a crescere in un ecosistema digitale in continua evoluzione..
           </p>
         </article>
       </section>
