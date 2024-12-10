@@ -17,6 +17,9 @@
           <p class="pb-3">
             Ho supportato startup e aziende come <strong>Fractional CTO</strong>, offrendo una leadership tecnologica flessibile e strategica senza la necessità di un impegno full-time. Questo approccio consente alle imprese di accedere a competenze tecniche di alto livello per guidare progetti critici, costruire team tecnologici e scalare l'infrastruttura digitale in modo efficiente. In questo contesto, ho avorato a stretto contatto con i founder e i team dirigenziali per allineare le scelte tecnologiche agli obiettivi di business, <strong>accelerando il time-to-market</strong> e riducendo i rischi legati alla crescita.
           </p>
+          <p class="pb-3">
+            Sono basato <strong>a Roma</strong>, al centro di un ecosistema tecnologico e imprenditoriale in continua crescita. Collaboro con startup e aziende di tutto il mondo, con team distribuiti dalla Cina al Sud America. La mia posizione mi consente di offrire supporto strategico sia in loco, partecipando attivamente alla scena tecnologica della capitale, sia da remoto, garantendo la massima flessibilità operativa.
+          </p>
           <p>
             Condivido la mia esperienza attraverso corsi di formazione personalizzati su <strong>digital marketing</strong>, <strong>UI/UX</strong>, <strong>coding</strong> e <strong>agile project management</strong>, aiutando aziende e giovani talenti a crescere in un ecosistema digitale in continua evoluzione..
           </p>
