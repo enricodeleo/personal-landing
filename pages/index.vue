@@ -52,6 +52,8 @@
             e riducendo rischi di crescita.
           </p>
 
+          <BrevoForm />
+
           <p class="pb-3">
             Sono basato <strong>a Roma</strong>, al centro di un ecosistema tecnologico e imprenditoriale in continua crescita.
             Collaboro con startup e aziende di tutto il mondo, con team distribuiti dalla Cina al Sud America. La mia posizione
@@ -131,7 +133,6 @@
         <span v-show="$colorMode.value === 'dark'" class="bg-gray-50 bg-opacity-75 text-black px-2 py-0.5 rounded-md">chiaro ☀️</span>
         <span v-show="$colorMode.value !== 'dark'" class="bg-gray-800 bg-opacity-75 text-gray-200 px-2 py-0.5 rounded-md">scuro 🌙</span>
       </aside>
-
     </div>
   </div>
 </template>
@@ -147,6 +148,7 @@ import BehanceIcon from '~/assets/behance.svg?inline'
 import InstagramIcon from '~/assets/instagram.svg?inline'
 import TwitchIcon from '~/assets/twitch.svg?inline'
 import YoutubeIcon from '~/assets/youtube.svg?inline'
+import BrevoForm from '~/components/BrevoForm.vue'
 
 export default {
   components: {
@@ -158,7 +160,8 @@ export default {
     BehanceIcon,
     InstagramIcon,
     TwitchIcon,
-    YoutubeIcon
+    YoutubeIcon,
+    BrevoForm
   },
 
   data () {
