@@ -64,6 +64,11 @@
             <strong>UI/UX</strong>, <strong>coding</strong> e <strong>agile project management</strong>, aiutando aziende e
             giovani talenti a crescere in un ecosistema digitale in continua evoluzione.
           </p>
+
+          <p>
+            Ho co-fondato <strong>Traction</strong> e <strong>AutoCust</strong> — due iniziative che mirano a
+            rivoluzionare il modo in cui le aziende interagiscono con i propri clienti e ottimizzano i processi di marketing.
+          </p>
         </article>
       </section>
 
