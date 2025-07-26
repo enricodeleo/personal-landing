@@ -20,7 +20,7 @@
 
           <p class="pb-3">
             Sono <strong>Enrico Deleo</strong> e dai primi 2000s  progetto soluzioni digitali che uniscono web, mobile e cloud.
-            Oggi integro AI generativa e predittiva per ridurre costi, moltiplicare conversioni e mettere i prodotti
+            Oggi integro <strong>AI generativa e predittiva</strong> per ridurre costi, moltiplicare conversioni e mettere i prodotti
             online più in fretta.
           </p>
           <p>
