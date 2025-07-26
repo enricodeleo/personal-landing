@@ -122,6 +122,9 @@
       </div>
       <footer class="max-w-prose mx-auto text-center text-sm text-gray-500 dark:text-gray-400 pb-5 px-5 md:px-12 select-none">
         <p class="pb-3">
+          Deleo Enrico - P.IVA: 02714140841 - Codice REA: RM1678566
+        </p>
+        <p class="pb-3">
           Copyright &copy; 2010-{{ currentYear }} Enrico Deleo
         </p>
         <a href="https://www.iubenda.com/privacy-policy/13699998" class="iubenda-black iubenda-embed mx-auto" title="Privacy Policy ">
