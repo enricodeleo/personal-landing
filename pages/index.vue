@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container mx-auto dark:text-gray-200 sm:subpixel-antialiased md:antialiased leading-relaxed ">
-      <EnricoDeleoLogo class="max-w-sm mx-auto p-12 fill-current" alt="Enrico Deleo logo" />
+      <EnricoDeleoLogo class="max-w-sm mx-auto p-12 fill-current" alt="Enrico Deleo logo" @click="goHome()" />
 
       <section class="max-w-prose mx-auto px-5">
         <article class="flex flex-wrap">
@@ -117,6 +117,9 @@ export default {
   methods: {
     changeMode () {
       this.$colorMode.preference = this.$colorMode.preference === 'light' ? 'dark' : 'light'
+    },
+    goHome () {
+      this.$router.push('/')
     }
   },
 
