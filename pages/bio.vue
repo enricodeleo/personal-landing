@@ -206,6 +206,7 @@
           </p>
         </article>
       </section>
+      <AppFooter />
       <aside v-if="$colorMode.value" class="text-xs text-center pb-8 cursor-pointer select-none" @click="changeMode()">
         Passa al tema
         <span v-show="$colorMode.value === 'dark'" class="bg-gray-50 bg-opacity-75 text-black px-2 py-0.5 rounded-md">chiaro ☀️</span>
@@ -218,11 +219,13 @@
 <script>
 import fbImage from '~/assets/fb-image.jpg'
 import EnricoDeleoLogo from '~/assets/logo-enrico-deleo.svg?inline'
+import AppFooter from '~/components/AppFooter.vue'
 
 export default {
   name: 'BioPage',
   components: {
-    EnricoDeleoLogo
+    EnricoDeleoLogo,
+    AppFooter
   },
   data () {
     return {
