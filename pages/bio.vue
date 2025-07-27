@@ -31,7 +31,7 @@
             recensire, sperimentavo con la grafica, e avevo cominciato anche a monetizzare con la pubblicità.
           </p>
 
-          <h2 class="text-md md:text-lg font-extrabold leading-tight">
+          <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
             Gli inizi tra smanettamenti e prime imprese
           </h2>
 
@@ -57,7 +57,7 @@
             ma <strong>costruire il lavoro che volevo fare</strong>.
           </p>
 
-          <h2 class="text-md md:text-lg font-extrabold leading-tight">
+          <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
             2010-2020: Ambizione, creatività e prime startup
           </h2>
 
@@ -131,7 +131,7 @@
             di fare un ulteriore salto. Stavo per fondare qualcosa di nuovo.
           </p>
 
-          <h2 class="text-md md:text-lg font-extrabold leading-tight">
+          <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
             2020 a oggi: tecnologia, marketing e nuovi orizzonti
           </h2>
 

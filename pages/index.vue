@@ -74,53 +74,8 @@
         </article>
       </section>
 
-      <div class="max-w-prose mx-auto py-12 px-5 md:px-12 select-none">
-        <h3 class="text-lg text-center mb-4">
-          Mi trovi (tra gli altri) su:
-        </h3>
-        <div class="flex justify-between">
-          <a href="https://www.linkedin.com/in/enricodeleo" target="_blank" rel="noreferrer">
-            <LinkedinIcon alt="LinkedIn icon" class="w-9 h-auto fill-current" />
-          </a>
-          <a href="https://www.facebook.com/therealenricodeleo" target="_blank" rel="noreferrer">
-            <FacebookIcon alt="Facebook icon" class="w-9 h-auto fill-current" />
-          </a>
-          <a href="https://blog.enricodeleo.com" target="_blank" rel="noreferrer">
-            <BloggingIcon alt="Blog icon" class="w-9 h-auto fill-current" />
-          </a>
-          <a href="https://github.com/enricodeleo" target="_blank" rel="noreferrer">
-            <GithubIcon alt="GitHub icon" class="w-9 h-auto fill-current" />
-          </a>
-          <a href="https://www.behance.net/lysergic" target="_blank" rel="noreferrer">
-            <BehanceIcon alt="Behance icon" class="w-9 h-auto fill-current" />
-          </a>
-          <a href="https://www.instagram.com/enricodeleo/" target="_blank" rel="noreferrer">
-            <InstagramIcon alt="Instagram icon" class="w-9 h-auto fill-current" />
-          </a>
-          <a href="https://www.twitch.tv/enricodeleo" target="_blank" rel="noreferrer">
-            <TwitchIcon alt="Twitch icon" class="w-9 h-auto fill-current" />
-          </a>
-          <a href="https://www.youtube.com/c/EnricoDeleoOfficial" target="_blank" rel="noreferrer">
-            <YoutubeIcon alt="YouTube icon" class="w-9 h-auto fill-current" />
-          </a>
-        </div>
-      </div>
-      <div class="max-w-prose mx-auto pb-12 px-5 md:px-12 select-none">
-        <p class="text-center mb-4">
-          Non dimenticare la mia <a rel="noopener" href="https://amzn.to/3fXQw59" target="_blank" class="text-yellow-500"><strong>pagina autore su Amazon</strong></a>.
-        </p>
-        <div class="flex justify-center mt-8">
-          <a href="https://github.com/enricodeleo" target="_blank" rel="noreferrer">
-            <img
-              src="https://github-readme-stats.vercel.app/api?username=enricodeleo&count_private=true&show_icons=true&theme=vue"
-              alt="GitHub Stats Enrico Deleo"
-              class="rounded-lg shadow max-w-full h-auto"
-              loading="lazy"
-            >
-          </a>
-        </div>
-      </div>
       <AppFooter />
+
       <aside v-if="$colorMode.value" class="text-xs text-center pb-8 cursor-pointer select-none" @click="changeMode()">
         Passa al tema
         <span v-show="$colorMode.value === 'dark'" class="bg-gray-50 bg-opacity-75 text-black px-2 py-0.5 rounded-md">chiaro ☀️</span>
@@ -133,27 +88,11 @@
 <script>
 import fbImage from '~/assets/fb-image.jpg'
 import EnricoDeleoLogo from '~/assets/logo-enrico-deleo.svg?inline'
-import LinkedinIcon from '~/assets/linkedin.svg?inline'
-import FacebookIcon from '~/assets/facebook.svg?inline'
-import GithubIcon from '~/assets/github.svg?inline'
-import BloggingIcon from '~/assets/blogging.svg?inline'
-import BehanceIcon from '~/assets/behance.svg?inline'
-import InstagramIcon from '~/assets/instagram.svg?inline'
-import TwitchIcon from '~/assets/twitch.svg?inline'
-import YoutubeIcon from '~/assets/youtube.svg?inline'
 import BrevoForm from '~/components/BrevoForm.vue'
 
 export default {
   components: {
     EnricoDeleoLogo,
-    LinkedinIcon,
-    FacebookIcon,
-    BloggingIcon,
-    GithubIcon,
-    BehanceIcon,
-    InstagramIcon,
-    TwitchIcon,
-    YoutubeIcon,
     BrevoForm
   },
 
