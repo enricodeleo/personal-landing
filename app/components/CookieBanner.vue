@@ -18,19 +18,18 @@
               <p class="mb-1">
                 <strong>🍪 Questo sito usa pochissimi cookie</strong>
               </p>
-              <p class="text-gray-600 dark:text-gray-400">
-                Uso cookie tecnici e, <strong>solo se vuoi</strong>, analytics e funzionalità come la <strong>chat AI</strong>.
-                <br>
-                Nessuna pubblicità, nessuna profilazione.
+              <p class="text-xs text-gray-600 dark:text-gray-400">
+                Uso cookie tecnici e, se vuoi, anche con finalità misurazione del traffico, come specificato nella <NuxtLink to="/cookie-policy" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4">cookie policy</NuxtLink>.
+                Puoi gestire il tuo consenso in ogni momento tramite il pannello delle preferenze.
               </p>
             </div>
             <div class="flex flex-col sm:flex-row items-center gap-3 shrink-0">
               <a
                 href="#"
-                class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 underline underline-offset-4 hover:decoration-2 cursor-pointer"
+                class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 cursor-pointer"
                 @click.prevent="reject"
               >
-                Rifiuta
+                Rifiuta tutti
               </a>
               <button
                 class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-200/80 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md transition-colors cursor-pointer"

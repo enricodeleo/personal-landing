@@ -200,7 +200,7 @@
 
           <p class="pb-3">
             Nel 2020 ho pubblicato un manuale operativo su Vue.js: <strong>"Point of VUE"</strong>, disponibile su
-            Amazon (<a href="https://www.amazon.it/Point-VUE-Realizza-applicazione-approccio-ebook/dp/B0846W2FWN">link</a>).
+            Amazon (<a href="https://www.amazon.it/Point-VUE-Realizza-applicazione-approccio-ebook/dp/B0846W2FWN" class="underline decoration-dotted underline-offset-4">link</a>).
             Il libro, pensato per chi vuole imparare a costruire SPA con Vue partendo da zero, riflette il mio stile formativo:
             pratico, chiaro, senza fronzoli.
           </p>

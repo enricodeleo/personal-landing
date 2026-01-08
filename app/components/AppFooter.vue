@@ -11,7 +11,8 @@
           :href="link.href"
           target="_blank"
           rel="noreferrer"
-          class="inline-flex h-9 w-9 items-center justify-center transition-colors hover:text-gray-700 dark:hover:text-gray-200"
+          class="inline-flex h-9 w-9 items-center justify-center transition-colors"
+          :class="link.hoverColor"
           :aria-label="link.label"
         >
           <span class="inline-svg h-full w-full fill-current" aria-hidden="true" v-html="link.icon"/>
@@ -20,7 +21,7 @@
     </div>
     <div class="max-w-prose mx-auto px-5 md:px-12 select-none">
       <p class="text-center mb-0 pb-0">
-        Non dimenticare la mia <a rel="noopener" href="https://amzn.to/3fXQw59" target="_blank" class="text-yellow-500"><strong>pagina autore su Amazon</strong></a>.
+        Non dimenticare la mia <a rel="noopener" href="https://amzn.to/3fXQw59" target="_blank" class="text-yellow-500 underline decoration-dotted underline-offset-4"><strong>pagina autore su Amazon</strong></a>.
       </p>
     </div>
     <div class="max-w-xs mx-auto px-5 md:px-12 select-none">
@@ -46,20 +47,22 @@
       <p class="pb-3">
         Copyright &copy; 2010-{{ currentYear }} Enrico Deleo
       </p>
-      <div class="pt-4 text-center text-xs">
-        <button
-          type="button"
-          class="inline-flex items-center gap-2 rounded-md border px-2 py-1 transition-colors"
-          :class="buttonToneClasses"
-          :aria-label="stateLabel"
-          @click="next()"
-        >
-          <span>{{ stateLabel }}</span>
-          <span v-if="state === 'light'" aria-hidden="true">☀️</span>
-          <span v-else-if="state === 'dark'" aria-hidden="true">🌙</span>
-          <span v-else aria-hidden="true">💻</span>
-        </button>
-      </div>
+      <ClientOnly>
+        <div class="pt-4 text-center text-xs">
+          <button
+            type="button"
+            class="inline-flex items-center gap-2 rounded-md border px-2 py-1 transition-colors"
+            :class="buttonToneClasses"
+            :aria-label="stateLabel"
+            @click="next()"
+          >
+            <span>{{ stateLabel }}</span>
+            <span v-if="state === 'light'" aria-hidden="true">☀️</span>
+            <span v-else-if="state === 'dark'" aria-hidden="true">🌙</span>
+            <span v-else aria-hidden="true">💻</span>
+          </button>
+        </div>
+      </ClientOnly>
     </footer>
   </div>
 </template>
@@ -103,14 +106,14 @@ const buttonToneClasses = computed(() => (resolvedMode.value === 'dark'
   : 'border-gray-200 bg-white text-gray-700 hover:text-gray-900'))
 
 const socialLinks = [
-  { href: 'https://www.linkedin.com/in/enricodeleo', label: 'LinkedIn', icon: linkedinSvg },
-  { href: 'https://www.facebook.com/therealenricodeleo', label: 'Facebook', icon: facebookSvg },
-  { href: 'https://blog.enricodeleo.com', label: 'Blog', icon: bloggingSvg },
-  { href: 'https://github.com/enricodeleo', label: 'GitHub', icon: githubSvg },
-  { href: 'https://www.behance.net/lysergic', label: 'Behance', icon: behanceSvg },
-  { href: 'https://www.instagram.com/enricodeleo/', label: 'Instagram', icon: instagramSvg },
-  { href: 'https://www.twitch.tv/enricodeleo', label: 'Twitch', icon: twitchSvg },
-  { href: 'https://www.youtube.com/c/EnricoDeleoOfficial', label: 'YouTube', icon: youtubeSvg },
+  { href: 'https://www.linkedin.com/in/enricodeleo', label: 'LinkedIn', icon: linkedinSvg, hoverColor: 'hover:text-[#0077b5]' },
+  { href: 'https://www.facebook.com/therealenricodeleo', label: 'Facebook', icon: facebookSvg, hoverColor: 'hover:text-[#1877f2]' },
+  { href: 'https://blog.enricodeleo.com', label: 'Blog', icon: bloggingSvg, hoverColor: 'hover:text-gray-700 dark:hover:text-gray-200' },
+  { href: 'https://github.com/enricodeleo', label: 'GitHub', icon: githubSvg, hoverColor: 'hover:text-[#333] dark:hover:text-white' },
+  { href: 'https://www.behance.net/lysergic', label: 'Behance', icon: behanceSvg, hoverColor: 'hover:text-[#1769ff]' },
+  { href: 'https://www.instagram.com/enricodeleo/', label: 'Instagram', icon: instagramSvg, hoverColor: 'hover:text-[#e1306c]' },
+  { href: 'https://www.twitch.tv/enricodeleo', label: 'Twitch', icon: twitchSvg, hoverColor: 'hover:text-[#9146ff]' },
+  { href: 'https://www.youtube.com/c/EnricoDeleoOfficial', label: 'YouTube', icon: youtubeSvg, hoverColor: 'hover:text-[#ff0000]' },
 ]
 </script>
 

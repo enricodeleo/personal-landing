@@ -52,8 +52,8 @@
               </p>
             </div>
 
-            <div class="space-y-4">
-              <div class="flex items-start gap-3">
+            <div class="divide-y divide-gray-200 dark:divide-gray-800 border-t border-gray-200 dark:border-gray-800">
+              <div class="flex items-start gap-3 py-4">
                 <div class="flex-1">
                   <p class="font-bold mb-1">
                     Misurazione
@@ -69,7 +69,7 @@
                 </div>
               </div>
 
-              <div class="flex items-start gap-3">
+              <div class="flex items-start gap-3 py-4">
                 <div class="flex-1">
                   <p class="font-bold mb-1">
                     Necessari
@@ -86,9 +86,13 @@
               </div>
             </div>
 
+            <div class="mt-4 text-xs text-gray-500 dark:text-gray-400 text-center">
+              Per maggiori informazioni, consulta la <NuxtLink to="/privacy-policy" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4">privacy</NuxtLink> e <NuxtLink to="/cookie-policy" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4">cookie policy</NuxtLink>.
+            </div>
+
             <div class="mt-6 pt-4 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between gap-3">
               <button
-                class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 underline underline-offset-4 hover:decoration-2 cursor-pointer"
+                class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 cursor-pointer"
                 @click="close"
               >
                 Rifiuta tutti
