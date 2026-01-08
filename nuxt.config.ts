@@ -1,9 +1,18 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from '@tailwindcss/vite';
+
 export default defineNuxtConfig({
-  compatibilityDate: '2026-01-08',
+  compatibilityDate: '2025-07-15',
 
   // Set source directory to app/
   srcDir: 'app',
+
+  // Development tools
+  devtools: {
+    enabled: true,
+  },
+
+  // CSS
+  css: ['./app/assets/css/main.css'],
 
   // Enable static generation
   nitro: {
@@ -28,16 +37,16 @@ export default defineNuxtConfig({
   // Modules
   modules: [
     '@nuxtjs/color-mode',
-    '@nuxtjs/tailwindcss',
     '@nuxtjs/robots',
     '@nuxt/eslint',
     'nuxt-gtag',
     '@vite-pwa/nuxt',
   ],
 
-  // Vite configuration
   vite: {
-    // SVGs are loaded as regular images
+    plugins: [
+      tailwindcss(),
+    ],
   },
 
   // Color mode configuration
@@ -89,16 +98,7 @@ export default defineNuxtConfig({
     }
   },
 
-  // TailwindCSS configuration
-  tailwindcss: {
-    cssPath: '~/assets/css/tailwind.css',
-    configPath: 'tailwind.config.js',
-  },
-
   // Development tools
-  devtools: {
-    enabled: true,
-  },
 
   // Runtime config for environment variables
   runtimeConfig: {
