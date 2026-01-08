@@ -1,8 +1,13 @@
 <template>
   <div>
     <div class="container mx-auto dark:text-gray-200 sm:subpixel-antialiased md:antialiased leading-relaxed ">
-      <div class="w-56 mx-auto" @click="goHome()">
-        <img src="~/assets/logo-enrico-deleo.svg" class="w-full h-auto p-12 fill-current cursor-pointer" alt="Enrico Deleo logo" />
+      <div class="w-56 mx-auto cursor-pointer" @click="goHome()">
+        <div
+          class="inline-svg w-full p-12 fill-current text-gray-900 dark:text-gray-200"
+          role="img"
+          aria-label="Enrico Deleo logo"
+          v-html="logoSvg"
+        ></div>
       </div>
 
       <section class="max-w-prose mx-auto px-5">
@@ -207,62 +212,16 @@
         </article>
       </section>
       <AppFooter />
-      <aside v-if="colorMode.value" class="text-xs text-center pb-8 cursor-pointer select-none" @click="changeMode()">
-        Passa al tema
-        <span
-          class="px-2 py-0.5 rounded-md"
-          :class="nextMode === 'dark' ? 'bg-gray-800 bg-opacity-75 text-gray-200' : 'bg-gray-50 bg-opacity-75 text-black'"
-        >
-          {{ nextModeLabel }} {{ nextModeIcon }}
-        </span>
-      </aside>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import logoSvg from '~/assets/logo-enrico-deleo.svg?raw'
 
-const colorMode = useColorMode({
-  selector: 'html',
-  attribute: 'class',
-  initialValue: 'auto',
-  emitAuto: true,
-  modes: {
-    dark: 'dark',
-    light: '',
-  },
-})
 const router = useRouter()
 const route = useRoute()
 const { siteUrl, siteName, siteLocale, siteLanguage, siteDescription, ogImage, profileImage, sameAs } = useSiteMeta()
-
-// Reactive state
-const currentYear = ref(new Date().getFullYear())
-
-const modeOrder = ['auto', 'light', 'dark']
-const modeLabels = {
-  auto: 'auto',
-  light: 'chiaro',
-  dark: 'scuro',
-}
-const modeIcons = {
-  auto: '🌓',
-  light: '☀️',
-  dark: '🌙',
-}
-const nextMode = computed(() => {
-  const currentIndex = modeOrder.indexOf(colorMode.value)
-  const nextIndex = currentIndex === -1 ? 0 : (currentIndex + 1) % modeOrder.length
-  return modeOrder[nextIndex]
-})
-const nextModeLabel = computed(() => modeLabels[nextMode.value] ?? nextMode.value)
-const nextModeIcon = computed(() => modeIcons[nextMode.value] ?? '🌓')
-
-// Methods as regular functions
-const changeMode = () => {
-  colorMode.value = nextMode.value
-}
 
 const goHome = () => {
   router.push('/')

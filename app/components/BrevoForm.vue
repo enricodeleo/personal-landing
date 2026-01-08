@@ -70,8 +70,6 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
-
 onMounted(() => {
   if (import.meta.client) {
     window.REQUIRED_CODE_ERROR_MESSAGE = 'Scegli un prefisso paese'
