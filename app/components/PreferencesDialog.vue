@@ -18,17 +18,17 @@
 
       <Transition
         enter-active-class="transition-all duration-200 ease-out"
-        enter-from-class="opacity-0 scale-95 translate-y-2"
-        enter-to-class="opacity-100 scale-100 translate-y-0"
+        enter-from-class="opacity-0 scale-95"
+        enter-to-class="opacity-100 scale-100"
         leave-active-class="transition-all duration-150 ease-in"
-        leave-from-class="opacity-100 scale-100 translate-y-0"
-        leave-to-class="opacity-0 scale-95 translate-y-2"
+        leave-from-class="opacity-100 scale-100"
+        leave-to-class="opacity-0 scale-95"
       >
         <div
           v-if="isOpen"
-          class="fixed bottom-20 left-5 right-5 md:left-auto md:right-12 md:max-w-sm z-50 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg shadow-lg"
+          class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-prose mx-auto px-5 z-50"
         >
-          <div class="p-6">
+          <div class="p-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg shadow-lg">
             <div class="flex items-center justify-between mb-4">
               <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">
                 Preferenze cookie
@@ -54,7 +54,9 @@
                   </p>
                 </div>
                 <div class="flex items-center h-5">
-                  <div class="w-4 h-4 rounded bg-gray-300 dark:bg-gray-600" />
+                  <div class="w-11 h-6 bg-green-500 dark:bg-green-600 rounded-full relative opacity-50 cursor-not-allowed">
+                    <div class="absolute right-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform" />
+                  </div>
                 </div>
               </div>
 
