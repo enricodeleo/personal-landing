@@ -42,19 +42,6 @@ useHead({
       defer: true,
       async: true,
     },
-    {
-      src: `https://www.googletagmanager.com/gtag/js?id=G-E799VL4Y93`,
-      async: true,
-    },
-    {
-      innerHTML: `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-E799VL4Y93');
-      `,
-      type: 'text/javascript',
-    },
   ],
 })
 

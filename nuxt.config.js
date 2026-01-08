@@ -31,6 +31,8 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/robots',
     '@nuxt/eslint',
+    'nuxt-gtag',
+    '@vite-pwa/nuxt',
   ],
 
   // Vite configuration
@@ -49,6 +51,42 @@ export default defineNuxtConfig({
   robots: {
     UserAgent: '*',
     Allow: '/',
+  },
+
+  // Google Analytics (GA4) with nuxt-gtag
+  gtag: {
+    id: 'G-E799VL4Y93',
+  },
+
+  // PWA configuration with @vite-pwa/nuxt
+  pwa: {
+    registerType: 'autoUpdate',
+    includeAssets: ['*.jpg', '*.svg'],
+    manifest: {
+      name: 'Enrico Deleo',
+      short_name: 'Enrico Deleo',
+      description: 'Fractional CTO & AI Solutions Architect',
+      theme_color: '#ffffff',
+      background_color: '#ffffff',
+      display: 'standalone',
+      lang: 'it',
+    },
+    workbox: {
+      globPatterns: ['**/*.{js,css,html,png,jpg,svg,woff2}'],
+      runtimeCaching: [
+        {
+          urlPattern: /^https:\/\/sibforms\.com\/.*/i,
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'brevo-forms-cache',
+            expiration: {
+              maxEntries: 10,
+              maxAgeSeconds: 60 * 60 * 24 * 7 // 7 days
+            }
+          }
+        }
+      ]
+    }
   },
 
   // TailwindCSS configuration
