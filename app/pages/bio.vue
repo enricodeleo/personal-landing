@@ -6,8 +6,9 @@
           to="/"
           class="inline-svg block w-full p-12 fill-current text-gray-900 dark:text-gray-200"
           aria-label="Enrico Deleo logo"
-          v-html="logoSvg"
-        ></NuxtLink>
+        >
+          <span class="block w-full" aria-hidden="true" v-html="logoSvg"></span>
+        </NuxtLink>
       </div>
 
       <section class="max-w-prose mx-auto px-5">
