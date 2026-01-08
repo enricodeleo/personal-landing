@@ -126,4 +126,32 @@ useHead({
   text-decoration: underline;
   color: #2BB2FC;
 }
+
+html.dark #sib-container {
+  background-color: #1f2937 !important;
+}
+
+html.dark #sib-container,
+html.dark #sib-container label,
+html.dark #sib-container .entry__label,
+html.dark #sib-container .entry__specification {
+  color: #e5e7eb !important;
+}
+
+html.dark #sib-container input,
+html.dark #sib-container textarea {
+  background-color: #111827 !important;
+  color: #f9fafb !important;
+  border-color: #374151 !important;
+}
+
+html.dark #sib-container input::placeholder,
+html.dark #sib-container textarea::placeholder {
+  color: #9ca3af !important;
+}
+
+html.dark #sib-container .sib-form-block__button {
+  background-color: #f3f4f6 !important;
+  color: #111827 !important;
+}
 </style>

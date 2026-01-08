@@ -98,10 +98,11 @@ const resolvedMode = computed(() => (state.value === 'auto' ? mode.state.value :
 const stateLabel = computed(() => {
   if (state.value === 'light') return 'tema chiaro'
   if (state.value === 'dark') return 'tema scuro'
-  return 'tema auto'
+  const resolvedLabel = resolvedMode.value === 'dark' ? 'scuro' : 'chiaro'
+  return `tema auto (${resolvedLabel})`
 })
 const buttonToneClasses = computed(() => (resolvedMode.value === 'dark'
-  ? 'border-gray-600 bg-gray-700/70 text-gray-100 hover:text-white'
+  ? 'border-gray-700 bg-gray-900/80 text-gray-100 hover:text-white'
   : 'border-gray-200 bg-white text-gray-700 hover:text-gray-900'))
 
 const socialLinks = [

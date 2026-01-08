@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="container mx-auto dark:text-gray-200 sm:subpixel-antialiased md:antialiased leading-relaxed ">
-      <div class="w-56 mx-auto cursor-pointer" @click="goHome()">
-        <div
-          class="inline-svg w-full p-12 fill-current text-gray-900 dark:text-gray-200"
-          role="img"
+      <div class="w-56 mx-auto">
+        <NuxtLink
+          to="/"
+          class="inline-svg block w-full p-12 fill-current text-gray-900 dark:text-gray-200"
           aria-label="Enrico Deleo logo"
           v-html="logoSvg"
-        ></div>
+        ></NuxtLink>
       </div>
 
       <section class="max-w-prose mx-auto px-5">
@@ -219,13 +219,8 @@
 <script setup>
 import logoSvg from '~/assets/logo-enrico-deleo.svg?raw'
 
-const router = useRouter()
 const route = useRoute()
 const { siteUrl, siteName, siteLocale, siteLanguage, siteDescription, ogImage, profileImage, sameAs } = useSiteMeta()
-
-const goHome = () => {
-  router.push('/')
-}
 
 // Head configuration
 const pageTitle = 'Bio - Enrico Deleo'

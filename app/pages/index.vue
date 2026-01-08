@@ -1,13 +1,12 @@
 <template>
   <div>
     <div class="container mx-auto dark:text-gray-200 sm:subpixel-antialiased md:antialiased leading-relaxed ">
-      <div
-        class="inline-svg max-w-sm mx-auto p-12 fill-current cursor-pointer text-gray-900 dark:text-gray-200"
-        role="img"
+      <NuxtLink
+        to="/"
+        class="inline-svg block max-w-sm mx-auto p-12 fill-current text-gray-900 dark:text-gray-200"
         aria-label="Enrico Deleo logo"
-        @click="goHome()"
         v-html="logoSvg"
-      ></div>
+      ></NuxtLink>
 
       <section class="max-w-prose mx-auto px-5">
         <article class="flex flex-wrap">
@@ -17,7 +16,7 @@
           <h2 class="text-lg md:text-xl font-extrabold leading-tight">
             AI pragmatica che accelera business e prodotti
           </h2>
-          <p class="my-4 text-lg sm:text-xl text-slate-600">
+          <p class="my-4 text-lg sm:text-xl text-slate-600 dark:text-slate-300">
             <em>
               Trasformo idee in soluzioni scalabili con <strong>Large Language Models</strong>,
               architetture cloud e un metodo data-driven orientato al ROI.
@@ -89,13 +88,8 @@
 <script setup>
 import logoSvg from '~/assets/logo-enrico-deleo.svg?raw'
 
-const router = useRouter()
 const route = useRoute()
 const { siteUrl, siteName, siteLocale, siteLanguage, siteDescription, ogImage, profileImage, sameAs } = useSiteMeta()
-
-const goHome = () => {
-  router.push('/')
-}
 
 // Head configuration
 const pageTitle = 'Enrico Deleo - Fractional CTO & AI Solutions Architect'
