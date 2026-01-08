@@ -2,10 +2,8 @@
 export default defineNuxtConfig({
   compatibilityDate: '2026-01-08',
 
-  // Nuxt 4 compatibility
-  future: {
-    compatibilityVersion: 4,
-  },
+  // Set source directory to app/
+  srcDir: 'app',
 
   // Enable static generation
   nitro: {
