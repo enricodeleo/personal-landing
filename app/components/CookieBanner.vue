@@ -25,12 +25,6 @@
               </p>
             </div>
             <div class="flex flex-col sm:flex-row items-center gap-3 shrink-0">
-              <button
-                class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md transition-colors cursor-pointer"
-                @click="showPreferences = true"
-              >
-                Preferenze
-              </button>
               <a
                 href="#"
                 class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 underline underline-offset-4 hover:decoration-2 cursor-pointer"
@@ -39,7 +33,13 @@
                 Rifiuta
               </a>
               <button
-                class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md transition-colors cursor-pointer"
+                class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-200/80 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md transition-colors cursor-pointer"
+                @click="showPreferences = true"
+              >
+                Preferenze
+              </button>
+              <button
+                class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700/80 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md transition-colors cursor-pointer"
                 @click="accept"
               >
                 Accetta tutti
