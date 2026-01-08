@@ -6,6 +6,11 @@ export default defineNuxtConfig({
   // Set source directory to app/
   srcDir: 'app',
 
+  // Use legacy static/ folder for public assets
+  dir: {
+    public: 'static',
+  },
+
   // Development tools
   devtools: {
     enabled: true,
@@ -31,12 +36,15 @@ export default defineNuxtConfig({
       meta: [
         { name: 'author', content: 'Enrico Deleo' }
       ],
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/icon.png' },
+        { rel: 'apple-touch-icon', href: '/icon.png' },
+      ],
     },
   },
 
   // Modules
   modules: [
-    '@nuxtjs/color-mode',
     '@nuxtjs/robots',
     '@nuxt/eslint',
     'nuxt-gtag',
@@ -47,13 +55,6 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
-  },
-
-  // Color mode configuration
-  colorMode: {
-    preference: 'system',
-    fallback: 'light',
-    classSuffix: '',
   },
 
   // Robots.txt
@@ -79,6 +80,9 @@ export default defineNuxtConfig({
       background_color: '#ffffff',
       display: 'standalone',
       lang: 'it',
+      icons: [
+        { src: '/icon.png', sizes: '192x192', type: 'image/png' },
+      ],
     },
     workbox: {
       globPatterns: ['**/*.{js,css,html,png,jpg,svg,woff2}'],

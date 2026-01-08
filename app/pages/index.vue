@@ -78,26 +78,38 @@
 
       <aside v-if="colorMode.value" class="text-xs text-center pb-8 cursor-pointer select-none" @click="changeMode()">
         Passa al tema
-        <span v-show="colorMode.value === 'dark'" class="bg-gray-50 bg-opacity-75 text-black px-2 py-0.5 rounded-md">chiaro ☀️</span>
-        <span v-show="colorMode.value !== 'dark'" class="bg-gray-800 bg-opacity-75 text-gray-200 px-2 py-0.5 rounded-md">scuro 🌙</span>
+        <span v-show="isDark" class="bg-gray-50 bg-opacity-75 text-black px-2 py-0.5 rounded-md">chiaro ☀️</span>
+        <span v-show="!isDark" class="bg-gray-800 bg-opacity-75 text-gray-200 px-2 py-0.5 rounded-md">scuro 🌙</span>
       </aside>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
+import { useColorMode, usePreferredDark } from '@vueuse/core'
 
-// Auto-imported composables (no need to import)
-const colorMode = useColorMode()
+const colorMode = useColorMode({
+  selector: 'html',
+  attribute: 'class',
+  initialValue: 'auto',
+})
+const prefersDark = usePreferredDark()
 const router = useRouter()
 
 // Reactive state
 const currentYear = ref(new Date().getFullYear())
 
+const isDark = computed(() => {
+  if (colorMode.value === 'auto') {
+    return prefersDark.value
+  }
+  return colorMode.value === 'dark'
+})
+
 // Methods as regular functions
 const changeMode = () => {
-  colorMode.preference = colorMode.preference === 'light' ? 'dark' : 'light'
+  colorMode.value = isDark.value ? 'light' : 'dark'
 }
 
 const goHome = () => {
