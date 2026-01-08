@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container mx-auto dark:text-gray-200 sm:subpixel-antialiased md:antialiased leading-relaxed ">
-      <img src="~/assets/logo-enrico-deleo.svg" class="max-w-sm mx-auto p-12 fill-current cursor-pointer" alt="Enrico Deleo logo" @click="goHome()" />
+      <img src="~/assets/logo-enrico-deleo.svg" class="max-w-sm mx-auto p-12 fill-current cursor-pointer" alt="Enrico Deleo logo" @click="goHome()">
 
       <section class="max-w-prose mx-auto px-5">
         <article class="flex flex-wrap">
@@ -78,8 +78,12 @@
 
       <aside v-if="colorMode.value" class="text-xs text-center pb-8 cursor-pointer select-none" @click="changeMode()">
         Passa al tema
-        <span v-show="isDark" class="bg-gray-50 bg-opacity-75 text-black px-2 py-0.5 rounded-md">chiaro ☀️</span>
-        <span v-show="!isDark" class="bg-gray-800 bg-opacity-75 text-gray-200 px-2 py-0.5 rounded-md">scuro 🌙</span>
+        <span
+          class="px-2 py-0.5 rounded-md"
+          :class="nextMode === 'dark' ? 'bg-gray-800 bg-opacity-75 text-gray-200' : 'bg-gray-50 bg-opacity-75 text-black'"
+        >
+          {{ nextModeLabel }} {{ nextModeIcon }}
+        </span>
       </aside>
     </div>
   </div>
@@ -87,29 +91,43 @@
 
 <script setup>
 import { computed, onMounted, ref } from 'vue'
-import { useColorMode, usePreferredDark } from '@vueuse/core'
 
 const colorMode = useColorMode({
   selector: 'html',
   attribute: 'class',
   initialValue: 'auto',
+  emitAuto: true,
+  modes: {
+    dark: 'dark',
+    light: '',
+  },
 })
-const prefersDark = usePreferredDark()
 const router = useRouter()
+const route = useRoute()
+const { siteUrl, siteName, siteLocale, siteLanguage, siteDescription, ogImage, profileImage, sameAs } = useSiteMeta()
 
-// Reactive state
-const currentYear = ref(new Date().getFullYear())
-
-const isDark = computed(() => {
-  if (colorMode.value === 'auto') {
-    return prefersDark.value
-  }
-  return colorMode.value === 'dark'
+const modeOrder = ['auto', 'light', 'dark']
+const modeLabels = {
+  auto: 'auto',
+  light: 'chiaro',
+  dark: 'scuro',
+}
+const modeIcons = {
+  auto: '🌓',
+  light: '☀️',
+  dark: '🌙',
+}
+const nextMode = computed(() => {
+  const currentIndex = modeOrder.indexOf(colorMode.value)
+  const nextIndex = currentIndex === -1 ? 0 : (currentIndex + 1) % modeOrder.length
+  return modeOrder[nextIndex]
 })
+const nextModeLabel = computed(() => modeLabels[nextMode.value] ?? nextMode.value)
+const nextModeIcon = computed(() => modeIcons[nextMode.value] ?? '🌓')
 
 // Methods as regular functions
 const changeMode = () => {
-  colorMode.value = isDark.value ? 'light' : 'dark'
+  colorMode.value = nextMode.value
 }
 
 const goHome = () => {
@@ -117,21 +135,90 @@ const goHome = () => {
 }
 
 // Head configuration
-const fbImage = '/fb-image.jpg'
-
-useHead({
-  title: 'Enrico Deleo - Fractional CTO & AI Solutions Architect',
-  meta: [
-    { property: 'og:title', content: 'Enrico Deleo' },
-    { property: 'og:description', content: 'Digital Entrepreneur // Web & Mobile Developer | DevOps | UI/UX' },
-    { property: 'og:image', content: fbImage },
-    { property: 'og:image:width', content: '1200' },
-    { property: 'og:image:height', content: '630' },
-    { property: 'og:image:type', content: 'image/jpg' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:image', content: fbImage },
-  ]
+const pageTitle = 'Enrico Deleo - Fractional CTO & AI Solutions Architect'
+const pageDescription = 'AI pragmatica e data-driven per accelerare business e prodotti: LLM, cloud architecture e leadership tecnologica.'
+const canonicalUrl = computed(() => {
+  const path = route.path === '/' ? '/' : route.path.replace(/\/$/, '')
+  return `${siteUrl}${path}`
 })
+
+useSeoMeta(() => ({
+  title: pageTitle,
+  description: pageDescription,
+  ogTitle: siteName,
+  ogDescription: pageDescription,
+  ogType: 'website',
+  ogUrl: canonicalUrl.value,
+  ogImage,
+  ogImageWidth: '1200',
+  ogImageHeight: '630',
+  ogImageType: 'image/jpeg',
+  ogSiteName: siteName,
+  ogLocale: siteLocale,
+  twitterCard: 'summary_large_image',
+  twitterTitle: siteName,
+  twitterDescription: pageDescription,
+  twitterImage: ogImage,
+}))
+
+useHead(() => ({
+  link: [
+    { rel: 'canonical', href: canonicalUrl.value },
+  ],
+  script: [
+    {
+      key: 'ld-json',
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Person',
+            '@id': `${siteUrl}/#person`,
+            name: siteName,
+            url: siteUrl,
+            image: profileImage,
+            jobTitle: 'Fractional CTO & AI Solutions Architect',
+            description: siteDescription,
+            sameAs,
+            knowsAbout: [
+              'Large Language Models',
+              'AI strategy',
+              'Fractional CTO',
+              'Cloud architecture',
+              'DevOps',
+              'Product strategy',
+            ],
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: 'Roma',
+              addressCountry: 'IT',
+            },
+          },
+          {
+            '@type': 'WebSite',
+            '@id': `${siteUrl}/#website`,
+            url: siteUrl,
+            name: siteName,
+            description: siteDescription,
+            inLanguage: siteLanguage,
+            publisher: { '@id': `${siteUrl}/#person` },
+          },
+          {
+            '@type': 'ProfilePage',
+            '@id': `${canonicalUrl.value}#webpage`,
+            url: canonicalUrl.value,
+            name: pageTitle,
+            description: pageDescription,
+            inLanguage: siteLanguage,
+            isPartOf: { '@id': `${siteUrl}/#website` },
+            mainEntity: { '@id': `${siteUrl}/#person` },
+          },
+        ],
+      }),
+    },
+  ],
+}))
 
 // Mounted hook
 onMounted(() => {

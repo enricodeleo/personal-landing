@@ -1,5 +1,7 @@
 import tailwindcss from '@tailwindcss/vite';
 
+const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'https://enricodeleo.com';
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
 
@@ -30,6 +32,9 @@ export default defineNuxtConfig({
   // App configuration
   app: {
     head: {
+      htmlAttrs: {
+        lang: 'it',
+      },
       charset: 'utf-8',
       viewport: 'width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0',
       title: 'Enrico Deleo',
@@ -47,6 +52,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/robots',
     '@nuxt/eslint',
+    '@vueuse/nuxt',
     'nuxt-gtag',
     '@vite-pwa/nuxt',
   ],
@@ -61,6 +67,7 @@ export default defineNuxtConfig({
   robots: {
     UserAgent: '*',
     Allow: '/',
+    Sitemap: `${siteUrl}/sitemap.xml`,
   },
 
   // Google Analytics (GA4) with nuxt-gtag
@@ -107,7 +114,7 @@ export default defineNuxtConfig({
   // Runtime config for environment variables
   runtimeConfig: {
     public: {
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://enricodeleo.com',
+      siteUrl,
     }
   },
 })
