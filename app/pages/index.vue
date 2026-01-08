@@ -6,7 +6,7 @@
         class="inline-svg block max-w-sm mx-auto p-12 fill-current text-gray-900 dark:text-gray-200"
         aria-label="Enrico Deleo logo"
       >
-        <span class="block w-full" aria-hidden="true" v-html="logoSvg"></span>
+        <span class="block w-full" aria-hidden="true" v-html="logoSvg"/>
       </NuxtLink>
 
       <section class="max-w-prose mx-auto px-5">
@@ -178,22 +178,20 @@ useHead(() => ({
   ],
 }))
 
-// Mounted hook
-onMounted(() => {
-  const existing = document.querySelector('script[data-agent-id="f991cc4b-610b-4c57-bfca-6e1f8d9a1852"]')
-  if (!existing) {
-    const script = document.createElement('script')
-    script.src = 'https://cdn.jsdelivr.net/gh/Autocust/ai-chat-widget@2.3.9/dist/chat-widget.min.js'
-    script.setAttribute('data-api-url', 'https://assistant.aisa.tractiontools.it')
-    script.setAttribute('data-agent-id', 'f991cc4b-610b-4c57-bfca-6e1f8d9a1852')
-    script.defer = true
-    document.body.appendChild(script)
-  }
+// AI Chat Widget with consent-based loading
+const consent = inject('cookieConsent')
+
+useScript({
+  src: 'https://cdn.jsdelivr.net/gh/Autocust/ai-chat-widget@3.2.13/dist/chat-widget.min.js',
+  scriptOptions: {
+    attributes: {
+      'data-api-url': 'https://assistant.aisa.tractiontools.it',
+      'data-agent-id': 'f991cc4b-610b-4c57-bfca-6e1f8d9a1852',
+    },
+    trigger: consent,
+  },
 })
 </script>
 
 <style>
-.iubenda-ibadge {
-  margin: 0 auto;
-}
 </style>

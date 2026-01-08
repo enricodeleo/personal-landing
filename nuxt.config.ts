@@ -53,7 +53,7 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     '@nuxt/eslint',
     '@vueuse/nuxt',
-    'nuxt-gtag',
+    '@nuxt/scripts',
     '@vite-pwa/nuxt',
   ],
 
@@ -68,11 +68,6 @@ export default defineNuxtConfig({
     UserAgent: '*',
     Allow: '/',
     Sitemap: `${siteUrl}/sitemap.xml`,
-  },
-
-  // Google Analytics (GA4) with nuxt-gtag
-  gtag: {
-    id: 'G-E799VL4Y93',
   },
 
   // PWA configuration with @vite-pwa/nuxt

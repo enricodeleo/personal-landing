@@ -7,7 +7,7 @@
           class="inline-svg block w-full p-12 fill-current text-gray-900 dark:text-gray-200"
           aria-label="Enrico Deleo logo"
         >
-          <span class="block w-full" aria-hidden="true" v-html="logoSvg"></span>
+          <span class="block w-full" aria-hidden="true" v-html="logoSvg"/>
         </NuxtLink>
       </div>
 

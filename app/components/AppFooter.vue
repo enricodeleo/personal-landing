@@ -46,16 +46,13 @@
       <p class="pb-3">
         Copyright &copy; 2010-{{ currentYear }} Enrico Deleo
       </p>
-      <a href="https://www.iubenda.com/privacy-policy/13699998" class="iubenda-black iubenda-embed mx-auto" title="Privacy Policy ">
-        Privacy Policy
-      </a>
       <div class="pt-4 text-center text-xs">
         <button
           type="button"
           class="inline-flex items-center gap-2 rounded-md border px-2 py-1 transition-colors"
           :class="buttonToneClasses"
-          @click="next()"
           :aria-label="stateLabel"
+          @click="next()"
         >
           <span>{{ stateLabel }}</span>
           <span v-if="state === 'light'" aria-hidden="true">☀️</span>
@@ -118,7 +115,4 @@ const socialLinks = [
 </script>
 
 <style>
-.iubenda-ibadge {
-  margin: 0 auto;
-}
 </style>
