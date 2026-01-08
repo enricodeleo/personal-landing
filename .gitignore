@@ -72,6 +72,14 @@ typings/
 # Nuxt generate
 dist
 
+# Nuxt 3/4
+.nitro
+.output
+.data
+
+# Vite
+.vite
+
 # vuepress build output
 .vuepress/dist
 
@@ -89,3 +97,4 @@ sw.*
 
 # Vim swap files
 *.swp
+.claude/

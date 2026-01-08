@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container mx-auto dark:text-gray-200 sm:subpixel-antialiased md:antialiased leading-relaxed ">
-      <EnricoDeleoLogo class="max-w-sm mx-auto p-12 fill-current" alt="Enrico Deleo logo" @click="goHome()" />
+      <img src="~/assets/logo-enrico-deleo.svg" class="max-w-sm mx-auto p-12 fill-current cursor-pointer" alt="Enrico Deleo logo" @click="goHome()" />
 
       <section class="max-w-prose mx-auto px-5">
         <article class="flex flex-wrap">
@@ -76,74 +76,63 @@
 
       <AppFooter />
 
-      <aside v-if="$colorMode.value" class="text-xs text-center pb-8 cursor-pointer select-none" @click="changeMode()">
+      <aside v-if="colorMode.value" class="text-xs text-center pb-8 cursor-pointer select-none" @click="changeMode()">
         Passa al tema
-        <span v-show="$colorMode.value === 'dark'" class="bg-gray-50 bg-opacity-75 text-black px-2 py-0.5 rounded-md">chiaro ☀️</span>
-        <span v-show="$colorMode.value !== 'dark'" class="bg-gray-800 bg-opacity-75 text-gray-200 px-2 py-0.5 rounded-md">scuro 🌙</span>
+        <span v-show="colorMode.value === 'dark'" class="bg-gray-50 bg-opacity-75 text-black px-2 py-0.5 rounded-md">chiaro ☀️</span>
+        <span v-show="colorMode.value !== 'dark'" class="bg-gray-800 bg-opacity-75 text-gray-200 px-2 py-0.5 rounded-md">scuro 🌙</span>
       </aside>
     </div>
   </div>
 </template>
 
-<script>
-import fbImage from '~/assets/fb-image.jpg'
-import EnricoDeleoLogo from '~/assets/logo-enrico-deleo.svg?inline'
-import BrevoForm from '~/components/BrevoForm.vue'
+<script setup>
+import { ref, onMounted } from 'vue'
 
-export default {
-  components: {
-    EnricoDeleoLogo,
-    BrevoForm
-  },
+// Auto-imported composables (no need to import)
+const colorMode = useColorMode()
+const router = useRouter()
 
-  data () {
-    return {
-      currentYear: new Date().getFullYear()
-    }
-  },
+// Reactive state
+const currentYear = ref(new Date().getFullYear())
 
-  mounted () {
-    const existing = document.querySelector('script[data-agent-id="f991cc4b-610b-4c57-bfca-6e1f8d9a1852"]')
-    if (!existing) {
-      const script = document.createElement('script')
-      script.src = 'https://cdn.jsdelivr.net/gh/Autocust/ai-chat-widget@2.3.9/dist/chat-widget.min.js'
-      script.setAttribute('data-api-url', 'https://assistant.aisa.tractiontools.it')
-      script.setAttribute('data-agent-id', 'f991cc4b-610b-4c57-bfca-6e1f8d9a1852')
-      script.defer = true
-      document.body.appendChild(script)
-    }
-  },
-
-  methods: {
-    changeMode () {
-      this.$colorMode.preference = this.$colorMode.preference === 'light' ? 'dark' : 'light'
-    },
-    goHome () {
-      this.$router.push('/')
-    }
-  },
-
-  head () {
-    return this.$seo({
-      image: {
-        width: 1200,
-        height: 630,
-        alt: 'Enrico Deleo',
-        url: fbImage,
-        type: 'image/jpg'
-      },
-      openGraph: {
-        image: {
-          width: 1200,
-          height: 630,
-          alt: 'Enrico Deleo',
-          url: fbImage,
-          type: 'image/jpg'
-        }
-      }
-    })
-  }
+// Methods as regular functions
+const changeMode = () => {
+  colorMode.preference = colorMode.preference === 'light' ? 'dark' : 'light'
 }
+
+const goHome = () => {
+  router.push('/')
+}
+
+// Head configuration
+const fbImage = '/fb-image.jpg'
+
+useHead({
+  title: 'Enrico Deleo - Fractional CTO & AI Solutions Architect',
+  meta: [
+    { property: 'og:title', content: 'Enrico Deleo' },
+    { property: 'og:description', content: 'Digital Entrepreneur // Web & Mobile Developer | DevOps | UI/UX' },
+    { property: 'og:image', content: fbImage },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
+    { property: 'og:image:type', content: 'image/jpg' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:image', content: fbImage },
+  ]
+})
+
+// Mounted hook
+onMounted(() => {
+  const existing = document.querySelector('script[data-agent-id="f991cc4b-610b-4c57-bfca-6e1f8d9a1852"]')
+  if (!existing) {
+    const script = document.createElement('script')
+    script.src = 'https://cdn.jsdelivr.net/gh/Autocust/ai-chat-widget@2.3.9/dist/chat-widget.min.js'
+    script.setAttribute('data-api-url', 'https://assistant.aisa.tractiontools.it')
+    script.setAttribute('data-agent-id', 'f991cc4b-610b-4c57-bfca-6e1f8d9a1852')
+    script.defer = true
+    document.body.appendChild(script)
+  }
+})
 </script>
 
 <style>

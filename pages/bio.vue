@@ -2,7 +2,7 @@
   <div>
     <div class="container mx-auto dark:text-gray-200 sm:subpixel-antialiased md:antialiased leading-relaxed ">
       <div class="w-56 mx-auto" @click="goHome()">
-        <EnricoDeleoLogo class="w-full h-auto p-12 fill-current" alt="Enrico Deleo logo" />
+        <img src="~/assets/logo-enrico-deleo.svg" class="w-full h-auto p-12 fill-current cursor-pointer" alt="Enrico Deleo logo" />
       </div>
 
       <section class="max-w-prose mx-auto px-5">
@@ -216,51 +216,39 @@
   </div>
 </template>
 
-<script>
-import fbImage from '~/assets/fb-image.jpg'
-import EnricoDeleoLogo from '~/assets/logo-enrico-deleo.svg?inline'
-import AppFooter from '~/components/AppFooter.vue'
+<script setup>
+import { ref } from 'vue'
 
-export default {
-  name: 'BioPage',
-  components: {
-    EnricoDeleoLogo,
-    AppFooter
-  },
-  data () {
-    return {
-      currentYear: new Date().getFullYear()
-    }
-  },
-  methods: {
-    changeMode () {
-      this.$colorMode.preference = this.$colorMode.preference === 'light' ? 'dark' : 'light'
-    },
-    goHome () {
-      this.$router.push('/')
-    }
-  },
-  head () {
-    return this.$seo({
-      image: {
-        width: 1200,
-        height: 630,
-        alt: 'Enrico Deleo',
-        url: fbImage,
-        type: 'image/jpg'
-      },
-      openGraph: {
-        image: {
-          width: 1200,
-          height: 630,
-          alt: 'Enrico Deleo',
-          url: fbImage,
-          type: 'image/jpg'
-        }
-      }
-    })
-  }
+// Auto-imported composables
+const colorMode = useColorMode()
+const router = useRouter()
+
+// Reactive state
+const currentYear = ref(new Date().getFullYear())
+
+// Methods as regular functions
+const changeMode = () => {
+  colorMode.preference = colorMode.preference === 'light' ? 'dark' : 'light'
 }
+
+const goHome = () => {
+  router.push('/')
+}
+
+// Head configuration
+const fbImage = '/fb-image.jpg'
+
+useHead({
+  title: 'Bio - Enrico Deleo',
+  meta: [
+    { property: 'og:title', content: 'Enrico Deleo - Bio' },
+    { property: 'og:description', content: 'La storia di Enrico Deleo' },
+    { property: 'og:image', content: fbImage },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
+    { property: 'og:image:type', content: 'image/jpg' },
+  ]
+})
 </script>
 
 <style>
