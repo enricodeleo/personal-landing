@@ -3,6 +3,7 @@
   "description": "Landing personale di Enrico Deleo",
   "version": "1.0.13",
   "private": true,
+  "type": "module",
   "author": {
     "name": "Enrico Deleo",
     "email": "hello@enricodeleo.com",
