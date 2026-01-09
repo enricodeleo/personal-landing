@@ -39,6 +39,14 @@
       <NuxtLink to="/bio" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
         Bio
       </NuxtLink>
+      <span class="mx-2">•</span>
+      <NuxtLink to="/cookie-policy" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+        Cookie Policy
+      </NuxtLink>
+      <span class="mx-2">•</span>
+      <NuxtLink to="/privacy-policy" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+        Privacy Policy
+      </NuxtLink>
     </nav>
     <footer class="max-w-prose mx-auto text-center text-sm text-gray-500 dark:text-gray-400 pb-5 px-5 md:px-12 select-none">
       <p class="pb-3">

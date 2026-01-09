@@ -56,7 +56,7 @@
               <div class="flex items-start gap-3 py-4">
                 <div class="flex-1">
                   <p class="font-bold mb-1">
-                    Misurazione
+                    Cookie misurazione
                   </p>
                   <p class="text-slate-600 dark:text-slate-300">
                     Permettono di misurare il traffico e analizzare come viene usato il sito.
@@ -72,7 +72,7 @@
               <div class="flex items-start gap-3 py-4">
                 <div class="flex-1">
                   <p class="font-bold mb-1">
-                    Necessari
+                    Cookie strettamente necessari (sempre attivi)
                   </p>
                   <p class="text-slate-600 dark:text-slate-300">
                     Sempre attivi. Servono per il funzionamento del sito, inclusa la chat AI.
@@ -120,7 +120,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
+defineProps({
   isOpen: {
     type: Boolean,
     default: false,

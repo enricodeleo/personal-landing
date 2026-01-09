@@ -7,7 +7,7 @@
           class="inline-svg block w-full p-12 fill-current text-gray-900 dark:text-gray-200"
           aria-label="Enrico Deleo logo"
         >
-          <span class="block w-full" aria-hidden="true" v-html="logoSvg"/>
+          <span class="block w-full" aria-hidden="true" v-html="logoSvg" />
         </NuxtLink>
       </div>
 
@@ -20,11 +20,11 @@
           </div>
 
           <p class="pb-3">
-            <strong>Ultimo aggiornamento: Gennaio 2026</strong>
+            <strong>Ultimo aggiornamento: gennaio 2026</strong>
           </p>
 
           <p class="pb-3">
-            Questa Cookie Policy spiega come questo sito ("il Sito") utilizza i cookie e tecnologie simili per riconoscere l'utente quando visita il Sito.
+            Questa Cookie Policy descrive come questo sito utilizza cookie e tecnologie simili per garantirne il corretto funzionamento e, previo consenso, raccogliere informazioni aggregate sull'utilizzo.
           </p>
 
           <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
@@ -32,7 +32,7 @@
           </h2>
 
           <p class="pb-3">
-            I cookie sono piccoli file di testo che vengono salvati sul tuo dispositivo quando visiti un sito web. Vengono utilizzati per memorizzare informazioni sulle tue visite e per rendere l'esperienza di navigazione più conforme alle tue preferenze.
+            I cookie sono piccoli file di testo che vengono salvati sul tuo dispositivo quando visiti un sito web. Servono a consentire il corretto funzionamento del sito e, in alcuni casi, a raccogliere informazioni statistiche sull'utilizzo.
           </p>
 
           <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
@@ -44,13 +44,13 @@
           </h3>
 
           <p class="pb-3">
-            Questi cookie sono essenziali per il funzionamento del Sito e non possono essere disabilitati. Vengono utilizzati per:
+            Questi cookie sono essenziali per il funzionamento del sito e non possono essere disabilitati. Vengono utilizzati per:
           </p>
 
           <ul class="list-disc pl-5 pb-3">
-            <li>Mantenere la sessione dell'utente</li>
-            <li>Consentire la navigazione tra le pagine</li>
-            <li>Abilitare funzionalità essenziali come la chat AI</li>
+            <li>mantenere la sessione di navigazione</li>
+            <li>consentire la navigazione tra le pagine</li>
+            <li>essenziali per le funzionalità del sito, come la chat AI</li>
           </ul>
 
           <h3 class="text-lg font-bold my-4">
@@ -58,66 +58,57 @@
           </h3>
 
           <p class="pb-3">
-            Questi cookie raccolgono informazioni aggregate sull'utilizzo del Sito per analizzare il traffico e comprendere come gli utenti interagiscono con i contenuti. Vengono utilizzati solo previo tuo consenso e includono:
+            Questi cookie raccolgono informazioni aggregate sull'utilizzo del sito per analizzare il traffico e migliorarne i contenuti.
           </p>
 
-          <ul class="list-disc pl-5 pb-3">
-            <li><strong>Google Analytics 4</strong> - per analizzare le tendenze di navigazione in forma anonima e aggregata</li>
-          </ul>
+          <p class="pb-3">
+            Google Analytics 4, utilizzato esclusivamente per finalità statistiche
+          </p>
 
           <p class="pb-3">
-            Puoi rifiutare questi cookie attraverso il pannello delle preferenze accessibile dal banner cookie o in qualsiasi momento modificando le impostazioni del tuo browser.
+            nessun utilizzo per advertising, remarketing o profilazione
+          </p>
+
+          <p class="pb-3">
+            Questi cookie vengono attivati solo previo consenso tramite il banner o il pannello delle preferenze.
+          </p>
+
+          <p class="pb-3">
+            Alcuni servizi utilizzati dal sito sono forniti da terze parti selezionate e utilizzati esclusivamente per finalità tecniche o statistiche.
           </p>
 
           <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
-            Come gestire i cookie
+            Gestione delle preferenze
           </h2>
 
           <p class="pb-3">
-            Puoi gestire le tue preferenze sui cookie in diversi modi:
+            Puoi:
           </p>
 
           <ul class="list-disc pl-5 pb-3">
-            <li>Attraverso il banner cookie che appare alla prima visita</li>
-            <li>Tramite il pannello delle preferenze accessibile in ogni momento</li>
-            <li>Modificando le impostazioni del tuo browser (nota che questo potrebbe compromettere alcune funzionalità del Sito)</li>
+            <li>accettare o rifiutare i cookie di misurazione tramite il banner alla prima visita</li>
+            <li>modificare o revocare il consenso in qualsiasi momento tramite il pannello delle preferenze disponibile sul sito</li>
+            <li>gestire i cookie anche tramite le impostazioni del tuo browser (nota che la disattivazione dei cookie necessari può compromettere il funzionamento del sito)</li>
           </ul>
-
-          <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
-            Cookie di terze parti
-          </h2>
-
-          <p class="pb-3">
-            Questo Sito potrebbe incorporare contenuti o servizi di terze parti (es. widget sociali, video) che utilizzano cookie indipendenti. Questi cookie sono soggetti alle privacy policy delle rispettive terze parti.
-          </p>
 
           <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
             Durata dei cookie
           </h2>
 
           <p class="pb-3">
-            I cookie utilizzati da questo Sito hanno diverse durate:
+            Cookie di sessione: scadono alla chiusura del browser
           </p>
 
-          <ul class="list-disc pl-5 pb-3">
-            <li><strong>Cookie di sessione</strong> - scadono quando chiudi il browser</li>
-            <li><strong>Cookie persistenti</strong> - rimangono sul tuo dispositivo per un periodo definito (solitamente da alcuni mesi a 2 anni)</li>
-          </ul>
+          <p class="pb-3">
+            Cookie persistenti: restano memorizzati per un periodo limitato, secondo le impostazioni dei singoli servizi utilizzati
+          </p>
 
           <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
             Modifiche a questa policy
           </h2>
 
           <p class="pb-3">
-            Ci riserviamo il diritto di modificare questa Cookie Policy in qualsiasi momento. Le modifiche saranno pubblicate su questa pagina con l'indicazione della data di aggiornamento.
-          </p>
-
-          <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
-            Contatti
-          </h2>
-
-          <p class="pb-3">
-            Per qualsiasi domanda relativa all'utilizzo dei cookie su questo Sito, puoi contattarmi tramite i canali indicati nella pagina dei contatti.
+            Questa Cookie Policy può essere aggiornata nel tempo. Eventuali modifiche saranno pubblicate su questa pagina con l'indicazione della data di aggiornamento.
           </p>
         </article>
       </section>
