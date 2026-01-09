@@ -45,7 +45,7 @@
             <li><strong>Tech Coaching &amp; Workshop</strong> - formazione su AI, product-led growth, agile best practice.</li>
           </ul>
 
-          <p class="mt-4 border-l-4 border-amber-600 px-4 py-3 text-sm text-slate-800 dark:bg-[#111827]/50 dark:text-[#CBD5E1]">
+          <p class="mt-4 border-l-4 border-amber-600 px-4 py-3 text-slate-800 dark:bg-[#111827]/50 dark:text-[#CBD5E1]">
             Metto in gioco il mio <strong>capitale intellettuale</strong> e la mia reputazione quanto il tuo budget.
             Dispongo di <strong>1 slot a trimestre</strong>: se ambisci al livello successivo, scrivimi.
           </p>

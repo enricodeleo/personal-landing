@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container mx-auto sm:subpixel-antialiased md:antialiased leading-relaxed pb-40">
+    <div class="container mx-auto sm:subpixel-antialiased md:antialiased leading-relaxed">
       <div class="w-56 mx-auto">
         <NuxtLink
           to="/"

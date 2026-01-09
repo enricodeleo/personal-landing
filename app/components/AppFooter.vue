@@ -31,7 +31,7 @@
         v-html="dividerShapeSvg"
       />
     </div>
-    <nav class="mx-auto max-w-max mb-4">
+    <nav class="mx-auto max-w-max text-gray-500 dark:text-[#94A3B8]">
       <NuxtLink to="/" class="text-gray-500 hover:text-gray-700 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
         Home
       </NuxtLink>
@@ -39,24 +39,25 @@
       <NuxtLink to="/bio" class="text-gray-500 hover:text-gray-700 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
         Bio
       </NuxtLink>
-      <span class="mx-2">•</span>
-      <NuxtLink to="/cookie-policy" class="text-gray-500 hover:text-gray-700 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
-        Cookie Policy
-      </NuxtLink>
-      <span class="mx-2">•</span>
-      <NuxtLink to="/privacy-policy" class="text-gray-500 hover:text-gray-700 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
-        Privacy Policy
-      </NuxtLink>
     </nav>
-    <footer class="max-w-prose mx-auto text-center text-sm text-gray-500 dark:text-[#94A3B8] pb-5 px-5 md:px-12 select-none">
-      <p class="pb-3">
+    <footer class="max-w-prose mx-auto text-center text-sm text-gray-500 dark:text-[#94A3B8] px-5 md:px-12 select-none">
+      <p class="mt-3">
         Deleo Enrico - P.IVA: 02714140841 - Codice REA: RM1678566
       </p>
-      <p class="pb-3">
+      <p class="mt-3">
         Copyright &copy; 2010-{{ currentYear }} Enrico Deleo
       </p>
+      <nav class="mx-auto max-w-max mt-4 text-xs text-gray-500 dark:text-[#94A3B8]">
+        <NuxtLink to="/cookie-policy" class="text-gray-500 hover:text-gray-700 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
+          Cookie Policy
+        </NuxtLink>
+        <span class="mx-2">•</span>
+        <NuxtLink to="/privacy-policy" class="text-gray-500 hover:text-gray-700 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
+          Privacy Policy
+        </NuxtLink>
+      </nav>
       <ClientOnly>
-        <div class="pt-4 text-center text-xs">
+        <div class="mt-8 text-center text-xs">
           <button
             type="button"
             class="inline-flex items-center gap-2 rounded-md border px-2 py-1 transition-colors"

@@ -7,18 +7,17 @@
   </div>
 </template>
 
-<script setup>
-// Cookie consent for loading scripts
-const consent = useScriptTriggerConsent()
+<script setup lang="ts">
+const { prefs } = useConsentCookie()
 
-// Load Google Analytics after consent
+const analyticsConsent = computed(() => prefs.value.resolved && prefs.value.analytics)
+
 useScriptGoogleAnalytics({
   id: 'G-E799VL4Y93',
   scriptOptions: {
-    trigger: consent,
+    trigger: useScriptTriggerConsent({
+      consent: analyticsConsent,
+    }),
   },
 })
-
-// Provide consent globally for components to use
-provide('cookieConsent', consent)
 </script>

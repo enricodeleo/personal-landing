@@ -56,35 +56,26 @@
   </div>
 </template>
 
-<script setup>
-const consent = inject('cookieConsent')
+<script setup lang="ts">
+const { prefs, acceptAll, rejectAll } = useConsentCookie()
 const showBanner = ref(false)
 const showPreferences = ref(false)
 
 onMounted(() => {
-  // Show banner if no consent has been given
-  if (import.meta.client) {
-    const hasConsent = localStorage.getItem('cookie-consent')
-    if (!hasConsent) {
-      // Delay appearance for better UX - feels like a "note", not an "interruption"
-      setTimeout(() => {
-        showBanner.value = true
-      }, 500)
-    } else if (hasConsent === 'accepted') {
-      // Auto-accept if user previously accepted
-      consent?.accept()
-    }
+  if (!prefs.value.resolved) {
+    setTimeout(() => {
+      showBanner.value = true
+    }, 500)
   }
 })
 
 function accept() {
-  consent?.accept()
-  localStorage.setItem('cookie-consent', 'accepted')
+  acceptAll()
   showBanner.value = false
 }
 
 function reject() {
-  localStorage.setItem('cookie-consent', 'rejected')
+  rejectAll()
   showBanner.value = false
 }
 </script>

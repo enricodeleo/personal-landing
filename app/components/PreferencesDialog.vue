@@ -63,9 +63,19 @@
                   </p>
                 </div>
                 <div class="flex items-center h-5">
-                  <div class="w-11 h-6 bg-gray-200 dark:bg-[#111827] rounded-full relative cursor-pointer">
-                    <div class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform" />
-                  </div>
+                  <button
+                    type="button"
+                    class="w-11 h-6 rounded-full relative transition-colors"
+                    :class="analyticsEnabled ? 'bg-green-500 dark:bg-green-600' : 'bg-gray-200 dark:bg-[#111827]'"
+                    @click="analyticsEnabled = !analyticsEnabled"
+                    :aria-pressed="analyticsEnabled"
+                    aria-label="Attiva o disattiva cookie di misurazione"
+                  >
+                    <span
+                      class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform"
+                      :class="analyticsEnabled ? 'translate-x-5' : 'translate-x-0'"
+                    />
+                  </button>
                 </div>
               </div>
 
@@ -93,20 +103,20 @@
             <div class="mt-6 pt-4 border-t border-gray-200 dark:border-[#94A3B8]/15 flex items-center justify-between gap-3">
               <button
                 class="px-4 py-2 text-gray-700 dark:text-[#CBD5E1] hover:text-gray-900 dark:hover:text-[#F8FAFC] cursor-pointer"
-                @click="close"
+                @click="onRejectAll"
               >
                 Rifiuta tutti
               </button>
               <div class="flex items-center gap-3">
                 <button
                   class="px-4 py-2 text-gray-700 dark:text-[#CBD5E1] bg-gray-200/80 dark:bg-[#111827] hover:bg-gray-200 dark:hover:bg-[#1F2937] border border-gray-300 dark:border-[#94A3B8]/20 rounded-md transition-colors cursor-pointer"
-                  @click="close"
+                  @click="onSave"
                 >
                   Salva e continua
                 </button>
                 <button
                   class="px-4 py-2 text-gray-700 dark:text-[#CBD5E1] bg-white dark:bg-[#111827]/80 hover:bg-gray-50 dark:hover:bg-[#1F2937] border border-gray-300 dark:border-[#94A3B8]/20 rounded-md transition-colors cursor-pointer"
-                  @click="close"
+                  @click="onAcceptAll"
                 >
                   Accetta tutti
                 </button>
@@ -119,8 +129,8 @@
   </ClientOnly>
 </template>
 
-<script setup>
-defineProps({
+<script setup lang="ts">
+const props = defineProps({
   isOpen: {
     type: Boolean,
     default: false,
@@ -129,7 +139,33 @@ defineProps({
 
 const emit = defineEmits(['close'])
 
+const { prefs, acceptAll, rejectAll, save } = useConsentCookie()
+
+const analyticsEnabled = ref(false)
+
+watch(
+  () => props.isOpen,
+  (open) => {
+    if (open) analyticsEnabled.value = prefs.value.analytics
+  }
+)
+
 function close() {
   emit('close')
+}
+
+function onSave() {
+  save(analyticsEnabled.value)
+  close()
+}
+
+function onAcceptAll() {
+  acceptAll()
+  close()
+}
+
+function onRejectAll() {
+  rejectAll()
+  close()
 }
 </script>
