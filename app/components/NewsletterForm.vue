@@ -1,6 +1,6 @@
 <template>
   <div class="mx-auto max-w-prose rounded-[15px] bg-[#F5F5F5] px-5 pt-10 pb-8 dark:bg-gray-800 md:px-12">
-    <form class="space-y-6" @submit.prevent>
+    <form class="space-y-6" @submit.prevent="handleSubmit">
       <!-- Label -->
       <label class="block text-base font-bold text-[#3c4858] dark:text-gray-200">
         I miei insight + link imperdibili, ogni settimana.
@@ -13,6 +13,7 @@
           type="email"
           placeholder="Email"
           class="w-full rounded-md border border-[#c0ccda] bg-white px-4 py-3 text-[#3c4858] placeholder:text-[#c0ccda] focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-50 dark:placeholder:text-gray-400"
+          :class="{ 'border-red-500 focus:border-red-500 focus:ring-red-500/20': error }"
           required
           @input="onInput"
           @focus="showDropdown = true"
@@ -34,7 +35,15 @@
           </div>
         </div>
 
-        <p class="text-xs text-[#8390A4] dark:text-gray-400">
+        <!-- Error Message -->
+        <p
+          v-if="error"
+          class="text-xs text-red-600"
+        >
+          {{ error }}
+        </p>
+
+        <p v-else class="text-xs text-[#8390A4] dark:text-gray-400">
           Indica il <strong>tuo miglior indirizzo email</strong> per iscriverti. Es. emailpersonale@gmail.com
         </p>
       </div>
@@ -54,6 +63,7 @@
 
 <script setup>
 const email = ref('')
+const error = ref('')
 const showDropdown = ref(false)
 const suggestions = ref([])
 
@@ -75,8 +85,14 @@ const domains = [
   '@live.it'
 ]
 
+const isValidEmail = (value) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  return emailRegex.test(value)
+}
+
 function onInput() {
   const value = email.value.toLowerCase()
+  email.value = value
 
   if (value.includes('@')) {
     const [localPart, domainPart] = value.split('@')
@@ -93,16 +109,49 @@ function onInput() {
   } else {
     showDropdown.value = false
   }
+
+  // Clear error when typing
+  if (error.value) {
+    error.value = ''
+  }
 }
 
 function selectSuggestion(suggestion) {
-  email.value = suggestion
+  email.value = suggestion.trim().toLowerCase()
   showDropdown.value = false
+  error.value = ''
 }
 
 function onBlur() {
   setTimeout(() => {
     showDropdown.value = false
+    const trimmed = email.value.trim()
+
+    if (trimmed && !isValidEmail(trimmed)) {
+      error.value = 'Inserisci un indirizzo email valido'
+    } else {
+      email.value = trimmed.toLowerCase()
+      error.value = ''
+    }
   }, 200)
+}
+
+function handleSubmit() {
+  const trimmed = email.value.trim()
+
+  if (!trimmed) {
+    error.value = 'Inserisci il tuo indirizzo email'
+    return false
+  }
+
+  if (!isValidEmail(trimmed)) {
+    error.value = 'Inserisci un indirizzo email valido'
+    return false
+  }
+
+  email.value = trimmed.toLowerCase()
+  error.value = ''
+  // Form is valid, submit logic here
+  return true
 }
 </script>

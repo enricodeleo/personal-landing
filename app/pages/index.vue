@@ -50,7 +50,7 @@
             Dispongo di <strong>1 slot a trimestre</strong>: se ambisci al livello successivo, scrivimi.
           </p>
 
-          <p class="mt-4 pb-3">
+          <p class="mt-4">
             Come <strong>Fractional CTO</strong>, offro una leadership tecnologica flessibile e strategica senza gravare
             sull'organico full-time. Questo consente di accedere a competenze senior per guidare progetti critici,
             costruire team performanti e scalare l'infrastruttura digitale con efficienza. Lavoro fianco a fianco con
@@ -58,9 +58,9 @@
             e riducendo rischi di crescita.
           </p>
 
-          <BrevoForm />
+          <NewsletterForm class="mt-8" />
 
-          <p class="pb-3">
+          <p class="mt-8 pb-3">
             Sono basato <strong>a Roma</strong>, al centro di un ecosistema tecnologico e imprenditoriale in continua crescita.
             Collaboro con startup e aziende di tutto il mondo, con team distribuiti dalla Cina al Sud America. La mia posizione
             mi consente di offrire supporto strategico sia in loco, partecipando attivamente alla scena tecnologica della
