@@ -96,11 +96,11 @@
               </div>
             </div>
 
-            <div class="mt-4 text-xs text-gray-500 dark:text-[#94A3B8] text-center">
-              Per maggiori informazioni, consulta la <NuxtLink to="/privacy-policy" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4">privacy</NuxtLink> e <NuxtLink to="/cookie-policy" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4">cookie policy</NuxtLink>.
+            <div class="mt-4 text-xs text-gray-500 dark:text-[#94A3B8]">
+              Per maggiori informazioni, consulta la <NuxtLink to="/privacy-policy" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4">privacy</NuxtLink> e la <NuxtLink to="/cookie-policy" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4">cookie policy</NuxtLink>.
             </div>
 
-            <div class="mt-3 text-xs text-gray-600 dark:text-[#94A3B8] text-center">
+            <div class="mt-3 text-xs text-gray-600 dark:text-[#94A3B8]">
               Le modifiche alle preferenze hanno effetto dalle successive navigazioni.
             </div>
 

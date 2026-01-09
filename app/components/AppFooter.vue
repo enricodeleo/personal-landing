@@ -60,7 +60,7 @@
         <div class="mt-8 text-center text-xs">
           <button
             type="button"
-            class="inline-flex items-center gap-2 rounded-md border px-2 py-1 transition-colors"
+            class="inline-flex cursor-pointer items-center gap-2 rounded-md border px-2 py-1 transition-colors"
             :class="buttonToneClasses"
             :aria-label="stateLabel"
             @click="next()"
