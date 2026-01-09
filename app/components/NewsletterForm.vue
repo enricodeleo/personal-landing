@@ -41,7 +41,9 @@
           required
           @input="onInput"
           @focus="showDropdown = true"
-          @blur="onBlur"
+          @blur="onInputBlur"
+          @keydown.down.prevent="focusFirstSuggestion"
+          ref="emailInput"
         >
 
         <!-- Suggestions Dropdown -->
@@ -52,8 +54,16 @@
           <div
             v-for="(suggestion, index) in suggestions"
             :key="index"
+            data-suggestion
             class="cursor-pointer px-4 py-2 text-sm text-[#3c4858] hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
+            :class="{ 'bg-gray-100 dark:bg-gray-700': focusedIndex === index }"
+            tabindex="0"
             @mousedown.prevent="selectSuggestion(suggestion)"
+            @keydown.enter.prevent="selectSuggestion(suggestion)"
+            @keydown.escape="showDropdown = false"
+            @mouseover="focusedIndex = index"
+            @focus="focusedIndex = index"
+            @blur="onSuggestionBlur"
           >
             {{ suggestion }}
           </div>
@@ -120,6 +130,7 @@
 
 <script setup>
 const email = ref('')
+const emailInput = ref(null)
 const honeypotValue = ref('')
 const acceptedPrivacy = ref(false)
 const error = ref('')
@@ -127,6 +138,7 @@ const serverError = ref('')
 const privacyError = ref('')
 const showDropdown = ref(false)
 const suggestions = ref([])
+const focusedIndex = ref(-1)
 const state = ref('idle') // 'idle' | 'loading' | 'success' | 'error'
 
 const domains = [
@@ -155,6 +167,7 @@ const isValidEmail = (value) => {
 function onInput() {
   const value = email.value.toLowerCase()
   email.value = value
+  focusedIndex.value = -1
 
   if (value.includes('@')) {
     const [localPart, domainPart] = value.split('@')
@@ -178,24 +191,58 @@ function onInput() {
   }
 }
 
+function focusFirstSuggestion() {
+  if (showDropdown.value && suggestions.value.length > 0) {
+    nextTick(() => {
+      const suggestionElements = document.querySelectorAll('[data-suggestion]')
+      if (suggestionElements[0]) {
+        suggestionElements[0].focus()
+        focusedIndex.value = 0
+      }
+    })
+  }
+}
+
 function selectSuggestion(suggestion) {
   email.value = suggestion.trim().toLowerCase()
   showDropdown.value = false
+  focusedIndex.value = -1
   error.value = ''
 }
 
-function onBlur() {
-  setTimeout(() => {
-    showDropdown.value = false
-    const trimmed = email.value.trim()
+function onInputBlur(event) {
+  // Check if the next focused element is a suggestion
+  const relatedTarget = event.relatedTarget
+  const isSuggestion = relatedTarget?.hasAttribute('data-suggestion')
 
-    if (trimmed && !isValidEmail(trimmed)) {
-      error.value = 'Inserisci un indirizzo email valido'
-    } else {
-      email.value = trimmed.toLowerCase()
-      error.value = ''
-    }
-  }, 200)
+  if (!isSuggestion) {
+    // Only validate and close if not moving to a suggestion
+    setTimeout(() => {
+      showDropdown.value = false
+      focusedIndex.value = -1
+      const trimmed = email.value.trim()
+
+      if (trimmed && !isValidEmail(trimmed)) {
+        error.value = 'Inserisci un indirizzo email valido'
+      } else {
+        email.value = trimmed.toLowerCase()
+        error.value = ''
+      }
+    }, 200)
+  }
+}
+
+function onSuggestionBlur(event) {
+  const relatedTarget = event.relatedTarget
+  const isInputOrSuggestion = relatedTarget === emailInput.value || relatedTarget?.hasAttribute('data-suggestion')
+
+  if (!isInputOrSuggestion) {
+    // Close dropdown if focus moves outside
+    setTimeout(() => {
+      showDropdown.value = false
+      focusedIndex.value = -1
+    }, 200)
+  }
 }
 
 async function handleSubmit() {
