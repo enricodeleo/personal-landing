@@ -90,19 +90,6 @@ export default defineNuxtConfig({
     },
     workbox: {
       globPatterns: ['**/*.{js,css,html,png,jpg,svg,woff2}'],
-      runtimeCaching: [
-        {
-          urlPattern: /^https:\/\/sibforms\.com\/.*/i,
-          handler: 'NetworkFirst',
-          options: {
-            cacheName: 'brevo-forms-cache',
-            expiration: {
-              maxEntries: 10,
-              maxAgeSeconds: 60 * 60 * 24 * 7 // 7 days
-            }
-          }
-        }
-      ]
     }
   },
 
@@ -112,6 +99,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       siteUrl,
+      n8nWebhookUrl: process.env.NUXT_PUBLIC_N8N_WEBHOOK_URL || 'https://n8n.enricodeleo.com/webhook-test/enricodeleo-com-newsletter-signup',
     }
   },
 })

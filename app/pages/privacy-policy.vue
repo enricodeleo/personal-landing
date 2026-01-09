@@ -182,16 +182,21 @@
           </p>
 
           <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
-            5) Newsletter (Brevo): trattamento e gestione iscrizione
+            5) Newsletter: trattamento e gestione iscrizione
           </h2>
 
           <p class="pb-3">
             Sul Sito è presente un modulo di iscrizione per ricevere comunicazioni informative.
           </p>
 
+          <p class="pb-3">
+            I dati forniti tramite il modulo di iscrizione sono raccolti e trattati dal Titolare attraverso strumenti tecnici di automazione e successivamente comunicati a fornitori terzi selezionati per la gestione delle comunicazioni.
+          </p>
+
           <ul class="list-disc pl-5 pb-3">
             <li><strong>Dati trattati:</strong> indirizzo email (e altri dati solo se inseriti dall'utente).</li>
             <li><strong>Finalità:</strong> invio di contenuti informativi e aggiornamenti.</li>
+            <li><strong>Base giuridica:</strong> consenso dell'utente espresso al momento dell'iscrizione.</li>
             <li><strong>Revoca:</strong> l'utente può revocare il consenso e disiscriversi in qualsiasi momento tramite i link presenti nelle email.</li>
           </ul>
 
@@ -260,7 +265,8 @@
           </p>
 
           <ul class="list-disc pl-5 pb-3">
-            <li>utilizzato per inviare comunicazioni informative</li>
+            <li><strong>Ruolo:</strong> Responsabile del trattamento</li>
+            <li><strong>Finalità:</strong> gestione iscrizioni e invio comunicazioni</li>
             <li>Brevo tratta i dati per conto del titolare secondo istruzioni</li>
           </ul>
 
@@ -302,13 +308,26 @@
           </h2>
 
           <p class="pb-3">
-            I dati sono conservati per il tempo strettamente necessario alle finalità indicate:
+            I dati sono conservati per il tempo strettamente necessario alle finalità indicate.
+          </p>
+
+          <p class="pb-3">
+            In particolare, i dati sono conservati:
+          </p>
+
+          <ul class="list-disc pl-5 pb-3">
+            <li>nei sistemi tecnici del Titolare (es. database, automazioni)</li>
+            <li>e presso fornitori terzi (es. Brevo)</li>
+          </ul>
+
+          <p class="pb-3">
+    Fino a:
           </p>
 
           <ul class="list-disc pl-5 pb-3">
             <li><strong>Dati di navigazione/log:</strong> per il tempo necessario a garantire sicurezza e gestione tecnica (tempi variabili in base ai sistemi e ai log di sicurezza).</li>
             <li><strong>Contatti raccolti via chat (ricontatto):</strong> per il tempo necessario a gestire la richiesta e i successivi eventuali scambi correlati.</li>
-            <li><strong>Newsletter (Brevo):</strong> fino alla revoca del consenso/disiscrizione.</li>
+            <li><strong>Newsletter:</strong> fino alla revoca del consenso, disiscrizione o richiesta di cancellazione.</li>
             <li><strong>Dati analytics:</strong> secondo le impostazioni dei servizi utilizzati e comunque solo previo consenso.</li>
           </ul>
 
