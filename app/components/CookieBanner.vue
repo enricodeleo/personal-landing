@@ -32,13 +32,13 @@
                 Rifiuta tutti
               </a>
               <button
-                class="px-4 py-2 text-sm text-gray-700 dark:text-[#CBD5E1] bg-gray-200/80 dark:bg-[#111827] hover:bg-gray-200 dark:hover:bg-[#1F2937] border border-gray-300 dark:border-[#94A3B8]/20 rounded-md transition-colors cursor-pointer"
+                class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-200/80 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md transition-colors cursor-pointer"
                 @click="open"
               >
                 Preferenze
               </button>
               <button
-                class="px-4 py-2 text-sm text-gray-700 dark:text-[#CBD5E1] bg-white dark:bg-[#111827]/80 hover:bg-gray-50 dark:hover:bg-[#1F2937] border border-gray-300 dark:border-[#94A3B8]/20 rounded-md transition-colors cursor-pointer"
+                class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700/80 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md transition-colors cursor-pointer"
                 @click="accept"
               >
                 Accetta tutti
