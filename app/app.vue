@@ -16,7 +16,7 @@
         <button
           v-if="prefs.resolved"
           type="button"
-          class="fixed bottom-6 left-0 z-40 p-3 bg-white dark:bg-[#0F172A] border-t border-l border-b border-gray-300 dark:border-[#94A3B8]/20 rounded-tr-lg rounded-br-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-out cursor-pointer group -translate-x-3 hover:translate-x-0"
+          class="fixed bottom-6 left-0 z-40 p-3 bg-gray-200/80 dark:bg-gray-800 border-t border-l border-b border-gray-300 dark:border-gray-600 rounded-tr-lg rounded-br-lg shadow-lg hover:shadow-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-transform duration-300 ease-out cursor-pointer group -translate-x-3 hover:translate-x-0"
           aria-label="Apri preferenze cookie"
           @click="open"
         >
@@ -39,6 +39,17 @@ useScriptGoogleAnalytics({
     trigger: useScriptTriggerConsent({
       consent: analyticsConsent,
     }),
+  },
+})
+
+// AI Chat Widget - always loads in body (essential functionality)
+useScript({
+  src: 'https://cdn.jsdelivr.net/gh/Autocust/ai-chat-widget@3.2.13/dist/chat-widget.min.js',
+  scriptOptions: {
+    attributes: {
+      'data-api-url': 'https://assistant.aisa.tractiontools.it',
+      'data-agent-id': 'f991cc4b-610b-4c57-bfca-6e1f8d9a1852',
+    },
   },
 })
 </script>

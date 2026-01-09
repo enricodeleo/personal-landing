@@ -52,7 +52,7 @@
               </p>
             </div>
 
-            <div class="divide-y divide-gray-200 dark:divide-[#94A3B8]/15 border-t border-gray-200 dark:border-[#94A3B8]/15">
+            <div class="divide-y divide-gray-200 dark:divide-gray-600 border-t border-gray-200 dark:border-gray-600">
               <div class="flex items-start gap-3 py-4">
                 <div class="flex-1">
                   <p class="font-bold mb-1">
@@ -100,22 +100,26 @@
               Per maggiori informazioni, consulta la <NuxtLink to="/privacy-policy" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4">privacy</NuxtLink> e <NuxtLink to="/cookie-policy" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4">cookie policy</NuxtLink>.
             </div>
 
+            <div class="mt-3 text-xs text-gray-600 dark:text-[#94A3B8] text-center">
+              Le modifiche alle preferenze hanno effetto dalle successive navigazioni.
+            </div>
+
             <div class="mt-6 pt-4 border-t border-gray-200 dark:border-[#94A3B8]/15 flex items-center justify-between gap-3">
               <button
-                class="px-4 py-2 text-gray-700 dark:text-[#CBD5E1] hover:text-gray-900 dark:hover:text-[#F8FAFC] cursor-pointer"
+                class="px-4 py-2 text-sm text-gray-600 dark:text-[#94A3B8] hover:text-gray-900 dark:hover:text-[#F8FAFC] cursor-pointer"
                 @click="onRejectAll"
               >
                 Rifiuta tutti
               </button>
               <div class="flex items-center gap-3">
                 <button
-                  class="px-4 py-2 text-gray-700 dark:text-[#CBD5E1] bg-gray-200/80 dark:bg-[#111827] hover:bg-gray-200 dark:hover:bg-[#1F2937] border border-gray-300 dark:border-[#94A3B8]/20 rounded-md transition-colors cursor-pointer"
+                  class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-200/80 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md transition-colors cursor-pointer"
                   @click="onSave"
                 >
                   Salva e continua
                 </button>
                 <button
-                  class="px-4 py-2 text-gray-700 dark:text-[#CBD5E1] bg-white dark:bg-[#111827]/80 hover:bg-gray-50 dark:hover:bg-[#1F2937] border border-gray-300 dark:border-[#94A3B8]/20 rounded-md transition-colors cursor-pointer"
+                  class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700/80 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md transition-colors cursor-pointer"
                   @click="onAcceptAll"
                 >
                   Accetta tutti
