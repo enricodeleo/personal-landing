@@ -11,7 +11,7 @@
       >
         <div
           v-if="isOpen"
-          class="fixed inset-0 z-50 bg-black/50"
+          class="fixed inset-0 z-[9999] bg-black/50"
           @click="close"
         />
       </Transition>
@@ -26,9 +26,9 @@
       >
         <div
           v-if="isOpen"
-          class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-prose mx-auto px-5 z-50"
+          class="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center px-4 py-6 z-[10000] overflow-y-auto"
         >
-          <div class="p-6 bg-white dark:bg-[#0F172A] border border-gray-200 dark:border-[#94A3B8]/15 rounded-lg shadow-lg leading-relaxed dark:text-[#F8FAFC] backdrop-blur-md dark:backdrop-blur-md dark:shadow-2xl">
+          <div class="w-full max-w-prose mx-auto p-6 bg-white dark:bg-[#0F172A] border border-gray-200 dark:border-[#94A3B8]/15 rounded-lg shadow-lg leading-relaxed dark:text-[#F8FAFC] backdrop-blur-md dark:backdrop-blur-md dark:shadow-2xl my-auto">
             <div class="flex items-center justify-between mb-4">
               <h3 class="text-2xl md:text-3xl font-extrabold leading-tight">
                 Preferenze cookie e privacy

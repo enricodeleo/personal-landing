@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 const { prefs } = useConsentCookie()
-const { showDialog, open } = useCookiePreferencesDialog()
+const { open } = useCookiePreferencesDialog()
 
 const analyticsConsent = computed(() => prefs.value.resolved && prefs.value.analytics)
 
