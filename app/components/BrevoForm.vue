@@ -1,5 +1,5 @@
 <template>
-  <div class="sib-form w-full" style="text-align: center;">
+  <div ref="formRoot" class="sib-form w-full" style="text-align: center;">
     <div id="sib-form-container" class="sib-form-container w-full flex justify-items-center">
       <div id="error-message" class="sib-form-message-panel" style="text-align: left; color: #661d1d; background-color: transparent; border-radius: 3px; border-color: #ff4949; max-width: 540px;">
         <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
@@ -70,23 +70,35 @@
 </template>
 
 <script setup>
-onMounted(() => {
-  if (import.meta.client) {
-    window.REQUIRED_CODE_ERROR_MESSAGE = 'Scegli un prefisso paese'
-    window.LOCALE = 'it'
-    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = 'Le informazioni fornite non sono valide. Controlla il formato del campo e riprova.'
-    window.REQUIRED_ERROR_MESSAGE = 'Questo campo non può essere lasciato vuoto. '
-    window.GENERIC_INVALID_MESSAGE = 'Le informazioni fornite non sono valide. Controlla il formato del campo e riprova.'
-    window.translation = {
-      common: {
-        selectedList: '{quantity} lista selezionata',
-        selectedLists: '{quantity} liste selezionate',
-        selectedOption: '{quantity} selezionato',
-        selectedOptions: '{quantity} selezionati'
-      }
-    }
-    window.AUTOHIDE = Boolean(0)
+const formRoot = ref(null)
+
+const setBrevoGlobals = () => {
+  if (!import.meta.client) {
+    return
   }
+
+  window.REQUIRED_CODE_ERROR_MESSAGE = 'Scegli un prefisso paese'
+  window.LOCALE = 'it'
+  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = 'Le informazioni fornite non sono valide. Controlla il formato del campo e riprova.'
+  window.REQUIRED_ERROR_MESSAGE = 'Questo campo non può essere lasciato vuoto. '
+  window.GENERIC_INVALID_MESSAGE = 'Le informazioni fornite non sono valide. Controlla il formato del campo e riprova.'
+  window.translation = {
+    common: {
+      selectedList: '{quantity} lista selezionata',
+      selectedLists: '{quantity} liste selezionate',
+      selectedOption: '{quantity} selezionato',
+      selectedOptions: '{quantity} selezionati'
+    }
+  }
+  window.AUTOHIDE = Boolean(0)
+}
+
+const scriptTrigger = useScriptTriggerElement({ trigger: 'visible', el: formRoot })
+
+useScript('https://sibforms.com/forms/end-form/build/main.js', {
+  defer: true,
+  trigger: scriptTrigger,
+  beforeInit: setBrevoGlobals
 })
 
 useHead({
@@ -94,13 +106,6 @@ useHead({
     {
       rel: 'stylesheet',
       href: 'https://sibforms.com/forms/end-form/build/sib-styles.css'
-    }
-  ],
-  script: [
-    {
-      src: 'https://sibforms.com/forms/end-form/build/main.js',
-      defer: true,
-      body: true
     }
   ]
 })
