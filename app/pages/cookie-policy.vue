@@ -110,6 +110,14 @@
           <p class="pb-3">
             Questa Cookie Policy può essere aggiornata nel tempo. Eventuali modifiche saranno pubblicate su questa pagina con l'indicazione della data di aggiornamento.
           </p>
+
+          <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
+            Per maggiori informazioni
+          </h2>
+
+          <p class="pb-3">
+            Per informazioni dettagliate sul trattamento dei dati personali, consulta la <NuxtLink to="/privacy-policy" class="underline decoration-dotted underline-offset-4"><strong>Privacy Policy</strong></NuxtLink>.
+          </p>
         </article>
       </section>
 
