@@ -1,6 +1,7 @@
 import tailwindcss from '@tailwindcss/vite';
 
 const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'https://enricodeleo.com';
+const siteDescription = 'Fractional CTO & AI Solutions Architect. AI pragmatica, LLM, cloud e product strategy per accelerare business, prodotti e time-to-market.';
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -39,7 +40,8 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1.0',
       title: 'Enrico Deleo',
       meta: [
-        { name: 'author', content: 'Enrico Deleo' }
+        { name: 'author', content: 'Enrico Deleo' },
+        { name: 'description', content: siteDescription }
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/icon.png' },
