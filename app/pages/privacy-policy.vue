@@ -20,166 +20,350 @@
           </div>
 
           <p class="pb-3">
-            <strong>Ultimo aggiornamento: Gennaio 2026</strong>
+            <strong>Ultimo aggiornamento: gennaio 2026</strong>
           </p>
 
           <p class="pb-3">
-            Questa Privacy Policy descrive come questo sito ("il Sito") raccoglie, utilizza e protegge le informazioni personali degli utenti.
+            Questa Privacy Policy descrive come vengono trattati i dati personali degli utenti che visitano <strong>enricodeleo.com</strong> (il "Sito").
+          </p>
+
+          <p class="pb-3 italic text-gray-600 dark:text-gray-400 border-l-4 border-gray-300 dark:border-gray-700 pl-4">
+            Nota: per le informazioni specifiche sui cookie e sul consenso ai cookie di misurazione, consulta anche la <NuxtLink to="/cookie-policy" class="underline decoration-dotted underline-offset-4"><strong>Cookie Policy</strong></NuxtLink>.
           </p>
 
           <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
-            Titolare del trattamento
+            1) Titolare del trattamento
           </h2>
 
           <p class="pb-3">
-            Il titolare del trattamento dei dati è:
+            Il titolare del trattamento è:
           </p>
 
           <p class="pb-3">
             <strong>Enrico Deleo</strong><br>
-            Partita IVA: 02714140841<br>
-            Codice REA: RM1678566
+            Email: <a href="mailto:privacy@enricodeleo.com" class="underline decoration-dotted underline-offset-4">privacy@enricodeleo.com</a>
           </p>
 
           <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
-            Dati raccolti
+            2) Tipologie di dati trattati
           </h2>
 
           <h3 class="text-lg font-bold my-4">
-            Dati di navigazione
+            2.1 Dati di navigazione (dati tecnici)
           </h3>
 
           <p class="pb-3">
-            I sistemi informatici e le procedure software preposte al funzionamento di questo Sito acquisiscono, nel corso del loro normale esercizio, alcuni dati personali la cui trasmissione è implicita nell'uso dei protocolli di comunicazione di Internet. Si tratta di informazioni che non sono raccolte per essere associate a interessati identificati, ma che per loro stessa natura potrebbero, attraverso elaborazioni ed associazioni con dati detenuti da terzi, permettere di identificare gli utenti.
-          </p>
-
-          <p class="pb-3">
-            Questi dati includono:
+            Durante la normale navigazione possono essere trattati dati tecnici quali:
           </p>
 
           <ul class="list-disc pl-5 pb-3">
-            <li>Indirizzi IP o nomi a dominio dei computer utilizzati dagli utenti</li>
-            <li>Indirizzi in notazione URI (Uniform Resource Identifier) delle risorse richieste</li>
-            <li>Orario della richiesta</li>
-            <li>Il metodo utilizzato nel sottoporre la richiesta al server</li>
-            <li>La dimensione del file ottenuto in risposta</li>
-            <li>Il codice numerico indicante lo stato della risposta dal server (buon fine, errore, ecc.)</li>
+            <li>indirizzo IP</li>
+            <li>data/ora della richiesta</li>
+            <li>URL richiesto</li>
+            <li>informazioni su browser, sistema operativo e dispositivo</li>
+            <li>dati di log e diagnostica</li>
+          </ul>
+
+          <p class="pb-3">
+            Questi dati sono necessari per far funzionare il Sito, garantire sicurezza e prevenire abusi.
+          </p>
+
+          <h3 class="text-lg font-bold my-4">
+            2.2 Dati forniti volontariamente dall'utente
+          </h3>
+
+          <p class="pb-3">
+            Il Sito può trattare dati forniti direttamente dall'utente, ad esempio:
+          </p>
+
+          <ul class="list-disc pl-5 pb-3">
+            <li>nome (se fornito)</li>
+            <li>indirizzo email</li>
+            <li>numero di telefono (se fornito)</li>
+            <li>contenuto dei messaggi inviati dall'utente</li>
+          </ul>
+
+          <p class="pb-3">
+            I dati vengono trattati esclusivamente per le finalità indicate nella sezione "Finalità del trattamento".
+          </p>
+
+          <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
+            3) Finalità del trattamento e basi giuridiche
+          </h2>
+
+          <h3 class="text-lg font-bold my-4">
+            3.1 Funzionamento, sicurezza e prevenzione abusi
+          </h3>
+
+          <p class="pb-3">
+            <strong>Finalità:</strong> garantire funzionamento del Sito, sicurezza, protezione da traffico anomalo, attacchi e abusi.
+          </p>
+
+          <p class="pb-3">
+            <strong>Base giuridica:</strong> legittimo interesse del titolare (sicurezza e corretta erogazione del servizio) e/o necessità tecnica di erogare il servizio richiesto.
+          </p>
+
+          <h3 class="text-lg font-bold my-4">
+            3.2 Gestione di richieste dell'utente e ricontatto
+          </h3>
+
+          <p class="pb-3">
+            <strong>Finalità:</strong> rispondere a richieste, domande o richieste di ricontatto inviate tramite chat AI o altri canali presenti sul Sito.
+          </p>
+
+          <p class="pb-3">
+            <strong>Base giuridica:</strong> esecuzione di misure precontrattuali / richiesta dell'utente.
+          </p>
+
+          <h3 class="text-lg font-bold my-4">
+            3.3 Invio di contenuti informativi via email (newsletter)
+          </h3>
+
+          <p class="pb-3">
+            <strong>Finalità:</strong> inviare contenuti informativi (es. "insight e link di approfondimento").
+          </p>
+
+          <p class="pb-3">
+            <strong>Base giuridica:</strong> consenso dell'utente.
+          </p>
+
+          <p class="pb-3">
+            Non vengono inviate comunicazioni di natura commerciale o promozionale.
+          </p>
+
+          <h3 class="text-lg font-bold my-4">
+            3.4 Misurazione dell'utilizzo del Sito (analytics)
+          </h3>
+
+          <p class="pb-3">
+            <strong>Finalità:</strong> raccogliere informazioni aggregate sull'utilizzo del Sito per migliorare contenuti e prestazioni.
+          </p>
+
+          <p class="pb-3">
+            <strong>Base giuridica:</strong> consenso dell'utente (tramite banner/pannello preferenze).
+          </p>
+
+          <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
+            4) Chat AI: come funziona e quali dati tratta
+          </h2>
+
+          <p class="pb-3">
+            Il Sito include una funzionalità di <strong>chat AI</strong>.
+          </p>
+
+          <h3 class="text-lg font-bold my-4">
+            4.1 Contenuti della conversazione
+          </h3>
+
+          <p class="pb-3">
+            L'utente può scegliere di interagire liberamente con la chat. Il contenuto della conversazione può essere trattato per fornire le risposte richieste.
+          </p>
+
+          <h3 class="text-lg font-bold my-4">
+            4.2 Dati di contatto per essere ricontattato
+          </h3>
+
+          <p class="pb-3">
+            Solo quando il contesto lo rende pertinente, la chat può chiedere all'utente se desidera essere ricontattato. In tal caso, l'utente può scegliere di fornire <strong>nome, email e/o numero di telefono</strong>.
+          </p>
+
+          <ul class="list-disc pl-5 pb-3">
+            <li>Il conferimento è <strong>facoltativo</strong>.</li>
+            <li>Prima dell'invio dei contatti, la chat richiede di prendere visione della Privacy Policy e di confermare espressamente l'accettazione.</li>
+            <li>I contatti raccolti tramite chat sono utilizzati <strong>esclusivamente</strong> per gestire la richiesta di ricontatto e non per profilazione.</li>
           </ul>
 
           <h3 class="text-lg font-bold my-4">
-            Dati forniti volontariamente dall'utente
+            4.3 Identificatore di sessione
           </h3>
 
           <p class="pb-3">
-            L'invio facoltativo, esplicito e volontario di dati tramite moduli di contatto o la comunicazione tramite canali di contatto (es. email) comporta la successiva acquisizione dei dati forniti, inclusi eventuali dati personali necessari per rispondere alle richieste.
+            Per consentire la conversazione, la chat può utilizzare un identificatore di sessione temporaneo (tecnicamente necessario).
           </p>
 
           <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
-            Finalità del trattamento
+            5) Newsletter (Brevo): trattamento e gestione iscrizione
           </h2>
 
           <p class="pb-3">
-            I dati personali raccolti sono trattati per le seguenti finalità:
+            Sul Sito è presente un modulo di iscrizione per ricevere comunicazioni informative.
           </p>
 
           <ul class="list-disc pl-5 pb-3">
-            <li><strong>Misurazione e analisi</strong> - per analizzare le tendenze di navigazione e migliorare i contenuti del Sito in forma anonima e aggregata</li>
-            <li><strong>Fornitura dei servizi richiesti</strong> - per rispondere a richieste di informazioni o contatti</li>
-            <li><strong>Sicurezza</strong> - per prevenire abusi e garantire la sicurezza del Sito</li>
+            <li><strong>Dati trattati:</strong> indirizzo email (e altri dati solo se inseriti dall'utente).</li>
+            <li><strong>Finalità:</strong> invio di contenuti informativi e aggiornamenti.</li>
+            <li><strong>Revoca:</strong> l'utente può revocare il consenso e disiscriversi in qualsiasi momento tramite i link presenti nelle email.</li>
           </ul>
 
           <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
-            Base giuridica del trattamento
+            6) Cookie, preferenze e consenso
           </h2>
 
           <p class="pb-3">
-            Il trattamento dei dati si basa sulle seguenti basi giuridiche:
+            Il Sito utilizza cookie/tecnologie:
           </p>
 
           <ul class="list-disc pl-5 pb-3">
-            <li><strong>Consenso</strong> - per i cookie di misurazione, previo consenso dell'utente espresso attraverso il banner cookie</li>
-            <li><strong>Legittimo interesse</strong> - per garantire la sicurezza del Sito e prevenire abusi</li>
-            <li><strong>Esecuzione di un contratto</strong> - per fornire i servizi richiesti</li>
+            <li><strong>necessarie</strong> al funzionamento (sempre attive)</li>
+            <li><strong>di misurazione (Google Analytics 4)</strong> solo previo consenso</li>
           </ul>
 
-          <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
-            Cookie e tecnologie di tracciamento
-          </h2>
-
           <p class="pb-3">
-            Per informazioni dettagliate sull'utilizzo dei cookie, si rimanda alla <NuxtLink to="/cookie-policy" class="underline decoration-dotted underline-offset-4"><strong>Cookie Policy</strong></NuxtLink>.
-          </p>
-
-          <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
-            Condivisione dei dati
-          </h2>
-
-          <p class="pb-3">
-            I dati raccolti non vengono condivisi con terze parti a scopi commerciali. Alcuni dati possono essere condivisi con:
+            L'utente può:
           </p>
 
           <ul class="list-disc pl-5 pb-3">
-            <li><strong>Servizi di analisi</strong> - Google Analytics, in forma anonima e aggregata</li>
-            <li><strong>Hosting provider</strong> - per la gestione tecnica del Sito</li>
+            <li>accettare o rifiutare i cookie di misurazione tramite banner</li>
+            <li>modificare o revocare la scelta in qualsiasi momento tramite il pannello preferenze</li>
           </ul>
 
-          <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
-            Trasferimento dei dati all'estero
-          </h2>
-
           <p class="pb-3">
-            Alcuni dei servizi utilizzati da questo Sito (es. Google Analytics) possono trasferire dati verso paesi non appartenenti all'Unione Europea. Questo trasferimento avviene in conformità con le clausole contrattuali standard approvate dalla Commissione Europea o altri strumenti legali appropriati.
+            Per i dettagli tecnici sui cookie utilizzati, consulta la Cookie Policy.
           </p>
 
           <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
-            Diritti dell'utente
+            7) Destinatari dei dati e fornitori (Responsabili del trattamento)
           </h2>
 
           <p class="pb-3">
-            Gli utenti hanno il diritto di esercitare in qualsiasi momento i seguenti diritti:
+            I dati possono essere trattati da fornitori che operano per conto del titolare, in qualità di <strong>Responsabili del trattamento</strong>, per finalità tecniche o di servizio.
+          </p>
+
+          <p class="pb-3">
+            In particolare:
+          </p>
+
+          <h3 class="text-lg font-bold my-4">
+            7.1 Google Analytics 4 (misurazione)
+          </h3>
+
+          <p class="pb-3">
+            Servizio di analisi web fornito da Google.
           </p>
 
           <ul class="list-disc pl-5 pb-3">
-            <li><strong>Diritto di accesso</strong> - conoscere quali dati sono trattati</li>
-            <li><strong>Diritto di rettifica</strong> - richiedere la correzione di dati inesatti</li>
-            <li><strong>Diritto alla cancellazione</strong> - richiedere la rimozione dei dati (diritto all'oblio)</li>
-            <li><strong>Diritto alla limitazione del trattamento</strong> - limitare il modo in cui i dati sono utilizzati</li>
-            <li><strong>Diritto alla portabilità</strong> - ricevere i dati in un formato strutturato</li>
-            <li><strong>Diritto di opposizione</strong> - opporsi al trattamento dei dati</li>
-            <li><strong>Diritto di reclamo</strong> - presentare reclamo all'Autorità Garante per la protezione dei dati personali</li>
+            <li>utilizzato esclusivamente per finalità statistiche</li>
+            <li>nessun utilizzo per advertising, remarketing o profilazione</li>
+            <li>attivato solo previo consenso</li>
           </ul>
 
           <p class="pb-3">
-            Per esercitare questi diritti, è possibile contattarmi tramite i canali indicati nella pagina dei contatti.
+            Informazioni: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4">https://policies.google.com/privacy</a>
           </p>
 
-          <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
-            Periodo di conservazione
-          </h2>
+          <h3 class="text-lg font-bold my-4">
+            7.2 Brevo (ex Sendinblue) (newsletter/gestione contatti)
+          </h3>
 
           <p class="pb-3">
-            I dati personali sono conservati per il tempo necessario a raggiungere le finalità per cui sono stati raccolti, salvo diversa previsione di legge. In particolare:
+            Servizio di gestione invii email e gestione contatti.
           </p>
 
           <ul class="list-disc pl-5 pb-3">
-            <li><strong>Cookie di misurazione</strong> - fino a 26 mesi (come previsto da Google Analytics)</li>
-            <li><strong>Dati di contatto</strong> - per il tempo necessario a gestire la richiesta</li>
+            <li>utilizzato per inviare comunicazioni informative</li>
+            <li>Brevo tratta i dati per conto del titolare secondo istruzioni</li>
           </ul>
 
-          <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
-            Modifiche a questa policy
-          </h2>
+          <p class="pb-3">
+            Informazioni: <a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4">https://www.brevo.com/legal/privacypolicy/</a>
+          </p>
+
+          <h3 class="text-lg font-bold my-4">
+            7.3 Cloudflare (proxy/CDN/sicurezza)
+          </h3>
 
           <p class="pb-3">
-            Ci riserviamo il diritto di modificare questa Privacy Policy in qualsiasi momento. Le modifiche saranno pubblicate su questa pagina con l'indicazione della data di aggiornamento.
+            Il Sito utilizza Cloudflare come servizio di proxy, sicurezza e distribuzione dei contenuti.
+            Cloudflare può trattare dati tecnici (es. indirizzo IP e log di sicurezza) per garantire prestazioni e protezione.
+          </p>
+
+          <p class="pb-3">
+            Informazioni: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4">https://www.cloudflare.com/privacypolicy/</a>
+          </p>
+
+          <h3 class="text-lg font-bold my-4">
+            7.4 Ulteriori fornitori tecnici
+          </h3>
+
+          <p class="pb-3">
+            Il Sito può utilizzare ulteriori fornitori tecnici (es. hosting, infrastruttura di rete, strumenti di monitoraggio tecnico) esclusivamente per finalità di erogazione e sicurezza.
           </p>
 
           <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
-            Contatti
+            8) Trasferimenti di dati extra-UE
           </h2>
 
           <p class="pb-3">
-            Per qualsiasi domanda relativa al trattamento dei dati personali o per esercitare i tuoi diritti, puoi contattarmi tramite i canali indicati nella pagina dei contatti.
+            Alcuni fornitori possono trattare dati anche al di fuori dello Spazio Economico Europeo. In tali casi, il titolare adotta garanzie adeguate previste dalla normativa (ad es. decisioni di adeguatezza o clausole contrattuali standard).
+          </p>
+
+          <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
+            9) Conservazione dei dati
+          </h2>
+
+          <p class="pb-3">
+            I dati sono conservati per il tempo strettamente necessario alle finalità indicate:
+          </p>
+
+          <ul class="list-disc pl-5 pb-3">
+            <li><strong>Dati di navigazione/log:</strong> per il tempo necessario a garantire sicurezza e gestione tecnica (tempi variabili in base ai sistemi e ai log di sicurezza).</li>
+            <li><strong>Contatti raccolti via chat (ricontatto):</strong> per il tempo necessario a gestire la richiesta e i successivi eventuali scambi correlati.</li>
+            <li><strong>Newsletter (Brevo):</strong> fino alla revoca del consenso/disiscrizione.</li>
+            <li><strong>Dati analytics:</strong> secondo le impostazioni dei servizi utilizzati e comunque solo previo consenso.</li>
+          </ul>
+
+          <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
+            10) Misure di sicurezza
+          </h2>
+
+          <p class="pb-3">
+            Il titolare adotta misure tecniche e organizzative ragionevoli per proteggere i dati (es. uso di connessioni cifrate, servizi di sicurezza e protezione da abusi, controlli di accesso).
+          </p>
+
+          <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
+            11) Diritti dell'interessato
+          </h2>
+
+          <p class="pb-3">
+            L'utente, nei casi previsti dalla normativa, può esercitare i seguenti diritti:
+          </p>
+
+          <ul class="list-disc pl-5 pb-3">
+            <li>accesso ai dati</li>
+            <li>rettifica</li>
+            <li>cancellazione</li>
+            <li>limitazione del trattamento</li>
+            <li>opposizione (nei casi previsti)</li>
+            <li>portabilità (se applicabile)</li>
+            <li>revoca del consenso (senza pregiudicare la liceità del trattamento precedente)</li>
+          </ul>
+
+          <p class="pb-3">
+            Per esercitare i diritti è possibile scrivere a: <a href="mailto:privacy@enricodeleo.com" class="underline decoration-dotted underline-offset-4">privacy@enricodeleo.com</a>
+          </p>
+
+          <h3 class="text-lg font-bold my-4">
+            Reclamo
+          </h3>
+
+          <p class="pb-3">
+            L'utente ha inoltre il diritto di proporre reclamo all'Autorità di controllo competente (in Italia: <strong>Garante per la protezione dei dati personali</strong>).
+          </p>
+
+          <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
+            12) Minori
+          </h2>
+
+          <p class="pb-3">
+            Il Sito non è destinato a minori. Se un utente ritiene che siano stati inviati dati di minori, può contattare il titolare per richiedere la rimozione.
+          </p>
+
+          <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
+            13) Modifiche a questa policy
+          </h2>
+
+          <p class="pb-3">
+            Questa Privacy Policy può essere aggiornata nel tempo. Eventuali modifiche saranno pubblicate su questa pagina con l'indicazione della data di aggiornamento.
           </p>
         </article>
       </section>
