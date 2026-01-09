@@ -28,13 +28,13 @@
           v-if="isOpen"
           class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-prose mx-auto px-5 z-50"
         >
-          <div class="p-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg shadow-lg leading-relaxed dark:text-gray-200">
+          <div class="p-6 bg-white dark:bg-[#0F172A] border border-gray-200 dark:border-[#94A3B8]/15 rounded-lg shadow-lg leading-relaxed dark:text-[#F8FAFC] backdrop-blur-md dark:backdrop-blur-md dark:shadow-2xl">
             <div class="flex items-center justify-between mb-4">
               <h3 class="text-2xl md:text-3xl font-extrabold leading-tight">
                 Preferenze cookie e privacy
               </h3>
               <button
-                class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 cursor-pointer"
+                class="text-gray-500 hover:text-gray-700 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC] cursor-pointer"
                 @click="close"
               >
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -44,26 +44,26 @@
             </div>
 
             <div class="mb-6">
-              <p class="mb-3 text-slate-600 dark:text-slate-300">
+              <p class="mb-3 text-slate-600 dark:text-[#CBD5E1]">
                 Qui puoi esprimere preferenze relative al tracciamento della tua sessione, e rivedere e modificare le tue scelte in qualsiasi momento tornando su questo pannello.
               </p>
-              <p class="text-slate-600 dark:text-slate-300">
+              <p class="text-slate-600 dark:text-[#CBD5E1]">
                 Per rifiutare il tuo consenso alle attività di trattamento descritte di seguito, disattiva i singoli comandi o utilizza il pulsante "Rifiuta tutti" e conferma di voler salvare le scelte effettuate.
               </p>
             </div>
 
-            <div class="divide-y divide-gray-200 dark:divide-gray-800 border-t border-gray-200 dark:border-gray-800">
+            <div class="divide-y divide-gray-200 dark:divide-[#94A3B8]/15 border-t border-gray-200 dark:border-[#94A3B8]/15">
               <div class="flex items-start gap-3 py-4">
                 <div class="flex-1">
                   <p class="font-bold mb-1">
                     Cookie misurazione
                   </p>
-                  <p class="text-slate-600 dark:text-slate-300">
+                  <p class="text-slate-600 dark:text-[#CBD5E1]">
                     Permettono di misurare il traffico e analizzare come viene usato il sito.
                   </p>
                 </div>
                 <div class="flex items-center h-5">
-                  <div class="w-11 h-6 bg-gray-200 dark:bg-gray-700 rounded-full relative cursor-pointer">
+                  <div class="w-11 h-6 bg-gray-200 dark:bg-[#111827] rounded-full relative cursor-pointer">
                     <div class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform" />
                   </div>
                 </div>
@@ -74,7 +74,7 @@
                   <p class="font-bold mb-1">
                     Cookie strettamente necessari (sempre attivi)
                   </p>
-                  <p class="text-slate-600 dark:text-slate-300">
+                  <p class="text-slate-600 dark:text-[#CBD5E1]">
                     Sempre attivi. Servono per il funzionamento del sito, inclusa la chat AI.
                   </p>
                 </div>
@@ -86,26 +86,26 @@
               </div>
             </div>
 
-            <div class="mt-4 text-xs text-gray-500 dark:text-gray-400 text-center">
+            <div class="mt-4 text-xs text-gray-500 dark:text-[#94A3B8] text-center">
               Per maggiori informazioni, consulta la <NuxtLink to="/privacy-policy" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4">privacy</NuxtLink> e <NuxtLink to="/cookie-policy" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4">cookie policy</NuxtLink>.
             </div>
 
-            <div class="mt-6 pt-4 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between gap-3">
+            <div class="mt-6 pt-4 border-t border-gray-200 dark:border-[#94A3B8]/15 flex items-center justify-between gap-3">
               <button
-                class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 cursor-pointer"
+                class="px-4 py-2 text-gray-700 dark:text-[#CBD5E1] hover:text-gray-900 dark:hover:text-[#F8FAFC] cursor-pointer"
                 @click="close"
               >
                 Rifiuta tutti
               </button>
               <div class="flex items-center gap-3">
                 <button
-                  class="px-4 py-2 text-gray-700 dark:text-gray-300 bg-gray-200/80 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md transition-colors cursor-pointer"
+                  class="px-4 py-2 text-gray-700 dark:text-[#CBD5E1] bg-gray-200/80 dark:bg-[#111827] hover:bg-gray-200 dark:hover:bg-[#1F2937] border border-gray-300 dark:border-[#94A3B8]/20 rounded-md transition-colors cursor-pointer"
                   @click="close"
                 >
                   Salva e continua
                 </button>
                 <button
-                  class="px-4 py-2 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md transition-colors cursor-pointer"
+                  class="px-4 py-2 text-gray-700 dark:text-[#CBD5E1] bg-white dark:bg-[#111827]/80 hover:bg-gray-50 dark:hover:bg-[#1F2937] border border-gray-300 dark:border-[#94A3B8]/20 rounded-md transition-colors cursor-pointer"
                   @click="close"
                 >
                   Accetta tutti

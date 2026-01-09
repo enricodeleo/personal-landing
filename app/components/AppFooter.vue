@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="max-w-prose mx-auto py-12 px-5 md:px-12 select-none">
-      <h3 class="text-lg text-center mb-4">
+      <h3 class="text-lg text-center mb-4 dark:text-[#F8FAFC]">
         Mi trovi (tra gli altri) su:
       </h3>
-      <div class="flex justify-between text-gray-500 dark:text-gray-400">
+      <div class="flex justify-between text-gray-500 dark:text-[#94A3B8]">
         <a
           v-for="link in socialLinks"
           :key="link.label"
@@ -20,35 +20,35 @@
       </div>
     </div>
     <div class="max-w-prose mx-auto px-5 md:px-12 select-none">
-      <p class="text-center mb-0 pb-0">
+      <p class="text-center mb-0 pb-0 dark:text-[#CBD5E1]">
         Non dimenticare la mia <a rel="noopener" href="https://amzn.to/3fXQw59" target="_blank" class="text-yellow-500 underline decoration-dotted underline-offset-4"><strong>pagina autore su Amazon</strong></a>.
       </p>
     </div>
     <div class="max-w-xs mx-auto px-5 md:px-12 select-none">
       <span
-        class="inline-svg block w-full fill-current text-gray-300 dark:text-gray-600/70"
+        class="inline-svg block w-full fill-current text-gray-300 dark:text-[#94A3B8]/50"
         aria-hidden="true"
         v-html="dividerShapeSvg"
       />
     </div>
     <nav class="mx-auto max-w-max mb-4">
-      <NuxtLink to="/" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+      <NuxtLink to="/" class="text-gray-500 hover:text-gray-700 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
         Home
       </NuxtLink>
       <span class="mx-2">•</span>
-      <NuxtLink to="/bio" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+      <NuxtLink to="/bio" class="text-gray-500 hover:text-gray-700 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
         Bio
       </NuxtLink>
       <span class="mx-2">•</span>
-      <NuxtLink to="/cookie-policy" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+      <NuxtLink to="/cookie-policy" class="text-gray-500 hover:text-gray-700 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
         Cookie Policy
       </NuxtLink>
       <span class="mx-2">•</span>
-      <NuxtLink to="/privacy-policy" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+      <NuxtLink to="/privacy-policy" class="text-gray-500 hover:text-gray-700 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
         Privacy Policy
       </NuxtLink>
     </nav>
-    <footer class="max-w-prose mx-auto text-center text-sm text-gray-500 dark:text-gray-400 pb-5 px-5 md:px-12 select-none">
+    <footer class="max-w-prose mx-auto text-center text-sm text-gray-500 dark:text-[#94A3B8] pb-5 px-5 md:px-12 select-none">
       <p class="pb-3">
         Deleo Enrico - P.IVA: 02714140841 - Codice REA: RM1678566
       </p>
@@ -110,14 +110,14 @@ const stateLabel = computed(() => {
   return `tema auto (${resolvedLabel})`
 })
 const buttonToneClasses = computed(() => (resolvedMode.value === 'dark'
-  ? 'border-gray-700 bg-gray-900/80 text-gray-100 hover:text-white'
+  ? 'border-[#94A3B8]/20 bg-[#0F172A]/80 text-[#CBD5E1] hover:text-[#F8FAFC]'
   : 'border-gray-200 bg-white text-gray-700 hover:text-gray-900'))
 
 const socialLinks = [
   { href: 'https://www.linkedin.com/in/enricodeleo', label: 'LinkedIn', icon: linkedinSvg, hoverColor: 'hover:text-[#0077b5]' },
   { href: 'https://www.facebook.com/therealenricodeleo', label: 'Facebook', icon: facebookSvg, hoverColor: 'hover:text-[#1877f2]' },
-  { href: 'https://blog.enricodeleo.com', label: 'Blog', icon: bloggingSvg, hoverColor: 'hover:text-gray-700 dark:hover:text-gray-200' },
-  { href: 'https://github.com/enricodeleo', label: 'GitHub', icon: githubSvg, hoverColor: 'hover:text-[#333] dark:hover:text-white' },
+  { href: 'https://blog.enricodeleo.com', label: 'Blog', icon: bloggingSvg, hoverColor: 'hover:text-gray-700 dark:hover:text-[#CBD5E1]' },
+  { href: 'https://github.com/enricodeleo', label: 'GitHub', icon: githubSvg, hoverColor: 'hover:text-[#333] dark:hover:text-[#F8FAFC]' },
   { href: 'https://www.behance.net/lysergic', label: 'Behance', icon: behanceSvg, hoverColor: 'hover:text-[#1769ff]' },
   { href: 'https://www.instagram.com/enricodeleo/', label: 'Instagram', icon: instagramSvg, hoverColor: 'hover:text-[#e1306c]' },
   { href: 'https://www.twitch.tv/enricodeleo', label: 'Twitch', icon: twitchSvg, hoverColor: 'hover:text-[#9146ff]' },

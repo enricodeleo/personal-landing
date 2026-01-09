@@ -1,23 +1,23 @@
 <template>
   <div>
-    <div class="container mx-auto dark:text-gray-200 sm:subpixel-antialiased md:antialiased leading-relaxed ">
+    <div class="container mx-auto sm:subpixel-antialiased md:antialiased leading-relaxed">
       <NuxtLink
         to="/"
-        class="inline-svg block max-w-sm mx-auto p-12 fill-current text-gray-900 dark:text-gray-200"
+        class="inline-svg block max-w-sm mx-auto p-12 fill-current text-gray-900 dark:[&>span]:text-[#E5E7EB]"
         aria-label="Enrico Deleo logo"
       >
         <span class="block w-full" aria-hidden="true" v-html="logoSvg"/>
       </NuxtLink>
 
       <section class="max-w-prose mx-auto px-5">
-        <article class="flex flex-wrap">
+        <article class="flex flex-wrap dark:text-[#F8FAFC]">
           <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">
             Fractional CTO &amp; AI Solutions Architect
           </h1>
           <h2 class="text-lg md:text-xl font-extrabold leading-tight">
             AI pragmatica che accelera business e prodotti
           </h2>
-          <p class="my-4 text-lg sm:text-xl text-slate-600 dark:text-slate-300">
+          <p class="my-4 text-lg sm:text-xl text-slate-600 dark:text-[#CBD5E1]">
             <em>
               Trasformo idee in soluzioni scalabili con <strong>Large Language Models</strong>,
               architetture cloud e un metodo data-driven orientato al ROI.
@@ -45,7 +45,7 @@
             <li><strong>Tech Coaching &amp; Workshop</strong> - formazione su AI, product-led growth, agile best practice.</li>
           </ul>
 
-          <p class="mt-4 border-l-4 border-amber-600 px-4 py-3 text-sm text-slate-800 dark:bg-slate-800/50 dark:text-slate-300">
+          <p class="mt-4 border-l-4 border-amber-600 px-4 py-3 text-sm text-slate-800 dark:bg-[#111827]/50 dark:text-[#CBD5E1]">
             Metto in gioco il mio <strong>capitale intellettuale</strong> e la mia reputazione quanto il tuo budget.
             Dispongo di <strong>1 slot a trimestre</strong>: se ambisci al livello successivo, scrivimi.
           </p>

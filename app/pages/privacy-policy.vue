@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="container mx-auto dark:text-gray-200 sm:subpixel-antialiased md:antialiased leading-relaxed pb-40">
+    <div class="container mx-auto sm:subpixel-antialiased md:antialiased leading-relaxed pb-40">
       <div class="w-56 mx-auto">
         <NuxtLink
           to="/"
-          class="inline-svg block w-full p-12 fill-current text-gray-900 dark:text-gray-200"
+          class="inline-svg block w-full p-12 fill-current text-gray-900 dark:[&>span]:text-[#E5E7EB]"
           aria-label="Enrico Deleo logo"
         >
           <span class="block w-full" aria-hidden="true" v-html="logoSvg"/>
@@ -12,7 +12,7 @@
       </div>
 
       <section class="max-w-prose mx-auto px-5">
-        <article class="flex flex-wrap">
+        <article class="flex flex-wrap dark:text-[#F8FAFC]">
           <div class="w-full text-center pb-6">
             <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">
               Privacy Policy
