@@ -248,15 +248,6 @@ function onSuggestionBlur(event) {
 async function handleSubmit() {
   const trimmed = email.value.trim()
 
-  // Check honeypot - if filled, it's a bot
-  if (honeypotValue.value.trim() !== '') {
-    // Silently fail for bots - show fake success to not alert them
-    state.value = 'success'
-    email.value = ''
-    honeypotValue.value = ''
-    return
-  }
-
   if (!trimmed) {
     error.value = 'Inserisci il tuo indirizzo email'
     return
@@ -287,12 +278,14 @@ async function handleSubmit() {
     await $fetch(webhookUrl, {
       method: 'POST',
       body: {
-        email: email.value
+        email: email.value,
+        website_field: honeypotValue.value
       }
     })
 
     state.value = 'success'
     email.value = ''
+    honeypotValue.value = ''
     acceptedPrivacy.value = false
   } catch (err) {
     state.value = 'error'
