@@ -33,7 +33,7 @@
               </a>
               <button
                 class="px-4 py-2 text-sm text-gray-700 dark:text-[#CBD5E1] bg-gray-200/80 dark:bg-[#111827] hover:bg-gray-200 dark:hover:bg-[#1F2937] border border-gray-300 dark:border-[#94A3B8]/20 rounded-md transition-colors cursor-pointer"
-                @click="showPreferences = true"
+                @click="open"
               >
                 Preferenze
               </button>
@@ -50,16 +50,16 @@
     </ClientOnly>
 
     <PreferencesDialog
-      :is-open="showPreferences"
-      @close="showPreferences = false"
+      :is-open="showDialog"
+      @close="close"
     />
   </div>
 </template>
 
 <script setup lang="ts">
 const { prefs, acceptAll, rejectAll } = useConsentCookie()
+const { showDialog, open, close } = useCookiePreferencesDialog()
 const showBanner = ref(false)
-const showPreferences = ref(false)
 
 onMounted(() => {
   if (!prefs.value.resolved) {

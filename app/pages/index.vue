@@ -192,6 +192,3 @@ useScript({
   },
 })
 </script>
-
-<style>
-</style>
