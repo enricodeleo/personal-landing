@@ -34,12 +34,12 @@
           type="text"
           tabindex="-1"
           autocomplete="off"
-          data-lastpass-ignore
+          data-lpignore="true"
         >
       </div>
 
       <!-- Timestamp field for spam prevention -->
-      <input type="hidden" name="timestamp" :value="timestamp" data-lastpass-ignore>
+      <input type="hidden" name="timestamp" :value="timestamp" data-lpignore="true">
 
       <!-- Input Group -->
       <div class="space-y-2 relative">
@@ -55,7 +55,7 @@
           @blur="onInputBlur"
           @keydown.down.prevent="focusFirstSuggestion"
           ref="emailInput"
-          data-lastpass-ignore
+          data-lpignore="true"
         >
 
         <!-- Suggestions Dropdown -->

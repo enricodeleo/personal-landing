@@ -59,23 +59,21 @@
 <script setup lang="ts">
 const { prefs, acceptAll, rejectAll } = useConsentCookie()
 const { showDialog, open, close } = useCookiePreferencesDialog()
-const showBanner = ref(false)
+const hasMounted = ref(false)
 
 onMounted(() => {
-  if (!prefs.value.resolved) {
-    setTimeout(() => {
-      showBanner.value = true
-    }, 500)
-  }
+  setTimeout(() => {
+    hasMounted.value = true
+  }, 500)
 })
+
+const showBanner = computed(() => !prefs.value.resolved && hasMounted.value)
 
 function accept() {
   acceptAll()
-  showBanner.value = false
 }
 
 function reject() {
   rejectAll()
-  showBanner.value = false
 }
 </script>
