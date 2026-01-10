@@ -28,7 +28,7 @@
             Questa Privacy Policy descrive come vengono trattati i dati personali degli utenti che visitano <strong>enricodeleo.com</strong> (il "Sito").
           </p>
 
-          <p class="pb-3 italic text-gray-600 dark:text-gray-400 border-l-4 border-gray-300 dark:border-gray-700 pl-4">
+          <p class="pb-3 italic text-gray-600 dark:text-gray-300 border-l-4 border-gray-300 dark:border-gray-700 pl-4">
             Nota: per le informazioni specifiche sui cookie e sul consenso ai cookie di misurazione, consulta anche la <NuxtLink to="/cookie-policy" class="underline decoration-dotted underline-offset-4"><strong>Cookie Policy</strong></NuxtLink>.
           </p>
 

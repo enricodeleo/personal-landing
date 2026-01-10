@@ -44,10 +44,10 @@
             </div>
 
             <div class="mb-6">
-              <p class="mb-3 text-slate-600 dark:text-[#CBD5E1]">
+              <p class="mb-3 text-slate-600 dark:text-gray-200">
                 Qui puoi esprimere preferenze relative al tracciamento della tua sessione, e rivedere e modificare le tue scelte in qualsiasi momento tornando su questo pannello.
               </p>
-              <p class="text-slate-600 dark:text-[#CBD5E1]">
+              <p class="text-slate-600 dark:text-gray-200">
                 Per rifiutare il tuo consenso alle attività di trattamento descritte di seguito, disattiva i singoli comandi o utilizza il pulsante "Rifiuta tutti" e conferma di voler salvare le scelte effettuate.
               </p>
             </div>
@@ -58,7 +58,7 @@
                   <p class="font-bold mb-1">
                     Cookie misurazione
                   </p>
-                  <p class="text-slate-600 dark:text-[#CBD5E1]">
+                  <p class="text-slate-600 dark:text-gray-200">
                     Permettono di misurare il traffico e analizzare come viene usato il sito.
                   </p>
                 </div>
@@ -84,7 +84,7 @@
                   <p class="font-bold mb-1">
                     Cookie strettamente necessari (sempre attivi)
                   </p>
-                  <p class="text-slate-600 dark:text-[#CBD5E1]">
+                  <p class="text-slate-600 dark:text-gray-200">
                     Sempre attivi. Servono per il funzionamento del sito, inclusa la chat AI.
                   </p>
                 </div>

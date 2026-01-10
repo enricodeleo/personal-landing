@@ -18,7 +18,7 @@
           <h2 class="text-lg md:text-xl font-extrabold leading-tight">
             AI pragmatica che accelera business e prodotti
           </h2>
-          <p class="my-4 text-lg sm:text-xl text-slate-600 dark:text-[#CBD5E1]">
+          <p class="my-4 text-lg sm:text-xl text-slate-600 dark:text-gray-200">
             <em>
               Trasformo idee in soluzioni scalabili con <strong>Large Language Models</strong>,
               architetture cloud e un metodo data-driven orientato al ROI.
@@ -46,7 +46,7 @@
             <li><strong>Tech Coaching &amp; Workshop</strong> - formazione su AI, product-led growth, agile best practice.</li>
           </ul>
 
-          <p class="mt-4 border-l-4 border-amber-600 px-4 py-3 text-slate-800 dark:bg-[#111827]/50 dark:text-[#CBD5E1]">
+          <p class="mt-4 border-l-4 border-amber-600 px-4 py-3 text-slate-800 dark:bg-[#111827]/50 dark:text-gray-200">
             Metto in gioco il mio <strong>capitale intellettuale</strong> e la mia reputazione quanto il tuo budget.
             Dispongo di <strong>1 slot a trimestre</strong>: se ambisci al livello successivo, scrivimi.
           </p>

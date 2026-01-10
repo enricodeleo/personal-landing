@@ -49,7 +49,7 @@
           type="email"
           name="email"
           placeholder="Email"
-          class="w-full rounded-md border border-[#c0ccda] bg-white px-4 py-3 text-[#3c4858] placeholder:text-[#c0ccda] focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-50 dark:placeholder:text-gray-400"
+          class="w-full rounded-md border border-[#c0ccda] bg-white px-4 py-3 text-[#3c4858] placeholder:text-[#c0ccda] focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-50 dark:placeholder:text-gray-500"
           :class="{ 'border-red-500 focus:border-red-500 focus:ring-red-500/20': error }"
           :aria-invalid="error !== '' || serverError !== ''"
           :aria-describedby="error ? 'email-error' : undefined"
@@ -105,7 +105,7 @@
           {{ serverError }}
         </p>
 
-        <p v-else class="text-xs text-[#8390A4] dark:text-gray-400">
+        <p v-else class="text-xs text-gray-600 dark:text-gray-300">
           Indica il <strong>tuo miglior indirizzo email</strong> per iscriverti. Es. emailpersonale@gmail.com
         </p>
       </div>

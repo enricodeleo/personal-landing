@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="max-w-prose mx-auto px-5 md:px-12 select-none">
-      <p class="text-center mb-0 pb-0 dark:text-[#CBD5E1]">
+      <p class="text-center mb-0 pb-0 dark:text-gray-200">
         Non dimenticare la mia <a rel="noopener" href="https://amzn.to/3fXQw59" target="_blank" class="text-yellow-500 underline decoration-dotted underline-offset-4"><strong>pagina autore su Amazon</strong></a>.
       </p>
     </div>
@@ -115,13 +115,13 @@ const stateLabel = computed(() => {
   return `tema auto (${resolvedLabel})`
 })
 const buttonToneClasses = computed(() => (resolvedMode.value === 'dark'
-  ? 'border-[#94A3B8]/20 bg-[#0F172A]/80 text-[#CBD5E1] hover:text-[#F8FAFC]'
+  ? 'border-[#94A3B8]/20 bg-[#0F172A]/80 text-gray-200 hover:text-[#F8FAFC]'
   : 'border-gray-200 bg-white text-gray-700 hover:text-gray-900'))
 
 const socialLinks = [
   { href: 'https://www.linkedin.com/in/enricodeleo', label: 'LinkedIn', icon: linkedinSvg, hoverColor: 'hover:text-[#0077b5]' },
   { href: 'https://www.facebook.com/therealenricodeleo', label: 'Facebook', icon: facebookSvg, hoverColor: 'hover:text-[#1877f2]' },
-  { href: 'https://blog.enricodeleo.com', label: 'Blog', icon: bloggingSvg, hoverColor: 'hover:text-gray-700 dark:hover:text-[#CBD5E1]' },
+  { href: 'https://blog.enricodeleo.com', label: 'Blog', icon: bloggingSvg, hoverColor: 'hover:text-gray-700 dark:hover:text-gray-200' },
   { href: 'https://github.com/enricodeleo', label: 'GitHub', icon: githubSvg, hoverColor: 'hover:text-[#333] dark:hover:text-[#F8FAFC]' },
   { href: 'https://www.behance.net/lysergic', label: 'Behance', icon: behanceSvg, hoverColor: 'hover:text-[#1769ff]' },
   { href: 'https://www.instagram.com/enricodeleo/', label: 'Instagram', icon: instagramSvg, hoverColor: 'hover:text-[#e1306c]' },
