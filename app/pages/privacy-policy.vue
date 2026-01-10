@@ -12,7 +12,7 @@
       </div>
 
       <section class="max-w-prose mx-auto px-5">
-        <article class="flex flex-wrap dark:text-[#F8FAFC]">
+        <article class="dark:text-[#F8FAFC]">
           <div class="w-full text-center pb-6">
             <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">
               Privacy Policy
