@@ -92,9 +92,7 @@ export default defineNuxtConfig({
     workbox: {
       globPatterns: ['**/*.{js,css,html,png,jpg,svg,woff2}'],
       navigateFallbackDenylist: [
-        /^\/sitemap\.xml$/,
-        /^\/robots\.txt$/,
-        /^\/llm\.txt$/,
+        /\/[^/?]+\.[^/?]+$/,
       ],
     }
   },
