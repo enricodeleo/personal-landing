@@ -1,14 +1,21 @@
 <template>
-  <div class="w-full rounded-[15px] bg-[#F5F5F5] px-5 pt-10 pb-8 dark:bg-gray-800 md:px-12">
+  <div class="w-full rounded-[15px] bg-[#F5F5F5] px-5 pt-10 pb-8 dark:bg-gray-800 md:px-12" :class="{ 'animate-shake': hasError }">
     <form class="space-y-6" @submit.prevent="handleSubmit">
       <!-- Success Message -->
       <div
         v-if="state === 'success'"
-        class="rounded-md bg-green-50 p-4 dark:bg-green-900/20"
+        class="rounded-md bg-green-50 p-4 dark:bg-green-900/20 animate-fade-in"
       >
-        <p class="text-sm font-medium text-green-800 dark:text-green-200">
-          Grazie per l'iscrizione! Controlla la tua email per confermare.
-        </p>
+        <div class="flex items-center gap-3">
+          <div class="flex-shrink-0 animate-checkmark">
+            <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <p class="text-sm font-medium text-green-800 dark:text-green-200">
+            Grazie per l'iscrizione! Controlla la tua email per confermare.
+          </p>
+        </div>
       </div>
 
       <template v-if="state !== 'success'">
@@ -27,11 +34,15 @@
           type="text"
           tabindex="-1"
           autocomplete="off"
+          data-lastpass-ignore
         >
       </div>
 
+      <!-- Timestamp field for spam prevention -->
+      <input type="hidden" name="timestamp" :value="timestamp" data-lastpass-ignore>
+
       <!-- Input Group -->
-      <div class="space-y-2">
+      <div class="space-y-2 relative">
         <input
           v-model="email"
           type="email"
@@ -44,6 +55,7 @@
           @blur="onInputBlur"
           @keydown.down.prevent="focusFirstSuggestion"
           ref="emailInput"
+          data-lastpass-ignore
         >
 
         <!-- Suggestions Dropdown -->
@@ -132,6 +144,7 @@
 const email = ref('')
 const emailInput = ref(null)
 const honeypotValue = ref('')
+const timestamp = ref(0)
 const acceptedPrivacy = ref(false)
 const error = ref('')
 const serverError = ref('')
@@ -140,6 +153,12 @@ const showDropdown = ref(false)
 const suggestions = ref([])
 const focusedIndex = ref(-1)
 const state = ref('idle') // 'idle' | 'loading' | 'success' | 'error'
+const hasError = ref(false)
+
+// Generate timestamp only on client side to avoid hydration mismatch
+onMounted(() => {
+  timestamp.value = Date.now()
+})
 
 const domains = [
   '@gmail.com',
@@ -248,18 +267,22 @@ function onSuggestionBlur(event) {
 async function handleSubmit() {
   const trimmed = email.value.trim()
 
+  // Trigger shake on validation error
   if (!trimmed) {
     error.value = 'Inserisci il tuo indirizzo email'
+    triggerShake()
     return
   }
 
   if (!isValidEmail(trimmed)) {
     error.value = 'Inserisci un indirizzo email valido'
+    triggerShake()
     return
   }
 
   if (!acceptedPrivacy.value) {
     privacyError.value = 'Devi accettare la Privacy Policy per iscriverti'
+    triggerShake()
     return
   }
 
@@ -279,7 +302,8 @@ async function handleSubmit() {
       method: 'POST',
       body: {
         email: email.value,
-        website_field: honeypotValue.value
+        website_field: honeypotValue.value,
+        timestamp: timestamp.value
       }
     })
 
@@ -292,4 +316,57 @@ async function handleSubmit() {
     serverError.value = err.data?.message || 'Si è verificato un errore. Riprova più tardi.'
   }
 }
+
+function triggerShake() {
+  hasError.value = true
+  setTimeout(() => {
+    hasError.value = false
+  }, 500)
+}
 </script>
+
+<style scoped>
+/* Shake animation for errors */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+.animate-shake {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* Fade in animation for success message */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Checkmark draw animation */
+@keyframes checkmark {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-checkmark svg {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: checkmark 0.4s ease-out forwards;
+}
+</style>
+
