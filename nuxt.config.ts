@@ -57,6 +57,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxt/scripts',
     '@vite-pwa/nuxt',
+    '@nuxtjs/critters',
   ],
 
   vite: {
@@ -101,5 +102,12 @@ export default defineNuxtConfig({
       siteUrl,
       n8nWebhookUrl: process.env.NUXT_PUBLIC_N8N_WEBHOOK_URL || 'https://n8n.enricodeleo.com/webhook-test/enricodeleo-com-newsletter-signup',
     }
+  },
+
+  // Critters configuration for CSS optimization
+  critters: {
+    config: {
+      preload: 'swap',
+    },
   },
 })

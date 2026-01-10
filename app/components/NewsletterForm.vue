@@ -20,7 +20,7 @@
 
       <template v-if="state !== 'success'">
       <!-- Label -->
-      <label class="block text-base font-bold text-[#3c4858] dark:text-gray-200">
+      <label for="newsletter-email" class="block text-base font-bold text-[#3c4858] dark:text-gray-200">
         I miei insight + link imperdibili, ogni settimana.
       </label>
 
@@ -44,11 +44,15 @@
       <!-- Input Group -->
       <div class="space-y-2 relative">
         <input
+          id="newsletter-email"
           v-model="email"
           type="email"
+          name="email"
           placeholder="Email"
           class="w-full rounded-md border border-[#c0ccda] bg-white px-4 py-3 text-[#3c4858] placeholder:text-[#c0ccda] focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-50 dark:placeholder:text-gray-400"
           :class="{ 'border-red-500 focus:border-red-500 focus:ring-red-500/20': error }"
+          :aria-invalid="error !== '' || serverError !== ''"
+          :aria-describedby="error ? 'email-error' : undefined"
           required
           @input="onInput"
           @focus="showDropdown = true"
@@ -84,7 +88,9 @@
         <!-- Error Message -->
         <p
           v-if="error"
+          id="email-error"
           class="text-xs text-red-600"
+          role="alert"
         >
           {{ error }}
         </p>
@@ -92,7 +98,9 @@
         <!-- Server Error Message -->
         <p
           v-else-if="serverError"
+          id="email-error"
           class="text-xs text-red-600"
+          role="alert"
         >
           {{ serverError }}
         </p>
@@ -106,10 +114,14 @@
       <div class="space-y-2">
         <label class="flex items-start gap-3 cursor-pointer">
           <input
+            id="privacy-accept"
             v-model="acceptedPrivacy"
             type="checkbox"
+            name="privacy"
             class="mt-1 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-900"
             :class="{ 'border-red-500 focus:border-red-500 focus:ring-red-500': privacyError }"
+            :aria-invalid="privacyError !== ''"
+            :aria-describedby="privacyError ? 'privacy-error' : undefined"
             required
           >
           <span class="text-sm text-[#3c4858] dark:text-gray-200">
@@ -118,7 +130,9 @@
         </label>
         <p
           v-if="privacyError"
+          id="privacy-error"
           class="text-xs text-red-600"
+          role="alert"
         >
           {{ privacyError }}
         </p>
@@ -129,9 +143,10 @@
         <button
           type="submit"
           :disabled="state === 'loading'"
+          :aria-busy="state === 'loading'"
           class="px-6 py-2 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700/80 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          <span v-if="state === 'loading'">Iscrizione in corso...</span>
+          <span v-if="state === 'loading'" aria-hidden="true">Iscrizione in corso...</span>
           <span v-else>Iscriviti</span>
         </button>
       </div>

@@ -10,7 +10,8 @@
       </NuxtLink>
 
       <section class="max-w-prose mx-auto px-5">
-        <article class="flex flex-wrap dark:text-[#F8FAFC]">
+        <main id="main-content" role="main">
+          <article class="dark:text-[#F8FAFC]">
           <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">
             Fractional CTO &amp; AI Solutions Architect
           </h1>
@@ -77,7 +78,8 @@
             Ho co-fondato <strong>Traction</strong> e <strong>AutoCust</strong> — due iniziative che mirano a
             rivoluzionare il modo in cui le aziende interagiscono con i propri clienti e ottimizzano i processi di marketing.
           </p>
-        </article>
+          </article>
+        </main>
       </section>
 
       <AppFooter />
