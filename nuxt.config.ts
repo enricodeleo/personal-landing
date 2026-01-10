@@ -42,16 +42,10 @@ export default defineNuxtConfig({
       meta: [
         { name: 'author', content: 'Enrico Deleo' },
         { name: 'description', content: siteDescription },
-        { name: 'color-scheme', content: 'light dark' },
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/icon.png' },
         { rel: 'apple-touch-icon', href: '/icon.png' },
-      ],
-      style: [
-        {
-          innerHTML: 'html{background:#fff;color:#0f172a}@media (prefers-color-scheme:dark){html{background:#0B1220;color:#f8fafc;color-scheme:dark}}'
-        }
       ],
     },
   },

@@ -18,7 +18,7 @@
           <h2 class="text-lg md:text-xl font-extrabold leading-tight">
             AI pragmatica che accelera business e prodotti
           </h2>
-          <p class="my-4 text-lg sm:text-xl text-slate-600 dark:text-gray-200">
+          <p class="my-4 text-lg sm:text-xl text-slate-700 dark:text-gray-200">
             <em>
               Trasformo idee in soluzioni scalabili con <strong>Large Language Models</strong>,
               architetture cloud e un metodo data-driven orientato al ROI.
