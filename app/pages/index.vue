@@ -11,7 +11,7 @@
 
       <section class="max-w-prose mx-auto px-5">
         <main id="main-content" role="main">
-          <article class="dark:text-[#F8FAFC]">
+          <article class="text-gray-900 dark:text-[#F8FAFC]">
           <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">
             Fractional CTO &amp; AI Solutions Architect
           </h1>

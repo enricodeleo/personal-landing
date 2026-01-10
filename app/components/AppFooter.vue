@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="max-w-prose mx-auto py-12 px-5 md:px-12 select-none">
-      <h3 class="text-lg text-center mb-4 dark:text-[#F8FAFC]">
+      <h3 class="text-lg text-center mb-4 text-gray-900 dark:text-[#F8FAFC]">
         Mi trovi (tra gli altri) su:
       </h3>
       <div class="flex justify-between text-gray-500 dark:text-[#94A3B8]">
@@ -20,8 +20,8 @@
       </div>
     </div>
     <div class="max-w-prose mx-auto px-5 md:px-12 select-none">
-      <p class="text-center mb-0 pb-0 dark:text-gray-200">
-        Non dimenticare la mia <a rel="noopener" href="https://amzn.to/3fXQw59" target="_blank" class="text-yellow-500 underline decoration-dotted underline-offset-4"><strong>pagina autore su Amazon</strong></a>.
+      <p class="text-center mb-0 pb-0 text-gray-700 dark:text-gray-200">
+        Non dimenticare la mia <a rel="noopener" href="https://amzn.to/3fXQw59" target="_blank" class="text-yellow-600 underline decoration-dotted underline-offset-4"><strong>pagina autore su Amazon</strong></a>.
       </p>
     </div>
     <div class="max-w-xs mx-auto px-5 md:px-12 select-none">
