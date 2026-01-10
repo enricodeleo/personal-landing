@@ -39,6 +39,10 @@
       <NuxtLink to="/bio" class="text-gray-500 hover:text-gray-700 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
         Bio
       </NuxtLink>
+      <span class="mx-2">•</span>
+      <a href="https://blog.enricodeleo.com/" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-700 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
+        Blog
+      </a>
     </nav>
     <footer class="max-w-prose mx-auto text-center text-sm text-gray-500 dark:text-[#94A3B8] px-5 md:px-12 select-none">
       <p class="mt-3">
