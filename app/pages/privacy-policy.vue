@@ -88,6 +88,29 @@
             I dati vengono trattati esclusivamente per le finalità indicate nella sezione "Finalità del trattamento".
           </p>
 
+          <h3 class="text-lg font-bold my-4">
+            2.3 Commenti tramite servizi di terze parti (Disqus)
+          </h3>
+
+          <p class="pb-3">
+            Il Sito utilizza <strong>Disqus</strong>, un servizio di commenti fornito da Disqus, Inc., che consente agli utenti di commentare i contenuti pubblicati.
+          </p>
+
+          <p class="pb-3">
+            L'utilizzo del sistema di commenti può comportare il trattamento di dati personali quali:
+          </p>
+
+          <ul class="list-disc pl-5 pb-3">
+            <li>indirizzo IP</li>
+            <li>dati di utilizzo</li>
+            <li>identificativi del browser e del dispositivo</li>
+            <li>informazioni relative all'interazione con il sistema di commenti</li>
+          </ul>
+
+          <p class="pb-3">
+            Disqus può inoltre installare cookie e strumenti di tracciamento, anche di terze parti.
+          </p>
+
           <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
             3) Finalità del trattamento e basi giuridiche
           </h2>
@@ -142,6 +165,18 @@
 
           <p class="pb-3">
             <strong>Base giuridica:</strong> consenso dell'utente (tramite banner/pannello preferenze).
+          </p>
+
+          <h3 class="text-lg font-bold my-4">
+            3.5 Sistema di commenti (Disqus)
+          </h3>
+
+          <p class="pb-3">
+            <strong>Finalità:</strong> consentire agli utenti di commentare i contenuti del Sito.
+          </p>
+
+          <p class="pb-3">
+            <strong>Base giuridica:</strong> consenso dell'utente, espresso tramite il sistema di gestione delle preferenze sui cookie.
           </p>
 
           <h2 class="text-lg md:text-xl mt-6 mb-4 font-extrabold leading-tight">
@@ -258,7 +293,36 @@
           </p>
 
           <h3 class="text-lg font-bold my-4">
-            7.2 Brevo (ex Sendinblue) (newsletter/gestione contatti)
+            7.2 Disqus (sistema di commenti)
+          </h3>
+
+          <p class="pb-3">
+            Servizio di commenti fornito da <strong>Disqus, Inc.</strong>.
+          </p>
+
+          <ul class="list-disc pl-5 pb-3">
+            <li><strong>Ruolo:</strong> Titolare autonomo del trattamento</li>
+            <li><strong>Finalità:</strong> gestione dei commenti e delle interazioni degli utenti</li>
+          </ul>
+
+          <p class="pb-3">
+            Il caricamento del servizio Disqus avviene solo previo consenso dell'utente.
+          </p>
+
+          <p class="pb-3">
+            Informazioni:
+            <a
+              href="https://disqus.com/privacy/"
+              target="_blank"
+              rel="noopener"
+              class="underline decoration-dotted underline-offset-4"
+            >
+              https://disqus.com/privacy/
+            </a>
+          </p>
+
+          <h3 class="text-lg font-bold my-4">
+            7.3 Brevo (ex Sendinblue) (newsletter/gestione contatti)
           </h3>
 
           <p class="pb-3">
@@ -276,7 +340,7 @@
           </p>
 
           <h3 class="text-lg font-bold my-4">
-            7.3 Cloudflare (proxy/CDN/sicurezza)
+            7.4 Cloudflare (proxy/CDN/sicurezza)
           </h3>
 
           <p class="pb-3">
@@ -289,7 +353,7 @@
           </p>
 
           <h3 class="text-lg font-bold my-4">
-            7.4 Ulteriori fornitori tecnici
+            7.5 Ulteriori fornitori tecnici
           </h3>
 
           <p class="pb-3">
