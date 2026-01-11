@@ -495,48 +495,43 @@ useHead(() => ({
   link: [
     { rel: 'canonical', href: canonicalUrl.value },
   ],
-  script: [
+}))
+
+useJsonLd(() => ({
+  '@context': 'https://schema.org',
+  '@graph': [
     {
-      key: 'ld-json',
-      type: 'application/ld+json',
-      children: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@graph': [
-          {
-            '@type': 'Person',
-            '@id': `${siteUrl}/#person`,
-            name: siteName,
-            url: siteUrl,
-            image: profileImage,
-            jobTitle: 'Fractional CTO & AI Solutions Architect',
-            description: siteDescription,
-            sameAs,
-            address: {
-              '@type': 'PostalAddress',
-              addressLocality: 'Roma',
-              addressCountry: 'IT',
-            },
-          },
-          {
-            '@type': 'WebSite',
-            '@id': `${siteUrl}/#website`,
-            url: siteUrl,
-            name: siteName,
-            description: siteDescription,
-            inLanguage: siteLanguage,
-            publisher: { '@id': `${siteUrl}/#person` },
-          },
-          {
-            '@type': 'WebPage',
-            '@id': `${canonicalUrl.value}#webpage`,
-            url: canonicalUrl.value,
-            name: pageTitle,
-            description: pageDescription,
-            inLanguage: siteLanguage,
-            isPartOf: { '@id': `${siteUrl}/#website` },
-          },
-        ],
-      }),
+      '@type': 'Person',
+      '@id': `${siteUrl}/#person`,
+      name: siteName,
+      url: siteUrl,
+      image: profileImage,
+      jobTitle: 'Fractional CTO & AI Solutions Architect',
+      description: siteDescription,
+      sameAs,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Roma',
+        addressCountry: 'IT',
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      url: siteUrl,
+      name: siteName,
+      description: siteDescription,
+      inLanguage: siteLanguage,
+      publisher: { '@id': `${siteUrl}/#person` },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${canonicalUrl.value}#webpage`,
+      url: canonicalUrl.value,
+      name: pageTitle,
+      description: pageDescription,
+      inLanguage: siteLanguage,
+      isPartOf: { '@id': `${siteUrl}/#website` },
     },
   ],
 }))
