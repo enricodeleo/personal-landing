@@ -25,7 +25,9 @@ export default defineNuxtConfig({
   // Enable static generation
   nitro: {
     preset: 'static',
+    trailingSlash: false,
     prerender: {
+      autoSubfolderIndex: false,
       failOnError: false,
     },
   },
@@ -59,6 +61,14 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
     '@nuxtjs/critters',
   ],
+
+  experimental: {
+    defaults: {
+      nuxtLink: {
+        trailingSlash: 'remove',
+      },
+    },
+  },
 
   vite: {
     plugins: [
