@@ -75,6 +75,11 @@
           </p>
 
           <p class="pb-3">
+            Il sito può inoltre utilizzare servizi di terze parti che installano cookie e tecnologie simili (ad es. sistemi di commento),
+            caricati esclusivamente previo consenso dell'utente.
+          </p>
+
+          <p class="pb-3">
             Alcuni servizi utilizzati dal sito sono forniti da terze parti selezionate e utilizzati esclusivamente per finalità tecniche o statistiche.
           </p>
 
