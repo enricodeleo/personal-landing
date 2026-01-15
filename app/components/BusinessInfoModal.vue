@@ -114,13 +114,13 @@
                 </div>
 
                 <!-- Phone Number (Mandatory) -->
-                <div>
+                <div class="max-w-full">
                   <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Numero di Telefono <span class="text-red-500">*</span>
                   </label>
                   <div class="flex gap-2">
                     <!-- Country Prefix (Lazy Loaded) -->
-                    <div class="w-32 flex-shrink-0">
+                    <div class="w-28 shrink-0">
                       <ClientOnly>
                         <LazyPhonePrefixSelect
                           v-model="formData.phonePrefix"
@@ -133,9 +133,9 @@
                     <input
                       v-model="formData.phoneNumber"
                       type="tel"
-                      placeholder="333 1234567"
+                      placeholder="3331234567"
                       required
-                      class="flex-1 rounded-md border border-gray-300 bg-white px-4 py-2.5 text-gray-900 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50 dark:placeholder:text-gray-500"
+                      class="w-0 min-w-0 flex-1 rounded-md border border-gray-300 bg-white px-4 py-2.5 text-gray-900 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50 dark:placeholder:text-gray-500"
                       :class="{ 'border-red-500 focus:border-red-500 focus:ring-red-500/20': errors.phone }"
                       @input="errors.phone = ''"
                     >
