@@ -21,7 +21,7 @@
             </svg>
           </div>
           <p class="text-sm font-medium text-green-800 dark:text-green-200">
-            Grazie per l'iscrizione! Controlla la tua email per confermare.
+            Grazie per l'iscrizione!
           </p>
         </div>
       </div>

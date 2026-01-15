@@ -121,6 +121,29 @@
                   </p>
                 </div>
 
+                <!-- Phone Number (Mandatory) -->
+                <div>
+                  <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Numero di Telefono <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="phone"
+                    v-model="formData.phone"
+                    type="tel"
+                    placeholder="Es. +39 333 1234567"
+                    required
+                    class="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-gray-900 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50 dark:placeholder:text-gray-500"
+                    :class="{ 'border-red-500 focus:border-red-500 focus:ring-red-500/20': errors.phone }"
+                    @input="errors.phone = ''"
+                  >
+                  <p v-if="errors.phone" class="mt-1 text-xs text-red-600">
+                    {{ errors.phone }}
+                  </p>
+                  <p v-else class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                    Inserisci il numero con prefisso internazionale (es. +39...)
+                  </p>
+                </div>
+
                 <!-- Number of Employees -->
                 <div>
                   <label for="employees" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
@@ -268,6 +291,7 @@ const isSubmitting = ref(false)
 const formData = ref({
   company: '',
   website: '',
+  phone: '',
   employees: '',
   revenue: '',
   businessType: '',
@@ -277,6 +301,7 @@ const formData = ref({
 const errors = ref({
   company: '',
   website: '',
+  phone: '',
   commercial: ''
 })
 
@@ -294,12 +319,13 @@ function closeWithoutSaving() {
   formData.value = {
     company: '',
     website: '',
+    phone: '',
     employees: '',
     revenue: '',
     businessType: '',
     acceptsCommercial: true
   }
-  errors.value = { company: '', website: '', commercial: '' }
+  errors.value = { company: '', website: '', phone: '', commercial: '' }
   emit('close')
 }
 
@@ -324,7 +350,7 @@ function validateWebsite() {
 
 async function handleSubmit() {
   // Reset errors
-  errors.value = { company: '', website: '', commercial: '' }
+  errors.value = { company: '', website: '', phone: '', commercial: '' }
 
   // Validate company (mandatory)
   if (!formData.value.company || formData.value.company.trim() === '') {
@@ -343,6 +369,21 @@ async function handleSubmit() {
     }
   }
 
+  // Validate phone (mandatory)
+  if (!formData.value.phone || formData.value.phone.trim() === '') {
+    errors.value.phone = 'Il numero di telefono è obbligatorio'
+    return
+  }
+
+  // Basic phone validation (must start with + and have at least 10 digits)
+  const phone = formData.value.phone.trim()
+  const phoneDigits = phone.replace(/\D/g, '') // Remove all non-digits
+
+  if (!phone.startsWith('+') || phoneDigits.length < 10) {
+    errors.value.phone = 'Inserisci un numero valido con prefisso internazionale (es. +39 333 1234567)'
+    return
+  }
+
   // Validate commercial consent (mandatory - must be checked to submit)
   if (!formData.value.acceptsCommercial) {
     errors.value.commercial = 'Devi accettare di ricevere comunicazioni commerciali per inviare il modulo'
@@ -356,6 +397,9 @@ async function handleSubmit() {
     ? `https://${formData.value.website.trim()}`
     : ''
 
+  // Strip all spaces from phone number for clarity
+  const phoneClean = phone.replace(/\s/g, '')
+
   // Emit the business info data (no email needed, already sent in first submission)
   emit('submit', {
     request_id: props.requestId,
@@ -363,9 +407,10 @@ async function handleSubmit() {
     businessInfo: {
       company: formData.value.company.trim(),
       website: websiteUrl,
-      employees: formData.value.employees,
-      revenue: formData.value.revenue,
-      businessType: formData.value.businessType
+      phone: phoneClean,
+      employees: formData.value.employees?.trim() || '',
+      revenue: formData.value.revenue?.trim() || '',
+      businessType: formData.value.businessType?.trim() || ''
     }
   })
 
