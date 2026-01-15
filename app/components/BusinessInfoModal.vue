@@ -74,37 +74,50 @@
               </div>
 
               <form @submit.prevent="handleSubmit" class="space-y-4">
-                <!-- Company Name -->
+                <!-- Company Name (Mandatory) -->
                 <div>
                   <label for="company" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Nome Azienda
+                    Nome Azienda <span class="text-red-500">*</span>
                   </label>
                   <input
                     id="company"
                     v-model="formData.company"
                     type="text"
                     placeholder="Es. Tech Solutions Srl"
-                    class="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-gray-900 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50 dark:placeholder:text-gray-500"
-                  >
-                </div>
-
-                <!-- Website (Mandatory) -->
-                <div>
-                  <label for="website" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Sito Web <span class="text-red-500">*</span>
-                  </label>
-                  <input
-                    id="website"
-                    v-model="formData.website"
-                    type="url"
-                    placeholder="Es. https://www.tuonome.it"
                     required
                     class="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-gray-900 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50 dark:placeholder:text-gray-500"
-                    :class="{ 'border-red-500 focus:border-red-500 focus:ring-red-500/20': errors.website }"
-                    @input="errors.website = ''"
+                    :class="{ 'border-red-500 focus:border-red-500 focus:ring-red-500/20': errors.company }"
+                    @input="errors.company = ''"
                   >
+                  <p v-if="errors.company" class="mt-1 text-xs text-red-600">
+                    {{ errors.company }}
+                  </p>
+                </div>
+
+                <!-- Website (Optional) -->
+                <div>
+                  <label for="website" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Sito Web
+                  </label>
+                  <div class="relative">
+                    <span class="absolute left-4 top-1/2 -translate-y-1/2 text-sm text-gray-500 dark:text-gray-400 pointer-events-none">
+                      https://
+                    </span>
+                    <input
+                      id="website"
+                      v-model="formData.website"
+                      type="text"
+                      placeholder="www.tuonome.it"
+                      class="w-full rounded-md border border-gray-300 bg-white pl-[4.5rem] pr-4 py-2.5 text-gray-900 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50 dark:placeholder:text-gray-500"
+                      :class="{ 'border-red-500 focus:border-red-500 focus:ring-red-500/20': errors.website }"
+                      @input="validateWebsite"
+                    >
+                  </div>
                   <p v-if="errors.website" class="mt-1 text-xs text-red-600">
                     {{ errors.website }}
+                  </p>
+                  <p v-else class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                    Inserisci solo il dominio (es. www.tuosito.it)
                   </p>
                 </div>
 
@@ -262,6 +275,7 @@ const formData = ref({
 })
 
 const errors = ref({
+  company: '',
   website: '',
   commercial: ''
 })
@@ -285,44 +299,70 @@ function closeWithoutSaving() {
     businessType: '',
     acceptsCommercial: true
   }
-  errors.value = { website: '', commercial: '' }
+  errors.value = { company: '', website: '', commercial: '' }
   emit('close')
+}
+
+// Validate website domain (optional field, but if provided must be valid domain)
+function validateWebsite() {
+  errors.value.website = ''
+
+  // If empty, that's fine (optional field)
+  if (!formData.value.website || formData.value.website.trim() === '') {
+    return
+  }
+
+  const domain = formData.value.website.trim()
+
+  // Basic domain validation regex (allows: domain.com, www.domain.com, sub.domain.co.uk, etc.)
+  const domainRegex = /^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$/i
+
+  if (!domainRegex.test(domain)) {
+    errors.value.website = 'Inserisci un dominio valido (es. www.tuosito.it)'
+  }
 }
 
 async function handleSubmit() {
   // Reset errors
-  errors.value = { website: '', commercial: '' }
+  errors.value = { company: '', website: '', commercial: '' }
 
-  // Validate website (mandatory)
-  if (!formData.value.website) {
-    errors.value.website = 'Il sito web è obbligatorio'
+  // Validate company (mandatory)
+  if (!formData.value.company || formData.value.company.trim() === '') {
+    errors.value.company = 'Il nome azienda è obbligatorio'
     return
   }
 
-  // Validate URL format
-  try {
-    new URL(formData.value.website)
-  } catch {
-    errors.value.website = 'Inserisci un URL valido (es. https://www.tuosito.it)'
-    return
+  // Validate website (optional, but if provided must be valid domain format)
+  if (formData.value.website && formData.value.website.trim() !== '') {
+    const domain = formData.value.website.trim()
+    const domainRegex = /^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$/i
+
+    if (!domainRegex.test(domain)) {
+      errors.value.website = 'Inserisci un dominio valido (es. www.tuosito.it)'
+      return
+    }
   }
 
-  // Validate commercial consent (required to be submitted - user must confirm by keeping it checked or unchecking)
-  // The checkbox is required to be acknowledged (user must explicitly choose)
-  // Since it's checked by default, user must leave it checked or uncheck it - either way counts as consent
-  // If you want to require it to be CHECKED, use: if (!formData.value.acceptsCommercial)
-  // For now, we accept either checked or unchecked as long as user submitted
-  // The value will be sent as-is (true or false)
+  // Validate commercial consent (mandatory - must be checked to submit)
+  if (!formData.value.acceptsCommercial) {
+    errors.value.commercial = 'Devi accettare di ricevere comunicazioni commerciali per inviare il modulo'
+    return
+  }
 
   isSubmitting.value = true
+
+  // Prepare website URL (prepend https:// if provided)
+  const websiteUrl = formData.value.website && formData.value.website.trim() !== ''
+    ? `https://${formData.value.website.trim()}`
+    : ''
 
   // Emit the business info data (no email needed, already sent in first submission)
   emit('submit', {
     request_id: props.requestId,
     wantsCommercialComms: formData.value.acceptsCommercial,
     businessInfo: {
-      company: formData.value.company,
-      website: formData.value.website,
+      company: formData.value.company.trim(),
+      website: websiteUrl,
       employees: formData.value.employees,
       revenue: formData.value.revenue,
       businessType: formData.value.businessType
