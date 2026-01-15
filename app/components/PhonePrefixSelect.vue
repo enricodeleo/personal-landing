@@ -34,31 +34,17 @@
 
       <!-- Country List -->
       <div class="py-1">
-        <optgroup v-if="filteredMainCountries.length > 0" label="Principali">
-          <div
-            v-for="country in filteredMainCountries"
-            :key="country.iso2"
-            @click="selectCountry(country)"
-            class="px-3 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2"
-            :class="{ 'bg-blue-50 dark:bg-gray-700': country.dialCode === modelValue }"
-          >
-            <span>{{ country.flag }} {{ country.dialCode }}</span>
-          </div>
-        </optgroup>
+        <div
+          v-for="country in filteredCountries"
+          :key="country.iso2"
+          @click="selectCountry(country)"
+          class="px-3 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2"
+          :class="{ 'bg-blue-50 dark:bg-gray-700': country.dialCode === modelValue }"
+        >
+          <span class="text-gray-900 dark:text-gray-100">{{ country.flag }} {{ country.dialCode }}</span>
+        </div>
 
-        <optgroup v-if="filteredOtherCountries.length > 0" label="Altri paesi">
-          <div
-            v-for="country in filteredOtherCountries"
-            :key="country.iso2"
-            @click="selectCountry(country)"
-            class="px-3 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2"
-            :class="{ 'bg-blue-50 dark:bg-gray-700': country.dialCode === modelValue }"
-          >
-            <span>{{ country.flag }} {{ country.dialCode }}</span>
-          </div>
-        </optgroup>
-
-        <div v-if="filteredMainCountries.length === 0 && filteredOtherCountries.length === 0" class="px-3 py-2 text-gray-500 dark:text-gray-400">
+        <div v-if="filteredCountries.length === 0" class="px-3 py-2 text-gray-500 dark:text-gray-400">
           Nessun paese trovato
         </div>
       </div>
@@ -92,8 +78,8 @@ const searchQuery = ref("")
 const containerRef = ref<HTMLElement | null>(null)
 const searchInputRef = ref<HTMLInputElement | null>(null)
 
-// Main countries to show at top (Italy first, then major countries)
-const mainCountryCodes = ["IT", "US", "GB", "DE", "FR", "ES"]
+// Priority countries to show first
+const priorityCountryCodes = ["IT", "US", "GB", "DE", "FR", "ES"]
 
 // Get flag emoji from country code
 function getFlag(iso2: string): string {
@@ -107,58 +93,52 @@ function getFlag(iso2: string): string {
 // Display names for countries
 const dn = new Intl.DisplayNames(["it"], { type: "region" })
 
-// All countries
+// All countries sorted by priority then alphabetically
 const allCountries = computed<Option[]>(() => {
-  return getCountries()
-    .map((iso2) => {
-      const dialCode = `+${getCountryCallingCode(iso2)}`
-      return {
-        iso2,
-        name: dn.of(iso2) ?? iso2,
-        dialCode,
-        flag: getFlag(iso2)
-      }
-    })
+  const countries = getCountries().map((iso2) => {
+    const dialCode = `+${getCountryCallingCode(iso2)}`
+    return {
+      iso2,
+      name: dn.of(iso2) ?? iso2,
+      dialCode,
+      flag: getFlag(iso2)
+    }
+  })
+
+  return countries.sort((a, b) => {
+    const aPriority = priorityCountryCodes.indexOf(a.iso2)
+    const bPriority = priorityCountryCodes.indexOf(b.iso2)
+
+    // Both are priority countries, maintain priority order
+    if (aPriority !== -1 && bPriority !== -1) {
+      return aPriority - bPriority
+    }
+    // Only a is priority, show first
+    if (aPriority !== -1) return -1
+    // Only b is priority, show first
+    if (bPriority !== -1) return 1
+    // Neither are priority, sort by dial code
+    return a.dialCode.localeCompare(b.dialCode, "it")
+  })
 })
 
-// Main countries sorted by importance
-const mainCountries = computed<Option[]>(() => {
-  return allCountries.value
-    .filter((country) => mainCountryCodes.includes(country.iso2))
-    .sort((a, b) => {
-      const aIndex = mainCountryCodes.indexOf(a.iso2)
-      const bIndex = mainCountryCodes.indexOf(b.iso2)
-      return aIndex - bIndex
-    })
-})
-
-// Other countries sorted by dial code
-const otherCountries = computed<Option[]>(() => {
-  return allCountries.value
-    .filter((country) => !mainCountryCodes.includes(country.iso2))
-    .sort((a, b) => a.dialCode.localeCompare(b.dialCode, "it"))
+// Currently selected country
+const selectedCountry = computed(() => {
+  return allCountries.value.find(c => c.dialCode === props.modelValue)
 })
 
 // Filter countries based on search
-function filterCountries(countries: Option[]) {
+const filteredCountries = computed(() => {
   const query = searchQuery.value.toLowerCase().trim()
-  if (!query) return countries
+  if (!query) return allCountries.value
 
-  return countries.filter((country) => {
+  return allCountries.value.filter((country) => {
     return (
       country.name.toLowerCase().includes(query) ||
       country.dialCode.includes(query) ||
       country.iso2.toLowerCase().includes(query)
     )
   })
-}
-
-const filteredMainCountries = computed(() => filterCountries(mainCountries.value))
-const filteredOtherCountries = computed(() => filterCountries(otherCountries.value))
-
-// Currently selected country
-const selectedCountry = computed(() => {
-  return allCountries.value.find(c => c.dialCode === props.modelValue)
 })
 
 function toggleDropdown() {
