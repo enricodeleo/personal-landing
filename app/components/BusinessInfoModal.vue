@@ -269,10 +269,6 @@
               </form>
             </div>
           </div>
-        </div>
-      </Transition>
-    </Teleport>
-  </ClientOnly>
 </template>
 
 <script setup>
