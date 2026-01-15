@@ -1,6 +1,14 @@
 <template>
-  <div class="w-full rounded-[15px] bg-[#F5F5F5] px-5 pt-10 pb-8 dark:bg-gray-800 md:px-12" :class="{ 'animate-shake': hasError }">
-    <form class="space-y-6" @submit.prevent="handleSubmit">
+  <div>
+    <BusinessInfoModal
+      :show="showBusinessModal"
+      :request-id="requestId"
+      @close="showBusinessModal = false"
+      @submit="handleBusinessInfoSubmit"
+    />
+
+    <div class="w-full rounded-[15px] bg-[#F5F5F5] px-5 pt-10 pb-8 dark:bg-gray-800 md:px-12" :class="{ 'animate-shake': hasError }">
+      <form class="space-y-6" @submit.prevent="handleSubmit">
       <!-- Success Message -->
       <div
         v-if="state === 'success'"
@@ -40,6 +48,9 @@
 
       <!-- Timestamp field for spam prevention -->
       <input type="hidden" name="timestamp" :value="timestamp" data-lpignore="true">
+
+      <!-- Request ID for backend reconciliation -->
+      <input type="hidden" name="request_id" :value="requestId" data-lpignore="true">
 
       <!-- Input Group -->
       <div class="space-y-2 relative">
@@ -152,14 +163,18 @@
       </div>
       </template>
     </form>
+    </div>
   </div>
 </template>
 
 <script setup>
+import { v4 as uuidv4 } from 'uuid'
+
 const email = ref('')
 const emailInput = ref(null)
 const honeypotValue = ref('')
 const timestamp = ref(0)
+const requestId = ref('')
 const acceptedPrivacy = ref(false)
 const error = ref('')
 const serverError = ref('')
@@ -170,34 +185,20 @@ const focusedIndex = ref(-1)
 const state = ref('idle') // 'idle' | 'loading' | 'success' | 'error'
 const hasError = ref(false)
 
-// Generate timestamp only on client side to avoid hydration mismatch
+// Business info modal state
+const showBusinessModal = ref(false)
+
+// Generate timestamp and request ID only on client side to avoid hydration mismatch
 onMounted(() => {
   timestamp.value = Date.now()
+
+  // Generate unique request ID using uuid library
+  if (process.client) {
+    requestId.value = uuidv4()
+  }
 })
 
-const domains = [
-  '@gmail.com',
-  '@libero.it',
-  '@hotmail.it',
-  '@outlook.it',
-  '@yahoo.it',
-  '@icloud.com',
-  '@alice.it',
-  '@tim.it',
-  '@virgilio.it',
-  '@poste.it',
-  '@tin.it',
-  '@fastwebnet.it',
-  '@email.it',
-  '@me.com',
-  '@live.it'
-]
-
-const isValidEmail = (value) => {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  return emailRegex.test(value)
-}
-
+// Track when user interacts with email field
 function onInput() {
   const value = email.value.toLowerCase()
   email.value = value
@@ -223,6 +224,55 @@ function onInput() {
   if (error.value) {
     error.value = ''
   }
+}
+
+// Handle business info submission - sends ONLY additional data with same request_id
+async function handleBusinessInfoSubmit(data) {
+  showBusinessModal.value = false
+
+  const config = useRuntimeConfig()
+  const webhookUrl = config.public.n8nWebhookUrl
+
+  try {
+    // Send only business_info + request_id + commercial (no email or timestamp, already in first submission)
+    await $fetch(webhookUrl, {
+      method: 'POST',
+      body: {
+        request_id: requestId.value,
+        commercial: data.wantsCommercialComms,
+        business_info: data.businessInfo
+      }
+    })
+
+    // Show success message for enrichment
+    // You could show a different success message here if needed
+  } catch (err) {
+    // Log error but don't show it to user since main subscription was successful
+    console.error('Business info submission error:', err)
+  }
+}
+
+const domains = [
+  '@gmail.com',
+  '@libero.it',
+  '@hotmail.it',
+  '@outlook.it',
+  '@yahoo.it',
+  '@icloud.com',
+  '@alice.it',
+  '@tim.it',
+  '@virgilio.it',
+  '@poste.it',
+  '@tin.it',
+  '@fastwebnet.it',
+  '@email.it',
+  '@me.com',
+  '@live.it'
+]
+
+const isValidEmail = (value) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  return emailRegex.test(value)
 }
 
 function focusFirstSuggestion() {
@@ -313,19 +363,28 @@ async function handleSubmit() {
   const webhookUrl = config.public.n8nWebhookUrl
 
   try {
+    const payload = {
+      request_id: requestId.value,
+      email: email.value,
+      website_field: honeypotValue.value,
+      timestamp: timestamp.value,
+      privacy: true
+    }
+
     await $fetch(webhookUrl, {
       method: 'POST',
-      body: {
-        email: email.value,
-        website_field: honeypotValue.value,
-        timestamp: timestamp.value
-      }
+      body: payload
     })
 
     state.value = 'success'
     email.value = ''
     honeypotValue.value = ''
     acceptedPrivacy.value = false
+
+    // Show business info modal after successful subscription
+    setTimeout(() => {
+      showBusinessModal.value = true
+    }, 1500)
   } catch (err) {
     state.value = 'error'
     serverError.value = err.data?.message || 'Si è verificato un errore. Riprova più tardi.'
