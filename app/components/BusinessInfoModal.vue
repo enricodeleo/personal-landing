@@ -1,79 +1,71 @@
 <template>
-  <ClientOnly>
-    <Teleport to="body">
-      <Transition name="modal">
-        <div
-          v-if="show"
-          class="fixed inset-0 z-50 flex items-center justify-center px-4"
-          @click.self="closeWithoutSaving"
+  <!-- Just the modal content, no teleport/backdrop wrapper -->
+  <div
+    v-if="show"
+    class="relative rounded-2xl bg-white p-6 shadow-2xl dark:bg-gray-800 max-h-[90vh] overflow-y-auto"
+  >
+    <!-- Close Button -->
+    <button
+      @click="closeWithoutSaving"
+      class="absolute right-4 top-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+      aria-label="Chiudi"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <!-- Step 1: Ask about commercial communications -->
+    <div v-if="step === 1" class="space-y-6">
+      <div class="text-center">
+        <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
+          <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
+          Ottimo, sei iscritto! 🎉
+        </h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+          Prima di lasciarti, volevo chiederti: vorresti ricevere anche offerte commerciali e contenuti esclusivi su servizi di consulenza?
+        </p>
+        <p class="text-sm text-gray-500 dark:text-gray-400">
+          È completamente opzionale e mi aiuta a inviarti contenuti più rilevanti per il tuo business.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-3">
+        <button
+          @click="goToStep2"
+          class="w-full rounded-lg bg-blue-600 px-6 py-3 text-white font-medium hover:bg-blue-700 transition-colors"
         >
-          <!-- Backdrop -->
-          <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+          Sì, sono interessato! ✓
+        </button>
+        <button
+          @click="closeWithoutSaving"
+          class="w-full rounded-lg bg-gray-100 px-6 py-3 text-gray-700 font-medium hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 transition-colors"
+        >
+          No, grazie, solo la newsletter
+        </button>
+      </div>
 
-          <!-- Modal Content -->
-          <div class="relative w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl dark:bg-gray-800 max-h-[90vh] overflow-y-auto">
-            <!-- Close Button -->
-            <button
-              @click="closeWithoutSaving"
-              class="absolute right-4 top-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
-              aria-label="Chiudi"
-            >
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </button>
+      <p class="text-xs text-center text-gray-500 dark:text-gray-400">
+        Puoi cancellarti in qualsiasi momento. Ti rispetto! 😊
+      </p>
+    </div>
 
-            <!-- Step 1: Ask about commercial communications -->
-            <div v-if="step === 1" class="space-y-6">
-              <div class="text-center">
-                <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
-                  <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                  Ottimo, sei iscritto! 🎉
-                </h3>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                  Prima di lasciarti, volevo chiederti: vorresti ricevere anche offerte commerciali e contenuti esclusivi su servizi di consulenza?
-                </p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">
-                  È completamente opzionale e mi aiuta a inviarti contenuti più rilevanti per il tuo business.
-                </p>
-              </div>
+    <!-- Step 2: Collect business information -->
+    <div v-else-if="step === 2" class="space-y-5">
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
+          Parliamo del tuo business 💼
+        </h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300">
+          Queste informazioni mi aiuteranno a inviarti contenuti più rilevanti.
+        </p>
+      </div>
 
-              <div class="flex flex-col gap-3">
-                <button
-                  @click="goToStep2"
-                  class="w-full rounded-lg bg-blue-600 px-6 py-3 text-white font-medium hover:bg-blue-700 transition-colors"
-                >
-                  Sì, sono interessato! ✓
-                </button>
-                <button
-                  @click="closeWithoutSaving"
-                  class="w-full rounded-lg bg-gray-100 px-6 py-3 text-gray-700 font-medium hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 transition-colors"
-                >
-                  No, grazie, solo la newsletter
-                </button>
-              </div>
-
-              <p class="text-xs text-center text-gray-500 dark:text-gray-400">
-                Puoi cancellarti in qualsiasi momento. Ti rispetto! 😊
-              </p>
-            </div>
-
-            <!-- Step 2: Collect business information -->
-            <div v-else-if="step === 2" class="space-y-5">
-              <div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                  Parliamo del tuo business 💼
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-300">
-                  Queste informazioni mi aiuteranno a inviarti contenuti più rilevanti.
-                </p>
-              </div>
-
-              <form @submit.prevent="handleSubmit" class="space-y-4">
+      <form @submit.prevent="handleSubmit" class="space-y-4">
                 <!-- Company Name (Mandatory) -->
                 <div>
                   <label for="company" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BusinessInfoModal
+    <BusinessInfoDialog
       :show="showBusinessModal"
       :request-id="requestId"
       @close="showBusinessModal = false"
