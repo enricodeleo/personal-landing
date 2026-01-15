@@ -120,7 +120,7 @@
                   </label>
                   <div class="flex gap-2">
                     <!-- Country Prefix (Lazy Loaded) -->
-                    <div class="w-48 flex-shrink-0">
+                    <div class="w-32 flex-shrink-0">
                       <ClientOnly>
                         <LazyPhonePrefixSelect
                           v-model="formData.phonePrefix"
@@ -148,43 +148,46 @@
                   </p>
                 </div>
 
-                <!-- Number of Employees -->
-                <div>
-                  <label for="employees" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Numero di Dipendenti
-                  </label>
-                  <select
-                    id="employees"
-                    v-model="formData.employees"
-                    class="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50"
-                  >
-                    <option value="">Seleziona...</option>
-                    <option value="1-10">1-10</option>
-                    <option value="11-50">11-50</option>
-                    <option value="51-200">51-200</option>
-                    <option value="201-500">201-500</option>
-                    <option value="500+">500+</option>
-                  </select>
-                </div>
+                <!-- Number of Employees and Annual Revenue -->
+                <div class="flex gap-4">
+                  <!-- Number of Employees -->
+                  <div class="flex-1">
+                    <label for="employees" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      Numero di Dipendenti
+                    </label>
+                    <select
+                      id="employees"
+                      v-model="formData.employees"
+                      class="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50"
+                    >
+                      <option value="">Seleziona...</option>
+                      <option value="1-10">1-10</option>
+                      <option value="11-50">11-50</option>
+                      <option value="51-200">51-200</option>
+                      <option value="201-500">201-500</option>
+                      <option value="500+">500+</option>
+                    </select>
+                  </div>
 
-                <!-- Annual Revenue -->
-                <div>
-                  <label for="revenue" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Fatturato Annuale
-                  </label>
-                  <select
-                    id="revenue"
-                    v-model="formData.revenue"
-                    class="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50"
-                  >
-                    <option value="">Seleziona...</option>
-                    <option value="<500k">Meno di €500.000</option>
-                    <option value="500k-1M">€500.000 - €1.000.000</option>
-                    <option value="1M-5M">€1.000.000 - €5.000.000</option>
-                    <option value="5M-10M">€5.000.000 - €10.000.000</option>
-                    <option value="10M-50M">€10.000.000 - €50.000.000</option>
-                    <option value="50M+">Oltre €50.000.000</option>
-                  </select>
+                  <!-- Annual Revenue -->
+                  <div class="flex-1">
+                    <label for="revenue" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      Fatturato Annuale
+                    </label>
+                    <select
+                      id="revenue"
+                      v-model="formData.revenue"
+                      class="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50"
+                    >
+                      <option value="">Seleziona...</option>
+                      <option value="<500k">Meno di €500.000</option>
+                      <option value="500k-1M">€500.000 - €1.000.000</option>
+                      <option value="1M-5M">€1.000.000 - €5.000.000</option>
+                      <option value="5M-10M">€5.000.000 - €10.000.000</option>
+                      <option value="10M-50M">€10.000.000 - €50.000.000</option>
+                      <option value="50M+">Oltre €50.000.000</option>
+                    </select>
+                  </div>
                 </div>
 
                 <!-- Business Type -->
