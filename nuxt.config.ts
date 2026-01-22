@@ -54,7 +54,6 @@ export default defineNuxtConfig({
 
   // Modules
   modules: [
-    '@nuxtjs/robots',
     '@nuxt/eslint',
     '@vueuse/nuxt',
     '@nuxt/scripts',
@@ -77,13 +76,6 @@ export default defineNuxtConfig({
     build: {
       sourcemap: process.env.NODE_ENV !== 'production'
     }
-  },
-
-  // Robots.txt
-  robots: {
-    UserAgent: '*',
-    Allow: '/',
-    Sitemap: `${siteUrl}/sitemap.xml`,
   },
 
   // PWA configuration with @vite-pwa/nuxt
