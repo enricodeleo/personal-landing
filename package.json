@@ -32,7 +32,6 @@
   "devDependencies": {
     "@nuxt/eslint": "^0.7.0",
     "@types/node": "^25.0.3",
-    "@vite-pwa/nuxt": "^1.1.0",
     "eslint": "^9.15.0",
     "tailwindcss": "^4.0.0"
   }

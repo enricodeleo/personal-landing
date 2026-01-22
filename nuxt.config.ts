@@ -57,7 +57,6 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@vueuse/nuxt',
     '@nuxt/scripts',
-    '@vite-pwa/nuxt',
     '@nuxtjs/critters',
   ],
 
@@ -75,30 +74,6 @@ export default defineNuxtConfig({
     ],
     build: {
       sourcemap: process.env.NODE_ENV !== 'production'
-    }
-  },
-
-  // PWA configuration with @vite-pwa/nuxt
-  pwa: {
-    registerType: 'autoUpdate',
-    includeAssets: ['*.jpg', '*.svg'],
-    manifest: {
-      name: 'Enrico Deleo',
-      short_name: 'Enrico Deleo',
-      description: 'Fractional CTO & AI Solutions Architect',
-      theme_color: '#ffffff',
-      background_color: '#ffffff',
-      display: 'standalone',
-      lang: 'it',
-      icons: [
-        { src: '/icon.png', sizes: '192x192', type: 'image/png' },
-      ],
-    },
-    workbox: {
-      globPatterns: ['**/*.{js,css,html,png,jpg,svg,woff2}'],
-      navigateFallbackDenylist: [
-        /\/[^/?]+\.[^/?]+$/,
-      ],
     }
   },
 
