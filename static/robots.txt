@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://enricodeleo.com/sitemap.xml
-LLM: https://enricodeleo.com/llms.txt
