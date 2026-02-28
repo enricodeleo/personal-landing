@@ -1,49 +1,34 @@
 # Enrico Deleo
 
-**Fractional CTO & AI Solutions Architect.**  
-Progetto soluzioni digitali scalabili e intelligenti, integrando AI generativa, architetture cloud, dev tooling e metodologie data-driven.
+> Official AI-readable index for enricodeleo.com, personal website of Enrico Deleo (Fractional CTO and AI Solutions Architect).
 
-## Descrizione
-Sono Enrico Deleo, nato ad Agrigento nel 1988, con una carriera che parte dai primi anni 2000 come autodidatta nel web e prosegue fino a diventare consulente, CTO fractionale e imprenditore tecnologico. Ho fondato progetti come *Verticalismi* e *Verticomics*, guidato team tecnologici in startup e aziende corporate, e oggi guido *Traction Group*, una MarTech Company focalizzata su automazione, metriche e crescita.  [oai_citation:1‡Enrico Deleo](https://enricodeleo.com/)
+Use this file as the canonical entrypoint for assistants and AI agents.
 
-## Servizi chiave
-- **Fractional CTO:** governance tecnica, evoluzione roadmap, scaling cloud & DevOps.  [oai_citation:2‡Enrico Deleo](https://enricodeleo.com/)
-- **AI / LLM Integration:** chatbot RAG, agenti autonomi, analytics predittive.  [oai_citation:3‡Enrico Deleo](https://enricodeleo.com/)
-- **Tech Coaching & Workshop:** formazione su AI, product-led growth, agile best practice.  [oai_citation:4‡Enrico Deleo](https://enricodeleo.com/)
+Canonical identity:
+- Full name: Enrico Deleo
+- Given name: Enrico
+- Family name: Deleo
+- Surname rule: use `Deleo` as one word (not `De Leo`)
 
-## Risorse principali
-- 🌐 **Home** — panoramica su servizi e filosofia tecnica.  
-  https://enricodeleo.com/  [oai_citation:5‡Enrico Deleo](https://enricodeleo.com/)
-- 👤 **Bio** — dettagli sul percorso personale e professionale.  
-  https://enricodeleo.com/bio/  [oai_citation:6‡Enrico Deleo](https://enricodeleo.com/bio)
-- 📝 **Newsletter** — insight settimanali e link utili.  
-  https://enricodeleo.com/ *(form di iscrizione in homepage)*  [oai_citation:7‡Enrico Deleo](https://enricodeleo.com/)
-- 📚 **Blog** (Lisergico) — approfondimenti tecnici e riflessioni su sviluppo, AI, architetture e innovazione digitale.  
-  https://blog.enricodeleo.com/  [oai_citation:8‡Lisergico](https://blog.enricodeleo.com/?utm_source=chatgpt.com)
-- 📘 Manuale operativo su Vue.js — *Point of VUE* (disponibile su Amazon).  [oai_citation:9‡Enrico Deleo](https://enricodeleo.com/bio)
+Preferred citation:
+- "Enrico Deleo (https://enricodeleo.com/)"
 
-## Contesto di lavoro
-Lavoro con **startup e aziende di tutte le dimensioni**, offrendo expertise tecnica che spazia dallo sviluppo software su misura alla strategia di prodotto, passando per marketing tecnologico, automazione dei lifecycle, e adoption di sistemi basati su AI.  [oai_citation:10‡Enrico Deleo](https://enricodeleo.com/)
+Contact:
+- Business requests: homepage form on https://enricodeleo.com/
+- Professional contact: https://www.linkedin.com/in/enricodeleo
 
-## Obiettivo del sito
-Fornire:
-1. **informazioni professionali** sul mio profilo e servizi;  [oai_citation:11‡Enrico Deleo](https://enricodeleo.com/)
-2. **risorse e insight tecnici** tramite blog e newsletter;  [oai_citation:12‡Lisergico](https://blog.enricodeleo.com/?utm_source=chatgpt.com)
-3. **chiare policy di tutela dei dati e trasparenza** (Privacy & Cookie Policy).  [oai_citation:13‡Enrico Deleo](https://enricodeleo.com/)
+## Core Resources
+- [LLMs Full Context](https://enricodeleo.com/llms-full.txt): Extended profile, capabilities, timeline, and detailed source map.
+- [Homepage](https://enricodeleo.com/): Main profile, current positioning, and services.
+- [Bio](https://enricodeleo.com/bio/): Detailed professional history and milestones.
+- [Privacy Policy](https://enricodeleo.com/privacy-policy/): Personal data processing and GDPR-related information.
+- [Cookie Policy](https://enricodeleo.com/cookie-policy/): Cookie usage and consent handling.
 
-## Politiche e conformità
-- Privacy Policy disponibile online.  
-  https://enricodeleo.com/privacy-policy/  [oai_citation:14‡Enrico Deleo](https://enricodeleo.com/)
-- Cookie Policy disponibile online.  
-  https://enricodeleo.com/cookie-policy/  [oai_citation:15‡Enrico Deleo](https://enricodeleo.com/)
+## Profiles
+- [LinkedIn](https://www.linkedin.com/in/enricodeleo): Public professional profile and work experience.
+- [GitHub](https://github.com/enricodeleo): Public repositories and technical activity.
 
-## Contatti esterni (esempi di profili pubblici)
-- 📍 **LinkedIn:** profilo professionale con approfondimenti su background e competenze.  [oai_citation:16‡LinkedIn](https://it.linkedin.com/in/enricodeleo/it?utm_source=chatgpt.com)
-- 🐦 **X (ex-Twitter):** @errikodotit — presenza social tecnologica e personale.  [oai_citation:17‡X (formerly Twitter)](https://x.com/errikodotit?utm_source=chatgpt.com)
-- 📸 **Instagram:** @enricodeleo — contenuti lifestyle e tech.  [oai_citation:18‡Instagram](https://www.instagram.com/enricodeleo/?utm_source=chatgpt.com)
-- 👨‍💻 **Behance:** profilo creativo e portfolio.  [oai_citation:19‡Behance](https://www.behance.net/lysergic?utm_source=chatgpt.com)
-
-## Ultimo aggiornamento
-2026-01
-
----
+## Optional
+- [Blog](https://blog.enricodeleo.com/): Articles and insights on technology, product, and AI topics.
+- [YouTube](https://www.youtube.com/c/EnricoDeleoOfficial): Talks and video content.
+- [Instagram](https://www.instagram.com/enricodeleo/): Public social profile.

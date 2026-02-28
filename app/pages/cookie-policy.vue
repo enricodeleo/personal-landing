@@ -137,7 +137,7 @@
 import logoSvg from '~/assets/logo-enrico-deleo.svg?raw'
 
 const route = useRoute()
-const { siteUrl, siteName, siteLocale, siteLanguage, siteDescription, ogImage, profileImage, sameAs } = useSiteMeta()
+const { siteUrl, siteName, personGivenName, personFamilyName, siteLocale, siteLanguage, siteDescription, ogImage, profileImage, sameAs } = useSiteMeta()
 
 // Head configuration
 const pageTitle = 'Cookie Policy - Enrico Deleo'
@@ -179,6 +179,8 @@ useJsonLd(() => ({
       '@type': 'Person',
       '@id': `${siteUrl}/#person`,
       name: siteName,
+      givenName: personGivenName,
+      familyName: personFamilyName,
       url: siteUrl,
       image: profileImage,
       jobTitle: 'Fractional CTO & AI Solutions Architect',

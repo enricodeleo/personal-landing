@@ -5,6 +5,8 @@ export const useSiteMeta = () => {
   return {
     siteUrl,
     siteName: 'Enrico Deleo',
+    personGivenName: 'Enrico',
+    personFamilyName: 'Deleo',
     siteLocale: 'it_IT',
     siteLanguage: 'it-IT',
     siteDescription: 'Fractional CTO & AI Solutions Architect. AI pragmatica, LLM, cloud e product strategy per accelerare business, prodotti e time-to-market.',
