@@ -16,7 +16,7 @@ export default defineNuxtConfig({
 
   // Development tools
   devtools: {
-    enabled: true,
+    enabled: process.env.NODE_ENV !== 'production',
   },
 
   // CSS
