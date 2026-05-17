@@ -31,12 +31,12 @@ const target = shallowRef<{
 const labels = computed(() => props.locale === 'en'
   ? {
       aria: 'Language selector',
-      label: 'Leggi questa pagina in italiano',
+      label: '🇮🇹 Leggi questa pagina in italiano',
       ariaLabel: 'Leggi questa pagina in italiano',
     }
   : {
       aria: 'Selettore lingua',
-      label: 'View this page in English',
+      label: '🇬🇧 View this page in English',
       ariaLabel: 'View this page in English',
     })
 

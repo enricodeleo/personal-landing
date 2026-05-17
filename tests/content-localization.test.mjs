@@ -40,17 +40,19 @@ const homePage = readFileSync(join(root, 'app/components/HomePage.vue'), 'utf8')
 assert.match(homePage, /<ClientOnly>[\s\S]*<LazyLanguageSwitcher\s+:locale="locale"/, 'homepage should lazy-load the client-only language switcher')
 
 const languageSwitcher = readFileSync(join(root, 'app/components/LanguageSwitcher.vue'), 'utf8')
-assert.match(languageSwitcher, /View this page in English/, 'Italian pages should expose an explicit English switcher label')
-assert.match(languageSwitcher, /Leggi questa pagina in italiano/, 'English pages should expose an explicit Italian switcher label')
+assert.match(languageSwitcher, /🇬🇧 View this page in English/, 'Italian pages should expose an explicit English switcher label')
+assert.match(languageSwitcher, /🇮🇹 Leggi questa pagina in italiano/, 'English pages should expose an explicit Italian switcher label')
 assert.match(languageSwitcher, /navigator\.languages/, 'language switcher should use browser language hints')
 assert.match(languageSwitcher, /v-if="target"/, 'language switcher should render only when the other locale is preferred')
 assert.doesNotMatch(languageSwitcher, /<NuxtLink/, 'language switcher should avoid client-side route transitions')
+assert.match(homePage, /class="flex justify-center"/, 'homepage language switcher should be centered above the logo')
 
 const newsletterForm = readFileSync(join(root, 'app/components/NewsletterForm.vue'), 'utf8')
 assert.match(newsletterForm, /class="newsletter-form"/, 'newsletter form should expose a stable root class for Markdown spacing')
 
 const globalCss = readFileSync(join(root, 'app/assets/css/main.css'), 'utf8')
 assert.match(globalCss, /\.home-page\s+\.newsletter-form\s*\{[\s\S]*margin-bottom:\s*(3rem|4rem)/, 'newsletter embed should leave a larger gap before following content')
+assert.match(globalCss, /\.home-page\s+\.newsletter-form\s*\{[\s\S]*margin-top:\s*(3rem|4rem)/, 'newsletter embed should leave a larger gap after preceding content')
 
 for (const page of pages) {
   assert.equal(existsSync(join(root, 'app/pages', `${page}.vue`)), false, `${page}.vue should be migrated to content`)

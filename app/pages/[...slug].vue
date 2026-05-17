@@ -2,7 +2,7 @@
   <div>
     <div class="container mx-auto sm:subpixel-antialiased md:antialiased leading-relaxed">
       <div class="w-56 mx-auto px-5 pt-6">
-        <div class="flex justify-end">
+        <div class="flex justify-center">
           <ClientOnly>
             <LazyLanguageSwitcher :locale="resolvedRoute.locale" />
           </ClientOnly>
