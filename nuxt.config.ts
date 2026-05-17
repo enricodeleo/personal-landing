@@ -29,6 +29,14 @@ export default defineNuxtConfig({
     prerender: {
       autoSubfolderIndex: false,
       failOnError: false,
+      routes: [
+        '/bio',
+        '/cookie-policy',
+        '/privacy-policy',
+        '/en/bio',
+        '/en/cookie-policy',
+        '/en/privacy-policy',
+      ],
     },
   },
 
@@ -55,6 +63,7 @@ export default defineNuxtConfig({
   // Modules
   modules: [
     '@nuxt/eslint',
+    '@nuxt/content',
     '@vueuse/nuxt',
     '@nuxt/scripts',
     '@nuxtjs/critters',

@@ -26,3 +26,51 @@
   height: 100%;
   fill: currentColor;
 }
+
+.content-page h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+@media (min-width: 768px) {
+  .content-page h2 {
+    font-size: 1.25rem;
+  }
+}
+
+.content-page h3 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.content-page p {
+  padding-bottom: 0.75rem;
+}
+
+.content-page ul {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+  padding-bottom: 0.75rem;
+}
+
+.content-page a {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 4px;
+}
+
+.content-page code {
+  border-radius: 0.25rem;
+  background-color: rgb(243 244 246);
+  padding: 0.125rem 0.25rem;
+  font-size: 0.875em;
+}
+
+.dark .content-page code {
+  background-color: rgb(17 24 39);
+}

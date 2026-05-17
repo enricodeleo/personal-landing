@@ -2,7 +2,7 @@
   <div>
     <div class="max-w-prose mx-auto py-12 px-5 md:px-12 select-none">
       <h3 class="text-lg text-center mb-4 text-gray-900 dark:text-[#F8FAFC]">
-        Mi trovi (tra gli altri) su:
+        {{ labels.socialIntro }}
       </h3>
       <div class="flex justify-between text-gray-600 dark:text-[#94A3B8]">
         <a
@@ -21,7 +21,7 @@
     </div>
     <div class="max-w-prose mx-auto px-5 md:px-12 select-none">
       <p class="text-center mb-0 pb-0 text-gray-700 dark:text-gray-200">
-        Non dimenticare la mia <a rel="noopener" href="https://amzn.to/3fXQw59" target="_blank" class="text-amber-700 hover:text-amber-800 dark:text-amber-400 dark:hover:text-amber-300 underline decoration-dotted underline-offset-4"><strong>pagina autore su Amazon</strong></a>.
+        {{ labels.amazonLead }} <a rel="noopener" href="https://amzn.to/3fXQw59" target="_blank" class="text-amber-700 hover:text-amber-800 dark:text-amber-400 dark:hover:text-amber-300 underline decoration-dotted underline-offset-4"><strong>{{ labels.amazonLink }}</strong></a>.
       </p>
     </div>
     <div class="max-w-xs mx-auto px-5 md:px-12 select-none">
@@ -36,7 +36,7 @@
         Home
       </NuxtLink>
       <span class="mx-2">•</span>
-      <NuxtLink to="/bio" class="text-gray-600 hover:text-gray-800 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
+      <NuxtLink :to="localizedContentPath('bio', locale)" class="text-gray-600 hover:text-gray-800 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
         Bio
       </NuxtLink>
       <span class="mx-2">•</span>
@@ -52,11 +52,11 @@
         Copyright &copy; 2010-{{ currentYear }} Enrico Deleo
       </p>
       <nav class="mx-auto max-w-max mt-4 text-xs text-gray-600 dark:text-[#94A3B8]">
-        <NuxtLink to="/cookie-policy" class="text-gray-600 hover:text-gray-800 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
+        <NuxtLink :to="localizedContentPath('cookie-policy', locale)" class="text-gray-600 hover:text-gray-800 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
           Cookie Policy
         </NuxtLink>
         <span class="mx-2">•</span>
-        <NuxtLink to="/privacy-policy" class="text-gray-600 hover:text-gray-800 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
+        <NuxtLink :to="localizedContentPath('privacy-policy', locale)" class="text-gray-600 hover:text-gray-800 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
           Privacy Policy
         </NuxtLink>
       </nav>
@@ -92,6 +92,25 @@ import twitchSvg from '~/assets/twitch.svg?raw'
 import youtubeSvg from '~/assets/youtube.svg?raw'
 
 const currentYear = ref(new Date().getFullYear())
+const route = useRoute()
+const locale = computed(() => resolveContentRoute(route.path).locale)
+const labels = computed(() => locale.value === 'en'
+  ? {
+      socialIntro: 'Find me, among other places, on:',
+      amazonLead: 'Do not miss my',
+      amazonLink: 'Amazon author page',
+      lightTheme: 'light theme',
+      darkTheme: 'dark theme',
+      autoTheme: 'auto theme',
+    }
+  : {
+      socialIntro: 'Mi trovi (tra gli altri) su:',
+      amazonLead: 'Non dimenticare la mia',
+      amazonLink: 'pagina autore su Amazon',
+      lightTheme: 'tema chiaro',
+      darkTheme: 'tema scuro',
+      autoTheme: 'tema auto',
+    })
 
 const mode = useColorMode({
   emitAuto: true,
@@ -109,10 +128,12 @@ watchEffect(() => {
 
 const resolvedMode = computed(() => (state.value === 'auto' ? mode.state.value : state.value))
 const stateLabel = computed(() => {
-  if (state.value === 'light') return 'tema chiaro'
-  if (state.value === 'dark') return 'tema scuro'
-  const resolvedLabel = resolvedMode.value === 'dark' ? 'scuro' : 'chiaro'
-  return `tema auto (${resolvedLabel})`
+  if (state.value === 'light') return labels.value.lightTheme
+  if (state.value === 'dark') return labels.value.darkTheme
+  const resolvedLabel = locale.value === 'en'
+    ? (resolvedMode.value === 'dark' ? 'dark' : 'light')
+    : (resolvedMode.value === 'dark' ? 'scuro' : 'chiaro')
+  return `${labels.value.autoTheme} (${resolvedLabel})`
 })
 const buttonToneClasses = computed(() => (resolvedMode.value === 'dark'
   ? 'border-[#94A3B8]/20 bg-[#0F172A]/80 text-gray-200 hover:text-[#F8FAFC]'

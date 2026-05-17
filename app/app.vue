@@ -5,7 +5,7 @@
       href="#main-content"
       class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-md focus:shadow-lg"
     >
-      Vai al contenuto principale
+      {{ labels.skipLink }}
     </a>
 
     <NuxtLayout>
@@ -25,7 +25,7 @@
           v-if="prefs.resolved"
           type="button"
           class="fixed bottom-6 left-0 z-40 p-3 bg-gray-200/80 dark:bg-gray-800 border-t border-l border-b border-gray-300 dark:border-gray-600 rounded-tr-lg rounded-br-lg shadow-lg hover:shadow-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-transform duration-300 ease-out cursor-pointer group -translate-x-3 hover:translate-x-0"
-          aria-label="Apri preferenze cookie"
+          :aria-label="labels.cookiePreferences"
           @click="open"
         >
           <span class="text-2xl group-hover:scale-110 transition-transform inline-block" role="img" aria-label="Cookie">🍪</span>
@@ -38,8 +38,19 @@
 <script setup lang="ts">
 const { prefs } = useConsentCookie()
 const { open } = useCookiePreferencesDialog()
+const route = useRoute()
 
 const analyticsConsent = computed(() => prefs.value.resolved && prefs.value.analytics)
+const pageLocale = computed(() => resolveContentRoute(route.path).locale)
+const labels = computed(() => pageLocale.value === 'en'
+  ? {
+      skipLink: 'Skip to main content',
+      cookiePreferences: 'Open cookie preferences',
+    }
+  : {
+      skipLink: 'Vai al contenuto principale',
+      cookiePreferences: 'Apri preferenze cookie',
+    })
 
 useScriptGoogleAnalytics({
   id: 'G-E799VL4Y93',

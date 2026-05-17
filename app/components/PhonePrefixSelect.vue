@@ -53,7 +53,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted, onUnmounted, nextTick } from "vue"
+import { ref, computed, onMounted, onUnmounted, nextTick } from "vue"
 import { getCountries, getCountryCallingCode } from "libphonenumber-js"
 
 type Option = {

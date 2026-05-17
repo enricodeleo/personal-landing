@@ -16,11 +16,11 @@
           <div class="max-w-prose mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 leading-relaxed">
             <div class="flex-1 text-sm">
               <p class="mb-1">
-                <strong>🍪 Questo sito usa pochissimi cookie</strong>
+                <strong>🍪 {{ labels.title }}</strong>
               </p>
               <p class="text-xs text-gray-600 dark:text-[#94A3B8]">
-                Uso cookie tecnici e, se vuoi, anche con finalità misurazione del traffico, come specificato nella <NuxtLink to="/cookie-policy" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4">cookie policy</NuxtLink>.
-                Puoi gestire il tuo consenso in ogni momento tramite il pannello delle preferenze.
+                {{ labels.bodyStart }} <NuxtLink :to="localizedContentPath('cookie-policy', locale)" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4">{{ labels.cookiePolicy }}</NuxtLink>.
+                {{ labels.bodyEnd }}
               </p>
             </div>
             <div class="flex flex-col sm:flex-row items-center gap-3 shrink-0">
@@ -29,19 +29,19 @@
                 class="text-sm text-gray-600 dark:text-[#94A3B8] hover:text-gray-900 dark:hover:text-[#F8FAFC] cursor-pointer"
                 @click.prevent="reject"
               >
-                Rifiuta tutti
+                {{ labels.reject }}
               </a>
               <button
                 class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-200/80 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md transition-colors cursor-pointer"
                 @click="open"
               >
-                Preferenze
+                {{ labels.preferences }}
               </button>
               <button
                 class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700/80 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md transition-colors cursor-pointer"
                 @click="accept"
               >
-                Accetta tutti
+                {{ labels.accept }}
               </button>
             </div>
           </div>
@@ -59,7 +59,28 @@
 <script setup lang="ts">
 const { prefs, acceptAll, rejectAll } = useConsentCookie()
 const { showDialog, open, close } = useCookiePreferencesDialog()
+const route = useRoute()
 const hasMounted = ref(false)
+const locale = computed(() => resolveContentRoute(route.path).locale)
+const labels = computed(() => locale.value === 'en'
+  ? {
+      title: 'This site uses very few cookies',
+      bodyStart: 'I use technical cookies and, if you consent, traffic measurement cookies as described in the',
+      bodyEnd: 'You can manage your consent at any time through the preferences panel.',
+      cookiePolicy: 'cookie policy',
+      reject: 'Reject all',
+      preferences: 'Preferences',
+      accept: 'Accept all',
+    }
+  : {
+      title: 'Questo sito usa pochissimi cookie',
+      bodyStart: 'Uso cookie tecnici e, se vuoi, anche con finalità misurazione del traffico, come specificato nella',
+      bodyEnd: 'Puoi gestire il tuo consenso in ogni momento tramite il pannello delle preferenze.',
+      cookiePolicy: 'cookie policy',
+      reject: 'Rifiuta tutti',
+      preferences: 'Preferenze',
+      accept: 'Accetta tutti',
+    })
 
 onMounted(() => {
   setTimeout(() => {

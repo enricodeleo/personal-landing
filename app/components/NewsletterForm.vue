@@ -193,7 +193,7 @@ onMounted(() => {
   timestamp.value = Date.now()
 
   // Generate unique request ID using uuid library
-  if (process.client) {
+  if (import.meta.client) {
     requestId.value = uuidv4()
   }
 })
@@ -443,4 +443,3 @@ function triggerShake() {
   animation: checkmark 0.4s ease-out forwards;
 }
 </style>
-
