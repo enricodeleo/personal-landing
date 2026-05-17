@@ -98,3 +98,4 @@ sw.*
 # Vim swap files
 *.swp
 .claude/
+.playwright-mcp/

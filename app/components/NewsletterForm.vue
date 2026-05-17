@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div class="newsletter-form">
     <BusinessInfoDialog
       :show="showBusinessModal"
       :request-id="requestId"
+      :locale="locale"
       @close="showBusinessModal = false"
       @submit="handleBusinessInfoSubmit"
     />
@@ -21,7 +22,7 @@
             </svg>
           </div>
           <p class="text-sm font-medium text-green-800 dark:text-green-200">
-            Grazie per l'iscrizione!
+            {{ labels.success }}
           </p>
         </div>
       </div>
@@ -29,7 +30,7 @@
       <template v-if="state !== 'success'">
       <!-- Label -->
       <label for="newsletter-email" class="block text-base font-bold text-[#3c4858] dark:text-gray-200">
-        I miei insight + link imperdibili, ogni settimana.
+        {{ labels.heading }}
       </label>
 
       <!-- Honeypot field - hidden from real users but visible to bots -->
@@ -117,7 +118,7 @@
         </p>
 
         <p v-else class="text-xs text-gray-600 dark:text-gray-300">
-          Indica il <strong>tuo miglior indirizzo email</strong> per iscriverti. Es. emailpersonale@gmail.com
+          {{ labels.helpStart }} <strong>{{ labels.helpStrong }}</strong> {{ labels.helpEnd }}
         </p>
       </div>
 
@@ -136,7 +137,7 @@
             required
           >
           <span class="text-sm text-[#3c4858] dark:text-gray-200">
-            Ho letto e accetto la <NuxtLink to="/privacy-policy" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4">Privacy Policy</NuxtLink> *
+            {{ labels.privacyStart }} <NuxtLink :to="localizedContentPath('privacy-policy', locale)" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4">Privacy Policy</NuxtLink> *
           </span>
         </label>
         <p
@@ -157,8 +158,8 @@
           :aria-busy="state === 'loading'"
           class="px-6 py-2 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700/80 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          <span v-if="state === 'loading'" aria-hidden="true">Iscrizione in corso...</span>
-          <span v-else>Iscriviti</span>
+          <span v-if="state === 'loading'" aria-hidden="true">{{ labels.loading }}</span>
+          <span v-else>{{ labels.submit }}</span>
         </button>
       </div>
       </template>
@@ -167,8 +168,45 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { v4 as uuidv4 } from 'uuid'
+
+const props = withDefaults(defineProps<{
+  locale?: ContentLocale
+}>(), {
+  locale: 'it',
+})
+
+const locale = computed(() => props.locale)
+const labels = computed(() => locale.value === 'en'
+  ? {
+      success: 'Thanks for subscribing!',
+      heading: 'My insights and must-read links, every week.',
+      helpStart: 'Enter',
+      helpStrong: 'your best email address',
+      helpEnd: 'to subscribe. Example: personalemail@gmail.com',
+      privacyStart: 'I have read and accept the',
+      loading: 'Subscribing...',
+      submit: 'Subscribe',
+      invalidEmail: 'Enter a valid email address',
+      requiredEmail: 'Enter your email address',
+      privacyRequired: 'You must accept the Privacy Policy to subscribe',
+      serverError: 'Something went wrong. Please try again later.',
+    }
+  : {
+      success: 'Grazie per l\'iscrizione!',
+      heading: 'I miei insight + link imperdibili, ogni settimana.',
+      helpStart: 'Indica il',
+      helpStrong: 'tuo miglior indirizzo email',
+      helpEnd: 'per iscriverti. Es. emailpersonale@gmail.com',
+      privacyStart: 'Ho letto e accetto la',
+      loading: 'Iscrizione in corso...',
+      submit: 'Iscriviti',
+      invalidEmail: 'Inserisci un indirizzo email valido',
+      requiredEmail: 'Inserisci il tuo indirizzo email',
+      privacyRequired: 'Devi accettare la Privacy Policy per iscriverti',
+      serverError: 'Si è verificato un errore. Riprova più tardi.',
+    })
 
 const email = ref('')
 const emailInput = ref(null)
@@ -307,7 +345,7 @@ function onInputBlur(event) {
       const trimmed = email.value.trim()
 
       if (trimmed && !isValidEmail(trimmed)) {
-        error.value = 'Inserisci un indirizzo email valido'
+        error.value = labels.value.invalidEmail
       } else {
         email.value = trimmed.toLowerCase()
         error.value = ''
@@ -334,19 +372,19 @@ async function handleSubmit() {
 
   // Trigger shake on validation error
   if (!trimmed) {
-    error.value = 'Inserisci il tuo indirizzo email'
+    error.value = labels.value.requiredEmail
     triggerShake()
     return
   }
 
   if (!isValidEmail(trimmed)) {
-    error.value = 'Inserisci un indirizzo email valido'
+    error.value = labels.value.invalidEmail
     triggerShake()
     return
   }
 
   if (!acceptedPrivacy.value) {
-    privacyError.value = 'Devi accettare la Privacy Policy per iscriverti'
+    privacyError.value = labels.value.privacyRequired
     triggerShake()
     return
   }
@@ -385,9 +423,9 @@ async function handleSubmit() {
     setTimeout(() => {
       showBusinessModal.value = true
     }, 1500)
-  } catch (err) {
+  } catch {
     state.value = 'error'
-    serverError.value = err.data?.message || 'Si è verificato un errore. Riprova più tardi.'
+    serverError.value = labels.value.serverError
   }
 }
 

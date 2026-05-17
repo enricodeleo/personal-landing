@@ -33,6 +33,7 @@ export default defineNuxtConfig({
         '/bio',
         '/cookie-policy',
         '/privacy-policy',
+        '/en',
         '/en/bio',
         '/en/cookie-policy',
         '/en/privacy-policy',
@@ -44,7 +45,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: {
-        lang: 'it',
+        lang: 'it-IT',
       },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1.0',

@@ -1,30 +1,24 @@
 <template>
   <div>
     <div class="container mx-auto sm:subpixel-antialiased md:antialiased leading-relaxed">
-      <div class="w-56 mx-auto px-5 pt-6">
+      <header class="mx-auto max-w-sm px-5 pt-6">
         <div class="flex justify-end">
           <ClientOnly>
-            <LazyLanguageSwitcher :locale="resolvedRoute.locale" />
+            <LazyLanguageSwitcher :locale="locale" />
           </ClientOnly>
         </div>
         <a
-          :href="localizedHomePath(resolvedRoute.locale)"
-          class="inline-svg block w-full p-8 sm:p-12 fill-current text-gray-900 dark:[&>span]:text-[#E5E7EB]"
+          :href="localizedHomePath(locale)"
+          class="inline-svg block p-8 sm:p-12 fill-current text-gray-900 dark:[&>span]:text-[#E5E7EB]"
           aria-label="Enrico Deleo logo"
         >
           <span class="block w-full" aria-hidden="true" v-html="logoSvg" />
         </a>
-      </div>
+      </header>
 
       <section class="max-w-prose mx-auto px-5">
         <main id="main-content" role="main">
-          <article class="content-page dark:text-[#F8FAFC]">
-            <div class="w-full text-center pb-6">
-              <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">
-                {{ page?.title }}
-              </h1>
-            </div>
-
+          <article class="home-page text-gray-900 dark:text-[#F8FAFC]">
             <ContentRenderer v-if="page" :value="page" />
           </article>
         </main>
@@ -38,50 +32,52 @@
 <script setup lang="ts">
 import logoSvg from '~/assets/logo-enrico-deleo.svg?raw'
 
-const route = useRoute()
-const { siteUrl, siteName, personGivenName, personFamilyName, siteDescription, ogImage, profileImage, sameAs } = useSiteMeta()
-const resolvedRoute = computed(() => resolveContentRoute(route.path))
+const props = defineProps<{
+  locale: ContentLocale
+}>()
+const locale = computed(() => props.locale)
+
+const { siteUrl, siteName, personGivenName, personFamilyName, ogImage, profileImage, sameAs } = useSiteMeta()
 
 const { data: page } = await useAsyncData(
-  () => `content-page-${resolvedRoute.value.locale}-${resolvedRoute.value.slug}`,
+  () => `home-page-${props.locale}`,
   async () => {
     if (import.meta.client) return null
 
     const event = useRequestEvent()
     if (!event) return null
 
-    const { getContentPage } = await import('~~/server/utils/content-page')
+    const { getHomePage } = await import('~~/server/utils/content-page')
 
-    return getContentPage(event, resolvedRoute.value.locale, resolvedRoute.value.slug)
+    return getHomePage(event, props.locale)
   },
 )
 
-if (!page.value || !contentSlugs.includes(resolvedRoute.value.slug)) {
+if (!page.value) {
   throw createError({
     statusCode: 404,
     statusMessage: 'Page not found',
   })
 }
 
-const pageTitle = computed(() => page.value?.title || siteName)
-const seoTitle = computed(() => page.value?.seoTitle || pageTitle.value)
-const pageDescription = computed(() => page.value?.description || siteDescription)
+const pageTitle = computed(() => page.value?.seoTitle || page.value?.title || siteName)
+const pageDescription = computed(() => page.value?.description || '')
 const canonicalUrl = computed(() => {
-  const alternates = localizedContentAlternates(resolvedRoute.value.slug, siteUrl)
-  return resolvedRoute.value.locale === 'en' ? alternates.en : alternates.it
+  const alternates = localizedHomeAlternates(siteUrl)
+  return props.locale === 'en' ? alternates.en : alternates.it
 })
-const alternateUrls = computed(() => localizedContentAlternates(resolvedRoute.value.slug, siteUrl))
-const pageLanguage = computed(() => contentLocaleLanguage(resolvedRoute.value.locale))
-const pageOgLocale = computed(() => contentOgLocale(resolvedRoute.value.locale))
+const alternateUrls = computed(() => localizedHomeAlternates(siteUrl))
+const pageLanguage = computed(() => contentLocaleLanguage(props.locale))
+const pageOgLocale = computed(() => contentOgLocale(props.locale))
 
 useHead(() => ({
-  title: seoTitle.value,
+  title: pageTitle.value,
   htmlAttrs: {
     lang: pageLanguage.value,
   },
   meta: [
     { key: 'description', name: 'description', content: pageDescription.value },
-    { key: 'og:title', property: 'og:title', content: seoTitle.value },
+    { key: 'og:title', property: 'og:title', content: pageTitle.value },
     { key: 'og:description', property: 'og:description', content: pageDescription.value },
     { key: 'og:type', property: 'og:type', content: 'website' },
     { key: 'og:url', property: 'og:url', content: canonicalUrl.value },
@@ -92,7 +88,7 @@ useHead(() => ({
     { key: 'og:site_name', property: 'og:site_name', content: siteName },
     { key: 'og:locale', property: 'og:locale', content: pageOgLocale.value },
     { key: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
-    { key: 'twitter:title', name: 'twitter:title', content: seoTitle.value },
+    { key: 'twitter:title', name: 'twitter:title', content: pageTitle.value },
     { key: 'twitter:description', name: 'twitter:description', content: pageDescription.value },
     { key: 'twitter:image', name: 'twitter:image', content: ogImage },
   ],
@@ -116,7 +112,7 @@ useJsonLd(() => ({
       url: siteUrl,
       image: profileImage,
       jobTitle: 'Fractional CTO & AI Solutions Architect',
-      description: siteDescription,
+      description: pageDescription.value,
       sameAs,
       knowsAbout: [
         'Large Language Models',
@@ -137,19 +133,19 @@ useJsonLd(() => ({
       '@id': `${siteUrl}/#website`,
       url: siteUrl,
       name: siteName,
-      description: siteDescription,
+      description: pageDescription.value,
       inLanguage: pageLanguage.value,
       publisher: { '@id': `${siteUrl}/#person` },
     },
     {
-      '@type': page.value?.schemaType || 'WebPage',
+      '@type': page.value?.schemaType || 'ProfilePage',
       '@id': `${canonicalUrl.value}#webpage`,
       url: canonicalUrl.value,
-      name: seoTitle.value,
+      name: pageTitle.value,
       description: pageDescription.value,
       inLanguage: pageLanguage.value,
       isPartOf: { '@id': `${siteUrl}/#website` },
-      ...(page.value?.schemaType === 'AboutPage' ? { mainEntity: { '@id': `${siteUrl}/#person` } } : {}),
+      mainEntity: { '@id': `${siteUrl}/#person` },
     },
   ],
 }))

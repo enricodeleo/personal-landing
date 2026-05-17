@@ -8,3 +8,9 @@ export function getContentPage(event: H3Event, locale: ContentLocale, slug: stri
     .where('slug', '=', slug)
     .first()
 }
+
+export function getHomePage(event: H3Event, locale: ContentLocale) {
+  return queryCollection(event, 'home')
+    .where('locale', '=', locale)
+    .first()
+}

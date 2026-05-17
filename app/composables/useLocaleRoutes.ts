@@ -20,6 +20,20 @@ export function localizedContentPath(slug: string, locale: ContentLocale = defau
   return locale === 'en' ? `/${englishContentPrefix}/${slug}` : `/${slug}`
 }
 
+export function localizedHomePath(locale: ContentLocale = defaultContentLocale) {
+  return locale === 'en' ? `/${englishContentPrefix}` : '/'
+}
+
+export function localizedHomeAlternates(siteUrl: string) {
+  const normalizedSiteUrl = siteUrl.replace(/\/$/, '')
+
+  return {
+    it: `${normalizedSiteUrl}/`,
+    en: `${normalizedSiteUrl}/${englishContentPrefix}`,
+    xDefault: `${normalizedSiteUrl}/`,
+  }
+}
+
 export function localizedContentAlternates(slug: string, siteUrl: string) {
   const normalizedSiteUrl = siteUrl.replace(/\/$/, '')
 

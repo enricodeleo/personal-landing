@@ -15,6 +15,7 @@
             <LazyBusinessInfoModal
               :show="show"
               :request-id="requestId"
+              :locale="locale"
               @close="handleClose"
               @submit="handleSubmit"
             />
@@ -34,6 +35,10 @@ const props = defineProps({
   requestId: {
     type: String,
     required: true
+  },
+  locale: {
+    type: String,
+    default: 'it'
   }
 })
 

@@ -10,7 +10,7 @@
       <span v-if="selectedCountry" class="flex items-center gap-2">
         {{ selectedCountry.flag }} {{ selectedCountry.dialCode }}
       </span>
-      <span v-else class="text-gray-400">Seleziona</span>
+      <span v-else class="text-gray-400">{{ labels.select }}</span>
       <svg class="w-4 h-4 ml-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
       </svg>
@@ -27,7 +27,7 @@
           ref="searchInputRef"
           v-model="searchQuery"
           type="text"
-          placeholder="Cerca paese..."
+          :placeholder="labels.search"
           class="w-full px-3 py-2 text-sm rounded-md border border-gray-300 bg-white text-gray-900 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50 dark:placeholder:text-gray-500"
         >
       </div>
@@ -45,7 +45,7 @@
         </div>
 
         <div v-if="filteredCountries.length === 0" class="px-3 py-2 text-gray-500 dark:text-gray-400">
-          Nessun paese trovato
+          {{ labels.empty }}
         </div>
       </div>
     </div>
@@ -67,6 +67,7 @@ const props = defineProps<{
   modelValue: string
   id?: string
   error?: boolean
+  locale?: ContentLocale
 }>()
 
 const emit = defineEmits<{
@@ -90,8 +91,20 @@ function getFlag(iso2: string): string {
   return String.fromCodePoint(...codePoints)
 }
 
+const labels = computed(() => props.locale === 'en'
+  ? {
+      select: 'Select',
+      search: 'Search country...',
+      empty: 'No countries found',
+    }
+  : {
+      select: 'Seleziona',
+      search: 'Cerca paese...',
+      empty: 'Nessun paese trovato',
+    })
+
 // Display names for countries
-const dn = new Intl.DisplayNames(["it"], { type: "region" })
+const dn = computed(() => new Intl.DisplayNames([props.locale === 'en' ? 'en' : 'it'], { type: "region" }))
 
 // All countries sorted by priority then alphabetically
 const allCountries = computed<Option[]>(() => {
@@ -99,7 +112,7 @@ const allCountries = computed<Option[]>(() => {
     const dialCode = `+${getCountryCallingCode(iso2)}`
     return {
       iso2,
-      name: dn.of(iso2) ?? iso2,
+      name: dn.value.of(iso2) ?? iso2,
       dialCode,
       flag: getFlag(iso2)
     }

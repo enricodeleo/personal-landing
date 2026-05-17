@@ -42,6 +42,7 @@ const route = useRoute()
 
 const analyticsConsent = computed(() => prefs.value.resolved && prefs.value.analytics)
 const pageLocale = computed(() => resolveContentRoute(route.path).locale)
+const pageLanguage = computed(() => pageLocale.value === 'en' ? 'en' : 'it-IT')
 const labels = computed(() => pageLocale.value === 'en'
   ? {
       skipLink: 'Skip to main content',
@@ -51,6 +52,18 @@ const labels = computed(() => pageLocale.value === 'en'
       skipLink: 'Vai al contenuto principale',
       cookiePreferences: 'Apri preferenze cookie',
     })
+
+useHead(() => ({
+  htmlAttrs: {
+    lang: pageLanguage.value,
+  },
+}))
+
+if (import.meta.client) {
+  watchEffect(() => {
+    document.documentElement.lang = pageLanguage.value
+  })
+}
 
 useScriptGoogleAnalytics({
   id: 'G-E799VL4Y93',

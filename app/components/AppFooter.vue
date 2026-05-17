@@ -32,13 +32,13 @@
       />
     </div>
     <nav class="mx-auto max-w-max text-gray-600 dark:text-[#94A3B8]">
-      <NuxtLink to="/" class="text-gray-600 hover:text-gray-800 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
+      <a :href="localizedHomePath(locale)" class="text-gray-600 hover:text-gray-800 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
         Home
-      </NuxtLink>
+      </a>
       <span class="mx-2">•</span>
-      <NuxtLink :to="localizedContentPath('bio', locale)" class="text-gray-600 hover:text-gray-800 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
+      <a :href="localizedContentPath('bio', locale)" class="text-gray-600 hover:text-gray-800 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
         Bio
-      </NuxtLink>
+      </a>
       <span class="mx-2">•</span>
       <a href="https://blog.enricodeleo.com/" target="_blank" rel="noopener" class="text-gray-600 hover:text-gray-800 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
         Blog
@@ -52,13 +52,13 @@
         Copyright &copy; 2010-{{ currentYear }} Enrico Deleo
       </p>
       <nav class="mx-auto max-w-max mt-4 text-xs text-gray-600 dark:text-[#94A3B8]">
-        <NuxtLink :to="localizedContentPath('cookie-policy', locale)" class="text-gray-600 hover:text-gray-800 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
+        <a :href="localizedContentPath('cookie-policy', locale)" class="text-gray-600 hover:text-gray-800 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
           Cookie Policy
-        </NuxtLink>
+        </a>
         <span class="mx-2">•</span>
-        <NuxtLink :to="localizedContentPath('privacy-policy', locale)" class="text-gray-600 hover:text-gray-800 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
+        <a :href="localizedContentPath('privacy-policy', locale)" class="text-gray-600 hover:text-gray-800 dark:text-[#94A3B8] dark:hover:text-[#F8FAFC]">
           Privacy Policy
-        </NuxtLink>
+        </a>
       </nav>
       <ClientOnly>
         <div class="mt-8 text-center text-xs">

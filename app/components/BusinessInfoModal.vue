@@ -8,7 +8,7 @@
     <button
       @click="closeWithoutSaving"
       class="absolute right-4 top-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
-      aria-label="Chiudi"
+      :aria-label="labels.close"
     >
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -24,13 +24,13 @@
           </svg>
         </div>
         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
-          Ottimo, sei iscritto! 🎉
+          {{ labels.step1Title }}
         </h3>
         <p class="text-gray-600 dark:text-gray-300 mb-4">
-          Prima di lasciarti, volevo chiederti: vorresti ricevere anche offerte commerciali e contenuti esclusivi su servizi di consulenza?
+          {{ labels.step1Body }}
         </p>
         <p class="text-sm text-gray-500 dark:text-gray-400">
-          È completamente opzionale e mi aiuta a inviarti contenuti più rilevanti per il tuo business.
+          {{ labels.step1Help }}
         </p>
       </div>
 
@@ -39,18 +39,18 @@
           @click="goToStep2"
           class="w-full rounded-lg bg-blue-600 px-6 py-3 text-white font-medium hover:bg-blue-700 transition-colors"
         >
-          Sì, sono interessato! ✓
+          {{ labels.yes }}
         </button>
         <button
           @click="closeWithoutSaving"
           class="w-full rounded-lg bg-gray-100 px-6 py-3 text-gray-700 font-medium hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 transition-colors"
         >
-          No, grazie, solo la newsletter
+          {{ labels.no }}
         </button>
       </div>
 
       <p class="text-xs text-center text-gray-500 dark:text-gray-400">
-        Puoi cancellarti in qualsiasi momento. Ti rispetto! 😊
+        {{ labels.unsubscribe }}
       </p>
     </div>
 
@@ -58,10 +58,10 @@
     <div v-else-if="step === 2" class="space-y-5">
       <div>
         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
-          Parliamo del tuo business 💼
+          {{ labels.step2Title }}
         </h3>
         <p class="text-sm text-gray-600 dark:text-gray-300">
-          Queste informazioni mi aiuteranno a inviarti contenuti più rilevanti.
+          {{ labels.step2Body }}
         </p>
       </div>
 
@@ -69,13 +69,13 @@
                 <!-- Company Name (Mandatory) -->
                 <div>
                   <label for="company" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Nome Azienda <span class="text-red-500">*</span>
+                    {{ labels.company }} <span class="text-red-500">*</span>
                   </label>
                   <input
                     id="company"
                     v-model="formData.company"
                     type="text"
-                    placeholder="Es. Tech Solutions Srl"
+                    :placeholder="labels.companyPlaceholder"
                     required
                     class="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-gray-900 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50 dark:placeholder:text-gray-500"
                     :class="{ 'border-red-500 focus:border-red-500 focus:ring-red-500/20': errors.company }"
@@ -89,7 +89,7 @@
                 <!-- Website (Optional) -->
                 <div>
                   <label for="website" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Sito Web
+                    {{ labels.website }}
                   </label>
                   <div class="relative">
                     <span class="absolute left-4 top-1/2 -translate-y-1/2 text-sm text-gray-500 dark:text-gray-400 pointer-events-none">
@@ -99,7 +99,7 @@
                       id="website"
                       v-model="formData.website"
                       type="text"
-                      placeholder="www.tuonome.it"
+                      :placeholder="labels.websitePlaceholder"
                       class="w-full rounded-md border border-gray-300 bg-white pl-[4.5rem] pr-4 py-2.5 text-gray-900 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50 dark:placeholder:text-gray-500"
                       :class="{ 'border-red-500 focus:border-red-500 focus:ring-red-500/20': errors.website }"
                       @input="validateWebsite"
@@ -109,14 +109,14 @@
                     {{ errors.website }}
                   </p>
                   <p v-else class="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                    Inserisci solo il dominio (es. www.tuosito.it)
+                    {{ labels.websiteHelp }}
                   </p>
                 </div>
 
                 <!-- Phone Number (Mandatory) -->
                 <div class="max-w-full">
                   <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Numero di Telefono <span class="text-red-500">*</span>
+                    {{ labels.phone }} <span class="text-red-500">*</span>
                   </label>
                   <div class="flex gap-2">
                     <!-- Country Prefix (Lazy Loaded) -->
@@ -125,6 +125,7 @@
                         <LazyPhonePrefixSelect
                           v-model="formData.phonePrefix"
                           :error="!!errors.phone"
+                          :locale="locale"
                         />
                       </ClientOnly>
                     </div>
@@ -144,7 +145,7 @@
                     {{ errors.phone }}
                   </p>
                   <p v-else class="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                    Seleziona il paese e inserisci il numero locale
+                    {{ labels.phoneHelp }}
                   </p>
                 </div>
 
@@ -153,14 +154,14 @@
                   <!-- Number of Employees -->
                   <div class="flex-1">
                     <label for="employees" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Numero di Dipendenti
+                      {{ labels.employees }}
                     </label>
                     <select
                       id="employees"
                       v-model="formData.employees"
                       class="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50"
                     >
-                      <option value="">Seleziona...</option>
+                      <option value="">{{ labels.select }}</option>
                       <option value="1-10">1-10</option>
                       <option value="11-50">11-50</option>
                       <option value="51-200">51-200</option>
@@ -172,20 +173,20 @@
                   <!-- Annual Revenue -->
                   <div class="flex-1">
                     <label for="revenue" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Fatturato Annuale
+                      {{ labels.revenue }}
                     </label>
                     <select
                       id="revenue"
                       v-model="formData.revenue"
                       class="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50"
                     >
-                      <option value="">Seleziona...</option>
-                      <option value="<500k">Meno di €500.000</option>
+                      <option value="">{{ labels.select }}</option>
+                      <option value="<500k">{{ labels.revenueUnder500k }}</option>
                       <option value="500k-1M">€500.000 - €1.000.000</option>
                       <option value="1M-5M">€1.000.000 - €5.000.000</option>
                       <option value="5M-10M">€5.000.000 - €10.000.000</option>
                       <option value="10M-50M">€10.000.000 - €50.000.000</option>
-                      <option value="50M+">Oltre €50.000.000</option>
+                      <option value="50M+">{{ labels.revenueOver50M }}</option>
                     </select>
                   </div>
                 </div>
@@ -193,7 +194,7 @@
                 <!-- Business Type -->
                 <div>
                   <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Tipologia di Business
+                    {{ labels.businessType }}
                   </label>
                   <div class="space-y-2">
                     <label class="flex items-center gap-3 cursor-pointer">
@@ -221,7 +222,7 @@
                         value="Hybrid"
                         class="h-4 w-4 border-gray-300 text-blue-600 focus:ring-blue-500 dark:border-gray-600"
                       >
-                      <span class="text-sm text-gray-700 dark:text-gray-300">Ibrido (B2B + B2C)</span>
+                      <span class="text-sm text-gray-700 dark:text-gray-300">{{ labels.hybrid }}</span>
                     </label>
                   </div>
                 </div>
@@ -236,7 +237,7 @@
                       :class="{ 'border-red-500 focus:border-red-500 focus:ring-red-500': errors.commercial }"
                     >
                     <span class="text-sm text-gray-700 dark:text-gray-300">
-                      Acconsento a ricevere comunicazioni commerciali e offerte personalizzate su servizi di consulenza *
+                      {{ labels.commercialConsent }}
                     </span>
                   </label>
                   <p
@@ -254,20 +255,20 @@
                     :disabled="isSubmitting"
                     class="w-full rounded-lg bg-blue-600 px-6 py-3 text-white font-medium hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <span v-if="isSubmitting">Invio in corso...</span>
-                    <span v-else>Invia informazioni</span>
+                    <span v-if="isSubmitting">{{ labels.sending }}</span>
+                    <span v-else>{{ labels.send }}</span>
                   </button>
                   <button
                     type="button"
                     @click="goToStep1"
                     class="w-full rounded-lg border border-gray-300 px-6 py-3 text-gray-700 font-medium hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700 transition-colors"
                   >
-                    Indietro
+                    {{ labels.back }}
                   </button>
                 </div>
 
                 <p class="text-xs text-center text-gray-500 dark:text-gray-400">
-                  Queste informazioni sono facoltative e mi aiutano a personalizzare i contenuti per te.
+                  {{ labels.footer }}
                 </p>
               </form>
             </div>
@@ -283,6 +284,10 @@ const props = defineProps({
   requestId: {
     type: String,
     required: true
+  },
+  locale: {
+    type: String,
+    default: 'it'
   }
 })
 
@@ -290,6 +295,80 @@ const emit = defineEmits(['close', 'submit'])
 
 const step = ref(1)
 const isSubmitting = ref(false)
+const labels = computed(() => props.locale === 'en'
+  ? {
+      close: 'Close',
+      step1Title: 'Great, you are subscribed!',
+      step1Body: 'Before you go: would you also like to receive commercial offers and exclusive content about consulting services?',
+      step1Help: 'This is completely optional and helps me send you more relevant business content.',
+      yes: 'Yes, I am interested',
+      no: 'No thanks, newsletter only',
+      unsubscribe: 'You can unsubscribe at any time.',
+      step2Title: 'Tell me about your business',
+      step2Body: 'This information helps me send you more relevant content.',
+      company: 'Company name',
+      companyPlaceholder: 'E.g. Tech Solutions Ltd',
+      website: 'Website',
+      websitePlaceholder: 'www.yourcompany.com',
+      websiteHelp: 'Enter only the domain, e.g. www.yourcompany.com',
+      phone: 'Phone number',
+      phoneHelp: 'Select the country and enter the local number',
+      employees: 'Employees',
+      revenue: 'Annual revenue',
+      select: 'Select...',
+      revenueUnder500k: 'Less than €500,000',
+      revenueOver50M: 'Over €50,000,000',
+      businessType: 'Business type',
+      hybrid: 'Hybrid (B2B + B2C)',
+      commercialConsent: 'I consent to receive commercial communications and personalized offers about consulting services *',
+      sending: 'Sending...',
+      send: 'Send information',
+      back: 'Back',
+      footer: 'This information is optional and helps me personalize content for you.',
+      invalidDomain: 'Enter a valid domain, e.g. www.yourcompany.com',
+      companyRequired: 'Company name is required',
+      countryRequired: 'Select the country prefix',
+      phoneRequired: 'Phone number is required',
+      invalidPhone: 'Enter a valid phone number, e.g. 333 1234567',
+      commercialRequired: 'You must consent to commercial communications to submit this form',
+    }
+  : {
+      close: 'Chiudi',
+      step1Title: 'Ottimo, sei iscritto!',
+      step1Body: 'Prima di lasciarti, volevo chiederti: vorresti ricevere anche offerte commerciali e contenuti esclusivi su servizi di consulenza?',
+      step1Help: 'È completamente opzionale e mi aiuta a inviarti contenuti più rilevanti per il tuo business.',
+      yes: 'Sì, sono interessato',
+      no: 'No, grazie, solo la newsletter',
+      unsubscribe: 'Puoi cancellarti in qualsiasi momento.',
+      step2Title: 'Parliamo del tuo business',
+      step2Body: 'Queste informazioni mi aiuteranno a inviarti contenuti più rilevanti.',
+      company: 'Nome Azienda',
+      companyPlaceholder: 'Es. Tech Solutions Srl',
+      website: 'Sito Web',
+      websitePlaceholder: 'www.tuonome.it',
+      websiteHelp: 'Inserisci solo il dominio (es. www.tuosito.it)',
+      phone: 'Numero di Telefono',
+      phoneHelp: 'Seleziona il paese e inserisci il numero locale',
+      employees: 'Numero di Dipendenti',
+      revenue: 'Fatturato Annuale',
+      select: 'Seleziona...',
+      revenueUnder500k: 'Meno di €500.000',
+      revenueOver50M: 'Oltre €50.000.000',
+      businessType: 'Tipologia di Business',
+      hybrid: 'Ibrido (B2B + B2C)',
+      commercialConsent: 'Acconsento a ricevere comunicazioni commerciali e offerte personalizzate su servizi di consulenza *',
+      sending: 'Invio in corso...',
+      send: 'Invia informazioni',
+      back: 'Indietro',
+      footer: 'Queste informazioni sono facoltative e mi aiutano a personalizzare i contenuti per te.',
+      invalidDomain: 'Inserisci un dominio valido (es. www.tuosito.it)',
+      companyRequired: 'Il nome azienda è obbligatorio',
+      countryRequired: 'Seleziona il prefisso del paese',
+      phoneRequired: 'Il numero di telefono è obbligatorio',
+      invalidPhone: 'Inserisci un numero di telefono valido (es. 333 1234567)',
+      commercialRequired: 'Devi accettare di ricevere comunicazioni commerciali per inviare il modulo',
+    })
+const locale = computed(() => props.locale)
 
 const formData = ref({
   company: '',
@@ -349,7 +428,7 @@ function validateWebsite() {
   const domainRegex = /^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$/i
 
   if (!domainRegex.test(domain)) {
-    errors.value.website = 'Inserisci un dominio valido (es. www.tuosito.it)'
+    errors.value.website = labels.value.invalidDomain
   }
 }
 
@@ -359,7 +438,7 @@ async function handleSubmit() {
 
   // Validate company (mandatory)
   if (!formData.value.company || formData.value.company.trim() === '') {
-    errors.value.company = 'Il nome azienda è obbligatorio'
+    errors.value.company = labels.value.companyRequired
     return
   }
 
@@ -369,19 +448,19 @@ async function handleSubmit() {
     const domainRegex = /^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$/i
 
     if (!domainRegex.test(domain)) {
-      errors.value.website = 'Inserisci un dominio valido (es. www.tuosito.it)'
+      errors.value.website = labels.value.invalidDomain
       return
     }
   }
 
   // Validate phone (mandatory)
   if (!formData.value.phonePrefix || formData.value.phonePrefix === '') {
-    errors.value.phone = 'Seleziona il prefisso del paese'
+    errors.value.phone = labels.value.countryRequired
     return
   }
 
   if (!formData.value.phoneNumber || formData.value.phoneNumber.trim() === '') {
-    errors.value.phone = 'Il numero di telefono è obbligatorio'
+    errors.value.phone = labels.value.phoneRequired
     return
   }
 
@@ -390,13 +469,13 @@ async function handleSubmit() {
   const phoneDigits = phoneNumber.replace(/\D/g, '') // Remove all non-digits
 
   if (phoneDigits.length < 6 || phoneDigits.length > 15) {
-    errors.value.phone = 'Inserisci un numero di telefono valido (es. 333 1234567)'
+    errors.value.phone = labels.value.invalidPhone
     return
   }
 
   // Validate commercial consent (mandatory - must be checked to submit)
   if (!formData.value.acceptsCommercial) {
-    errors.value.commercial = 'Devi accettare di ricevere comunicazioni commerciali per inviare il modulo'
+    errors.value.commercial = labels.value.commercialRequired
     return
   }
 
