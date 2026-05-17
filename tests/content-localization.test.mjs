@@ -53,6 +53,7 @@ assert.match(newsletterForm, /class="newsletter-form"/, 'newsletter form should 
 const globalCss = readFileSync(join(root, 'app/assets/css/main.css'), 'utf8')
 assert.match(globalCss, /\.home-page\s+\.newsletter-form\s*\{[\s\S]*margin-bottom:\s*(3rem|4rem)/, 'newsletter embed should leave a larger gap before following content')
 assert.match(globalCss, /\.home-page\s+\.newsletter-form\s*\{[\s\S]*margin-top:\s*(3rem|4rem)/, 'newsletter embed should leave a larger gap after preceding content')
+assert.match(globalCss, /\.home-page\s+blockquote\s*\{[\s\S]*margin-bottom:\s*(1\.5rem|2rem)/, 'homepage quotes should leave space before following content')
 
 for (const page of pages) {
   assert.equal(existsSync(join(root, 'app/pages', `${page}.vue`)), false, `${page}.vue should be migrated to content`)
