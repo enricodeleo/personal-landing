@@ -14,6 +14,7 @@ export const useSiteMeta = () => {
     profileImage: `${siteUrl}/enricodeleo.jpg`,
     sameAs: [
       'https://www.linkedin.com/in/enricodeleo',
+      'https://x.com/errikodotit',
       'https://www.facebook.com/therealenricodeleo',
       'https://blog.enricodeleo.com',
       'https://github.com/enricodeleo',
