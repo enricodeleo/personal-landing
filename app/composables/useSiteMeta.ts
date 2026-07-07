@@ -21,7 +21,6 @@ export const useSiteMeta = () => {
       'https://www.instagram.com/enricodeleo/',
       'https://www.twitch.tv/enricodeleo',
       'https://www.youtube.com/c/EnricoDeleoOfficial',
-      'https://amzn.to/3fXQw59',
     ],
     worksFor: [
       { '@type': 'Organization', name: 'Traction Group', url: 'https://www.tractiongroup.it/' },
