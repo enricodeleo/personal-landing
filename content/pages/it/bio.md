@@ -9,6 +9,8 @@ changefreq: monthly
 priority: 0.8
 ---
 
+*Nota: il mio cognome è **Deleo**, una parola sola — a volte mi si trova cercato come "De Leo" o "Di Leo", ma la grafia corretta è questa.*
+
 Sono nato ad Agrigento nel 1988. Fin da piccolo ho avuto un'attrazione magnetica per la tecnologia. Alle scuole elementari passavo ore a esplorare Internet, scrivendo codice HTML per gioco e imparando da autodidatta. A 12 anni ho iniziato a pubblicare siti dedicati al mondo dell'hacking su improbabili domini `.tk` e successivamente il mio primo vero sito: **erriko.it**.
 
 Erriko.it era un contenitore di tutorial, trucchi e guide per programmi e dispositivi. Tutto quello che stavo imparando lo documentavo e lo condividevo. Le mie pagine arrivarono a fare centinaia di migliaia di visite l'anno, ed è stato la mia prima vera palestra digitale.

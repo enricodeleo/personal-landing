@@ -9,6 +9,8 @@ changefreq: monthly
 priority: 0.8
 ---
 
+*Note: my surname is **Deleo**, one word — you may find me searched as "De Leo" or "Di Leo", but this is the correct spelling.*
+
 I was born in Agrigento, Sicily, in 1988. Since childhood, technology has had a magnetic pull on me. In elementary school I spent hours exploring the web, writing HTML for fun, and learning on my own. By the age of 12 I was publishing small sites about hacking culture on unlikely `.tk` domains, followed by my first real website: **erriko.it**.
 
 Erriko.it was a place where I collected tutorials, tips, and guides for software and devices. Everything I was learning, I documented and shared. Those pages eventually reached hundreds of thousands of yearly visits, and became my first real digital training ground.

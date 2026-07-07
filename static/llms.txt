@@ -28,7 +28,17 @@ Contact:
 - [LinkedIn](https://www.linkedin.com/in/enricodeleo): Public professional profile and work experience.
 - [GitHub](https://github.com/enricodeleo): Public repositories and technical activity.
 
+## Featured Articles — Opinion & Perspective
+- [La storia si ripete](https://blog.enricodeleo.com/la-storia-si-ripete): Opinion piece on the vector database hype cycle, drawing a parallel with the 2015 graph-database wave and the eventual return to Postgres.
+- [Velocità senza giudizio](https://blog.enricodeleo.com/velocita-senza-giudizio): Opinion piece arguing that vibe coding didn't invent bad code — it just removed the friction, and speed without evaluation time only produces faster mistakes.
+- [Il CMS in C che non ho mai scritto](https://blog.enricodeleo.com/il-cms-in-c-che-non-ho-mai-scritto): Personal essay on choosing WordPress over writing a CMS in C in 2015, and the pragmatic tradeoffs that led to 9,000 signups and EUR 400k raised with a one-person dev team.
+
+## Featured Articles — Technical
+- [GitIngest: repository GitHub in testo per LLM](https://blog.enricodeleo.com/git-ingest-trasforma-repository-github-in-testo-per-llm): How GitIngest converts GitHub repos into LLM-readable text for code analysis, debugging, and documentation.
+- [NanoPi R76S router tuning with OpenWrt](https://blog.enricodeleo.com/nanopi-r76s-router-2-5gbps-performance-speed-boost): Tuning a NanoPi R76S router from 600 Mbps to 2+ Gbps with OpenWrt (IRQ, RPS/XPS, CPU governor).
+- [AISA: AI sales assistant](https://blog.enricodeleo.com/aisa-assistente-vendite-ai): An AI-based sales assistant built to increase e-commerce conversions.
+
 ## Optional
-- [Blog](https://blog.enricodeleo.com/): Articles and insights on technology, product, and AI topics.
+- [Blog](https://blog.enricodeleo.com/): Full archive of articles and insights on technology, product, and AI topics.
 - [YouTube](https://www.youtube.com/c/EnricoDeleoOfficial): Talks and video content.
 - [Instagram](https://www.instagram.com/enricodeleo/): Public social profile.
