@@ -15,6 +15,7 @@ export const useSiteMeta = () => {
     sameAs: [
       'https://www.linkedin.com/in/enricodeleo',
       'https://x.com/errikodotit',
+      'https://www.threads.com/@enricodeleo',
       'https://www.facebook.com/therealenricodeleo',
       'https://blog.enricodeleo.com',
       'https://github.com/enricodeleo',

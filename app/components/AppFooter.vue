@@ -88,6 +88,7 @@ import facebookSvg from '~/assets/facebook.svg?raw'
 import githubSvg from '~/assets/github.svg?raw'
 import instagramSvg from '~/assets/instagram.svg?raw'
 import linkedinSvg from '~/assets/linkedin.svg?raw'
+import threadsSvg from '~/assets/threads.svg?raw'
 import twitchSvg from '~/assets/twitch.svg?raw'
 import xSvg from '~/assets/x.svg?raw'
 import youtubeSvg from '~/assets/youtube.svg?raw'
@@ -143,6 +144,7 @@ const buttonToneClasses = computed(() => (resolvedMode.value === 'dark'
 const socialLinks = [
   { href: 'https://www.linkedin.com/in/enricodeleo', label: 'LinkedIn', icon: linkedinSvg, hoverColor: 'hover:text-[#0077b5]' },
   { href: 'https://x.com/errikodotit', label: 'X', icon: xSvg, hoverColor: 'hover:text-gray-900 dark:hover:text-[#F8FAFC]' },
+  { href: 'https://www.threads.com/@enricodeleo', label: 'Threads', icon: threadsSvg, hoverColor: 'hover:text-gray-900 dark:hover:text-[#F8FAFC]' },
   { href: 'https://www.facebook.com/therealenricodeleo', label: 'Facebook', icon: facebookSvg, hoverColor: 'hover:text-[#1877f2]' },
   { href: 'https://blog.enricodeleo.com', label: 'Blog', icon: bloggingSvg, hoverColor: 'hover:text-gray-700 dark:hover:text-gray-200' },
   { href: 'https://github.com/enricodeleo', label: 'GitHub', icon: githubSvg, hoverColor: 'hover:text-[#333] dark:hover:text-[#F8FAFC]' },
