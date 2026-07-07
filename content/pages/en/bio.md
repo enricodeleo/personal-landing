@@ -52,6 +52,8 @@ In 2022 I served as **interim CTO** of **MVND Holding**, an Italian foodtech gro
 
 In 2025 I collaborated as **Tech Advisor** with **Wash Out**, a scaleup specialized in at-home car washing, designing a logistics optimization algorithm for smarter operator distribution across the territory.
 
+In 2026 I contributed as a case study to academic research on AI readiness in startups, and spoke at **SMAU | Italy RestartsUp** in New York.
+
 Over the years I have worked with large companies such as **TIM** and **Sparkle**, bringing technology and marketing expertise into enterprise contexts. I also served for several years as a **business coach** for **Boost Your Ideas**, a program promoted by **Lazio Innova S.p.A.**
 
 From 2018 to 2021 I taught in several **training programs for developers and project managers**, covering software design, automation, marketing, and product management.
