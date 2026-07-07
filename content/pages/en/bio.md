@@ -7,6 +7,7 @@ locale: en
 schemaType: AboutPage
 changefreq: monthly
 priority: 0.8
+dateModified: '2026-07-08'
 ---
 
 *Note: my surname is **Deleo**, one word — you may find me searched as "De Leo" or "Di Leo", but this is the correct spelling.*

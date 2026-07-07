@@ -145,6 +145,7 @@ useJsonLd(() => ({
       description: pageDescription.value,
       inLanguage: pageLanguage.value,
       isPartOf: { '@id': `${siteUrl}/#website` },
+      dateModified: page.value?.dateModified,
       mainEntity: { '@id': `${siteUrl}/#person` },
     },
   ],

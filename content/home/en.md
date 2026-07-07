@@ -6,6 +6,7 @@ locale: en
 schemaType: ProfilePage
 changefreq: monthly
 priority: 1
+dateModified: '2026-05-17'
 ---
 
 # Fractional CTO & AI Solutions Architect

@@ -13,6 +13,7 @@ export default defineContentConfig({
         schemaType: z.string().default('ProfilePage'),
         changefreq: z.string().default('monthly'),
         priority: z.number().default(1),
+        dateModified: z.string(),
       }),
     }),
     pages: defineCollection({
@@ -27,6 +28,7 @@ export default defineContentConfig({
         schemaType: z.string().default('WebPage'),
         changefreq: z.string().default('monthly'),
         priority: z.number().default(0.5),
+        dateModified: z.string(),
       }),
     }),
   },

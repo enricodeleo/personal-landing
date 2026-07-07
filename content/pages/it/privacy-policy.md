@@ -7,6 +7,7 @@ locale: it
 schemaType: WebPage
 changefreq: yearly
 priority: 0.3
+dateModified: '2026-05-17'
 ---
 
 **Ultimo aggiornamento: gennaio 2026**

@@ -7,6 +7,7 @@ locale: it
 schemaType: AboutPage
 changefreq: monthly
 priority: 0.8
+dateModified: '2026-07-08'
 ---
 
 *Nota: il mio cognome è **Deleo**, una parola sola — a volte mi si trova cercato come "De Leo" o "Di Leo", ma la grafia corretta è questa.*
