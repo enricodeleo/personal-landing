@@ -37,7 +37,7 @@ const props = defineProps<{
 }>()
 const locale = computed(() => props.locale)
 
-const { siteUrl, siteName, personGivenName, personFamilyName, ogImage, profileImage, sameAs } = useSiteMeta()
+const { siteUrl, siteName, personGivenName, personFamilyName, ogImage, profileImage, sameAs, worksFor } = useSiteMeta()
 
 const { data: page } = await useAsyncData(
   () => `home-page-${props.locale}`,
@@ -114,6 +114,7 @@ useJsonLd(() => ({
       jobTitle: 'Fractional CTO & AI Solutions Architect',
       description: pageDescription.value,
       sameAs,
+      worksFor,
       knowsAbout: [
         'Large Language Models',
         'AI strategy',

@@ -39,7 +39,7 @@
 import logoSvg from '~/assets/logo-enrico-deleo.svg?raw'
 
 const route = useRoute()
-const { siteUrl, siteName, personGivenName, personFamilyName, siteDescription, ogImage, profileImage, sameAs } = useSiteMeta()
+const { siteUrl, siteName, personGivenName, personFamilyName, siteDescription, ogImage, profileImage, sameAs, worksFor } = useSiteMeta()
 const resolvedRoute = computed(() => resolveContentRoute(route.path))
 
 const { data: page } = await useAsyncData(
@@ -118,6 +118,7 @@ useJsonLd(() => ({
       jobTitle: 'Fractional CTO & AI Solutions Architect',
       description: siteDescription,
       sameAs,
+      worksFor,
       knowsAbout: [
         'Large Language Models',
         'AI strategy',
