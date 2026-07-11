@@ -13,6 +13,7 @@ export const useSiteMeta = () => {
     ogImage: `${siteUrl}/fb-image.jpg`,
     profileImage: `${siteUrl}/enricodeleo.jpg`,
     sameAs: [
+      'https://blog.enricodeleo.com#/schema/person/enrico-deleo',
       'https://www.linkedin.com/in/enricodeleo',
       'https://x.com/errikodotit',
       'https://www.threads.com/@enricodeleo',
